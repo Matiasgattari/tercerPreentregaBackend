@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "6445a1c506e307de067a8bf4",
+    "id": "642f2faab4be60728cdd1ae3",
+    "quantity": 62,
+    "products": [
+      {
+        "productID": {
+          "_id": "646d2fe91344b0729a8100f0",
+          "title": "cindaquyl",
+          "description": "pokemon roedor",
+          "price": 4000,
+          "thumbnail": "cindaquyl jpg",
+          "stock": 24,
+          "code": "pokemon",
+          "category": "fuego",
+          "status": true,
+          "id": "78873321-60ce-412b-902a-f83595c01a1e"
+        },
+        "quantity": 3,
+        "_id": "647d56064cc5d186f5c62a97"
+      },
+      {
+        "productID": {
+          "_id": "64642619d2e1268356ded3eb",
+          "title": "togepi",
+          "description": "pokemon huevo",
+          "price": 40000,
+          "thumbnail": "togepi jpg",
+          "stock": 45,
+          "code": "pokemon",
+          "category": "hada",
+          "status": true,
+          "id": "29e9063b-e96d-4105-807c-72948ad36f40"
+        },
+        "quantity": 1,
+        "_id": "647d5648a31afaaa5ced0b84"
+      },
+      {
+        "productID": {
+          "_id": "644587ac744b799f44db3061",
+          "title": "charmileon",
+          "description": "descripcion prod 3",
+          "price": 3500,
+          "thumbnail": "url imagen",
+          "stock": 45,
+          "code": "televisor",
+          "category": "hogar",
+          "status": true,
+          "id": "065597be-4846-4b2b-891e-ceddb54a01a9"
+        },
+        "quantity": 1,
+        "_id": "647f718c3f02f1044b536b34"
+      }
+    ]
+  }
+]

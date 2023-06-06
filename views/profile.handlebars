@@ -1,0 +1,10 @@
+<h1>Tu perfil (sin datos sensibles)</h1>
+{{user.rol}}
+<p>Nombre completo: {{user.last_name}}, {{user.first_name }} </p>
+<p>Correo electronico: {{user.email}}</p>
+<p>Edad: {{user.age}}</p>
+<p>Rol: {{user.rol}}</p>
+<form id="formLogout">
+  <button type="submit" id="btn_logout">Logout</button>
+</form>
+<script src="/js/profile.js"></script>

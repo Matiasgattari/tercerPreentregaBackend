@@ -1,0 +1,28 @@
+<h1>HOLA, elige una opcion para continuar</h1>
+
+    <p>REGISTRARSE </p> 
+    
+    <button onclick="register()">ir</button>
+
+    <p>INICIAR SESION</p>
+    
+    <button onclick="login()">ir</button><br>
+    
+
+
+<script>
+ 
+  
+ function register() {
+        window.location = `http://localhost:8080/api/sessions/register`
+    
+  }
+
+ function login() {
+       window.location = `http://localhost:8080/api/sessions/login`
+  }
+
+</script>
+
+
+<script src="/js/indexProducts.js"></script>
