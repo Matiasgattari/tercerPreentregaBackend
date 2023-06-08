@@ -7,6 +7,7 @@ import { io } from '../servidor.js';
 import { productosService } from '../servicios/productosService.js';
 import { carritosRepository } from '../repository/carritosRepository.js';
 import { productosRepository } from '../repository/productosRepository.js';
+import { soloAdmin, soloLogueados } from '../middlewares/soloLogueados.js';
 
 export const productsRouter = Router()
 productsRouter.use(express.json())
@@ -117,7 +118,7 @@ productsRouter.get('/:pid', async (req,res)=>{
 
 
 
-productsRouter.post('/', async (req, res) => {
+productsRouter.post('/',soloAdmin, async (req, res) => {
     try {
         await productosRepository.buscarProductos()
 
@@ -125,7 +126,10 @@ productsRouter.post('/', async (req, res) => {
             ...req.body
         })
     
-        const addProducto = await productosRepository.crear(producto1.dto().title, producto1.dto().description,producto1.dto().price, producto1.dto().thumbnail, producto1.dto().stock, producto1.dto().code,producto1.dto().category)
+        const addProducto = await productosRepository.crear(producto1)
+        // const addProducto = await productosRepository.crear(producto1.dto().title, producto1.dto().description,producto1.dto().price, producto1.dto().thumbnail, producto1.dto().stock, producto1.dto().code,producto1.dto().category)
+        console.log("addproduct :" , addProducto);
+        console.log("title :" , producto1);
         res.json(addProducto)
         
     } catch (error) {
@@ -134,7 +138,7 @@ productsRouter.post('/', async (req, res) => {
 })
 
 
-productsRouter.put('/:pid',async( req,res)=>{
+productsRouter.put('/:pid',soloAdmin,async( req,res)=>{
 try {
 
     const getProds = await productosRepository.buscarProductos()
@@ -150,7 +154,7 @@ try {
 }
 } )
 
-productsRouter.delete('/:pid',async( req,res)=>{
+productsRouter.delete('/:pid',soloAdmin,async( req,res)=>{
     try {
     
         const getProds = await productosRepository.buscarProductos()
@@ -165,7 +169,7 @@ productsRouter.delete('/:pid',async( req,res)=>{
     } )
 
 
-    productsRouter.put('/productSelected/:pid', async (req, res) => {
+    productsRouter.put('/productSelected/:pid',soloAdmin, async (req, res) => {
         const pid = req.params.pid
         //probando recibir producto nuevo para agregar por socket.io
         io.on('connection', async clientSocket => {

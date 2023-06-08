@@ -90,34 +90,29 @@ export class ProductManager {
 
 
     async addProduct(producto) {
-// console.log("addproduct pre try",title );
         try {
             const productos = await this.getProducts()
-        
-            const productFind = await this.products.find((product) => product.title === producto.title)
-            if (productFind) {
+            const productFind2 = await productsDB.find({title:producto.title}).lean()
+            
+            if (productFind2.length>0) {
+                // console.log('Ya existe un producto con ese titulo', productFind2);
                 console.log('Ya existe un producto con ese titulo');
+            } else {
+                if (producto.title !== undefined && producto.description !== undefined && producto.price !== undefined && producto.stock !== undefined && producto.code !== undefined && producto.category !== undefined) {
+            
+                    const creado = await productsDB.create(producto)
+        
+                    // console.log('Producto creado correctamente', toPojo(creado));
+                    this.products = this.getProducts()
+                    
+                    const jsonProducts = JSON.stringify(this.products, null, 2)
+                    this.persistencia.saveTxt(jsonProducts)
+                    return toPojo(creado)  
             }
-
-            if (producto.title !== undefined && producto.description !== undefined && producto.price !== undefined && producto.stock !== undefined && producto.code !== undefined && producto.category !== undefined) {
-            
-            const creado = await productsDB.create(producto)
-            .then(createdProduct => {
-                console.log('Producto creado correctamente:', createdProduct);
-            })
-            .catch(error => {
-                console.error('Error al crear el producto:', error);
-            });
-            
-            this.products = await this.getProducts()
-            
-            const jsonProducts = JSON.stringify(this.products, null, 2)
-            await this.persistencia.saveTxt(jsonProducts)
-                     
         }
-
         } catch (error) {
             throw new Error('CARGA-DE-PRODUCTO-FALLIDA')
+            
         }
 
     }

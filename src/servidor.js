@@ -105,7 +105,7 @@ app.get('/realtimeproducts',soloLogueados,soloAdmin, async (req, res, next) => {
 
             clientSocket.on('nuevoProducto',async function agregarProd(productoAgregar){
             
-            await productosRepository.crear(productoAgregar.title,productoAgregar.description,productoAgregar.price,productoAgregar.thumbnail,productoAgregar.stock,productoAgregar.code,productoAgregar.category,productoAgregar.status)
+            await productosRepository.crear(productoAgregar)
 
             })
             
