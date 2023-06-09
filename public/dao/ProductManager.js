@@ -81,7 +81,8 @@ export class ProductManager {
     async getProducts() {
         try {
             const prodd = await productsDB.find().lean()
-            this.products = prodd;
+            // console.log(toPojo(prodd));
+            this.products = toPojo(prodd);
             return this.products
         } catch (error) {
             throw new Error('SERVER-COMUNICATION-ERROR')

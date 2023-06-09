@@ -93,6 +93,11 @@ productsRouter.get('/:pid', async (req,res)=>{
     try {
         const idProducto = req.params.pid
         
+        const usuario1 = req.user
+        // @ts-ignore
+        const carritoUsuario = usuario1.cart
+        // @ts-ignore
+        // console.log("usuario1",usuario1.cart);
         const poductosLeidos = await productosRepository.buscarProductos()
         
         if (idProducto)  {
@@ -101,7 +106,8 @@ productsRouter.get('/:pid', async (req,res)=>{
             // res.send(prodFiltradoID)
             res.render('productSelect', {
                 encabezado: "Producto",
-                producto:prodFiltradoID
+                producto:prodFiltradoID,
+                carrito:carritoUsuario
             })} else {
                 throw new Error("no existe el id")
             }

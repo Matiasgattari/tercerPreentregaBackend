@@ -1,13 +1,10 @@
+import { randomUUID} from 'crypto'
 export class Cart {
 
-    constructor({
-        id,
-        quantity,
-        products = []
-    }) {
-        this.id = id;
-        this.quantity = quantity;
-        this.products = products;
+    constructor() {
+        this.id = randomUUID();
+        this.quantity = 0;
+        this.products = [];
     }
 }
 

@@ -1,8 +1,8 @@
 import { Cart } from "../entidades/Carts.js"
 
 class CarritosService {
-  async crearCarrito(ticket) {
-    const creado = new Cart(ticket)
+  async crearCarrito() {
+    const creado = new Cart()
     return creado
   }
 }

@@ -15,6 +15,7 @@ import { productosService } from "../../src/servicios/productosService.js";
 import { Cart } from "../../src/entidades/Carts.js";
 import { carritosService } from "../../src/servicios/carritosService.js";
 import { productosRepository } from "../../src/repository/productosRepository.js";
+import { toPojo } from "../../src/utils/utilidades.js";
 
 
 
@@ -53,18 +54,18 @@ export class CartManager {
         try {
         await this.getCarts()
                
-        const cart = carritosService.crearCarrito({
-            "id": randomUUID(),
-            "quantity": 0,
-            "products": []
-        })
+        const cart =await carritosService.crearCarrito()
 
         this.carts.push(cart)
 
         const jsonCarts = JSON.stringify(this.carts, null, 2)
         await this.persistencia.saveTxt(jsonCarts)
-        await cartsDB.create(cart)
-        console.log("carrito creado correctamente");
+        const carritoMongoose = await cartsDB.create(cart)
+        
+        // return toPojo(carritoCreado)
+        // console.log("cart creado correctamente", toPojo(cart));
+        // console.log("carritoMongoose creado correctamente", toPojo(carritoMongoose));
+        return toPojo(carritoMongoose)
         } catch (error) {
             throw new Error('CART-NOT-FOUND')
         }

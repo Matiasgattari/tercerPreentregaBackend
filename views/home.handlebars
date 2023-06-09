@@ -4,9 +4,9 @@
 {{#if hayProductos}}
 <h4>PRODUCTOS</h4>
 <ul>
-    {{#each producto}}
-    <li>{{this}}</li>
-    {{/each}}
+     {{#each producto}}
+     <li>{{this}}. <button onclick="verId({{{this._id}}})">Ver</button></li>
+     {{/each}}
 </ul>
 {{else}}
 <p class="text-danger">sin productos agregados</p>
@@ -14,5 +14,6 @@
 
 
 
-<script src="/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script> 
 <script src="/js/indexHome.js"></script>
+<script> function verId(id) { console.log(id); } </script>

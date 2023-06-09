@@ -61,6 +61,7 @@ cargarBTN?.addEventListener("click", (e)=>{
     const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus}
 console.log(productoAgregar);
 serverSocket.emit('nuevoProducto', productoAgregar)
+
 location.reload()
 
 
@@ -89,6 +90,7 @@ const plantillaMensajes = `
     {{/if}}
     
     `
+// @ts-ignore
 const armarHtmlMensajes = Handlebars.compile(plantillaMensajes)
     
 serverSocket.on('actualizarProductos', productosStorage => {

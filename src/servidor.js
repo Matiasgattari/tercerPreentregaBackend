@@ -39,6 +39,7 @@ import { antenticacionPorGithub_CB, autenticacionPorGithub, autenticacionUserPas
 import { passportSession } from './middlewares/passport.js';
 import { productosService } from './servicios/productosService.js';
 import { productosRepository } from './repository/productosRepository.js';
+import { toPojo } from './utils/utilidades.js';
 
 
 const app = express()
@@ -47,19 +48,20 @@ app.engine('handlebars', engine())
 app.set('views', './views') //ruta donde estaran las vistas del handlebars
 app.set('view engine', 'handlebars') // que el motor por defecto para manejar las viastas sea handlebars
 
+app.use(session)
+
+app.use(passportInitialize, passportSession) // acá cargo passport en el servidor express como middleware
+
 app.use(express.static('./public')) //permite el uso de los archivos dentro de la carpeta public
 app.use(express.static('./static')) //permite el uso de los archivos dentro de la carpeta static
 
 app.use(express.json()) //para poder recibir archivos json desde express
 
 
-app.use('/api/products', productsRouter)
+app.use('/api/products',soloLogueados, productsRouter)
 app.use('/api/carts', cartsRouter)
 app.use('/api/sessions', sessionsRouter)
 
-app.use(session)
-
-app.use(passportInitialize, passportSession) // acá cargo passport en el servidor express como middleware
 
 const httpServer = app.listen(PORT)
 console.log(`Servidor escuchando en puerto ${PORT}`);
@@ -137,10 +139,14 @@ app.get('/home', async (req, res, next) => {
     const listado1 = await productosRepository.buscarProductos()
     
     const producto = [];
-    listado1.forEach(element => {producto.push(JSON.stringify(element))
-        
+    // listado1.forEach(element => {producto.push(element)
+    listado1.forEach(element => {producto.push(util.inspect(element, false, 10))
     });
-    
+    console.log(producto)
+    console.log(typeof(producto[0]))
+
+
+
         res.render('home.handlebars', {
             titulo: 'Products',
             encabezado: 'Lista de productos en base de datos',

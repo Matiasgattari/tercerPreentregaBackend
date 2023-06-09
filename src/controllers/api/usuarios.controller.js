@@ -2,13 +2,20 @@ import { User } from "../../entidades/User.js";
 import { userManager } from "../../../public/dao/UserManager.js";
 import { usuariosService } from "../../servicios/usuariosService.js";
 import { hashear } from "../../utils/criptografia.js";
-
+import { carritosRepository } from "../../repository/carritosRepository.js";
+import { Cart } from "../../entidades/Carts.js";
+import {
+    privateDecrypt,
+    randomUUID
+} from 'crypto'
 
 export async function postAUsuarios(req,res,next){
     try {
-        const user = new User({ first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: hashear(req.body.password), age: req.body.age, rol: req.body.rol,cart: req.body.cart });
-        console.log(user);
+        const carritoCreado = await carritosRepository.crearCarrito()
+        const user = new User({ first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: hashear(req.body.password), age: req.body.age, rol: req.body.rol,cart: carritoCreado._id });
+        
         const registrado = await usuariosService.registrar(user)
+        console.log("Usuario creado correctamente:",registrado);
         
         // funcion de passport para que el registro ya me deje logueado tambien!. ESTE login hace lo mismo que el "done", dejandome el usuario logeado
         req.login(user, error => {

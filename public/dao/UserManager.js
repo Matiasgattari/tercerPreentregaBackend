@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { usuarioModel } from './models/schemaUsuarios.js';
 import { hashear } from '../../src/utils/criptografia.js';
 import { Persistencia } from './fileSystemProducts.js';
+import { toPojo } from '../../src/utils/utilidades.js';
 
 
 
@@ -68,8 +69,9 @@ export class UserManager {
             try {
                 // const usuarioNuevo = {email: user.email, password: hashear(user.password), first_name:user.first_name, last_name:user.last_name, age:user.age,rol:user.rol}
                 const usuarioNuevo = {email: user.email, password: user.password, first_name:user.first_name, last_name:user.last_name, age:user.age,rol:user.rol,cart: user.cart}
-                await usuarioModel.create(usuarioNuevo)
+                const usuarioCreado = await usuarioModel.create(usuarioNuevo)
                 await this.saveUsersLocal()
+                return toPojo(usuarioCreado)
                } catch (error) {
                 throw new Error('CAMPOS-INCOMPLETOS')
                }

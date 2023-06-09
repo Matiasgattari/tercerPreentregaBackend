@@ -1,56 +1,66 @@
 [
   {
-    "_id": "6445a1c506e307de067a8bf4",
-    "id": "642f2faab4be60728cdd1ae3",
-    "quantity": 62,
+    "_id": "64835246879d2c9704047be5",
+    "id": "110560bc-f0c2-4b2b-9fd5-23e429f57431",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "6483529c2f1932bd337bb627",
+    "id": "98cc9bbb-9457-40cb-a644-1e139fd8615e",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "648352f8e3acfb5fcc297463",
+    "id": "8c5eef74-d0b9-4b8b-bf86-15ba698aa541",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64835321d55753a8afbc9d53",
+    "id": "422745b1-c260-4d28-94c1-f77e8aa3f04c",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "648353784b66b30b51a15633",
+    "id": "c96bbed7-4efe-4095-91ce-b28527c08c2f",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64835404bc76fd00ad80a59e",
+    "id": "74b92946-795c-4356-bb3d-0314203bf9cf",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64835447871fd8b14be4de00",
+    "id": "ac048f1e-fb09-4420-9cc6-becd5a2b96dd",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "6483581b7296a27d0c914ef7",
+    "id": "bf2caa5f-3021-4a32-8340-490783ac1a63",
+    "quantity": 1,
     "products": [
       {
         "productID": {
-          "_id": "646d2fe91344b0729a8100f0",
-          "title": "cindaquyl",
-          "description": "pokemon roedor",
-          "price": 4000,
-          "thumbnail": "cindaquyl jpg",
-          "stock": 24,
-          "code": "pokemon",
-          "category": "fuego",
+          "_id": "648346ab0be32cd25d6d5f53",
+          "title": "bulbasaur",
+          "description": "numero pokedex 1",
+          "price": 15000,
+          "thumbnail": "bulbasaur.jpg",
+          "stock": 10,
+          "code": "pokemon bulbo",
+          "category": "planta veneno",
           "status": true,
-          "id": "78873321-60ce-412b-902a-f83595c01a1e"
-        },
-        "quantity": 3,
-        "_id": "647d56064cc5d186f5c62a97"
-      },
-      {
-        "productID": {
-          "_id": "64642619d2e1268356ded3eb",
-          "title": "togepi",
-          "description": "pokemon huevo",
-          "price": 40000,
-          "thumbnail": "togepi jpg",
-          "stock": 45,
-          "code": "pokemon",
-          "category": "hada",
-          "status": true,
-          "id": "29e9063b-e96d-4105-807c-72948ad36f40"
+          "id": "cf8f87cf-bb45-480b-97dd-9579743702f5"
         },
         "quantity": 1,
-        "_id": "647d5648a31afaaa5ced0b84"
-      },
-      {
-        "productID": {
-          "_id": "644587ac744b799f44db3061",
-          "title": "charmileon",
-          "description": "descripcion prod 3",
-          "price": 3500,
-          "thumbnail": "url imagen",
-          "stock": 45,
-          "code": "televisor",
-          "category": "hogar",
-          "status": true,
-          "id": "065597be-4846-4b2b-891e-ceddb54a01a9"
-        },
-        "quantity": 1,
-        "_id": "647f718c3f02f1044b536b34"
+        "_id": "648358a654c1457f75bcc969"
       }
     ]
   }
