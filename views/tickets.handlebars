@@ -8,9 +8,12 @@
   <li>{{this}}</li>
   {{/each}}
 </ul>
-
+<button id="botonEliminarTodosTickets">Eliminar todos</button><br>
+<input id="inputIDTicket" type="text" placeholder="ingrese _id ticket a eliminar">
+<button id="botonEliminarTicket">Eliminar ticket</button>
 
 {{else}}
-<p class="text-danger">sin carritos creados</p>
+<p class="text-danger">sin tickets creados</p>
 {{/if}}
 
+<script src="/js/tickets.js"></script>

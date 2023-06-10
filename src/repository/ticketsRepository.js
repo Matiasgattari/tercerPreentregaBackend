@@ -27,8 +27,13 @@ class TicketsRepository {
   async eliminarTicket(id){
     const ticket = await ticketManager.deleteTicket(id) 
     return "ticket eliminado"
-    
   }
+
+  async eliminarTodosTickets(){
+    const ticket = await ticketManager.deleteAllTickets() 
+    return "ticket eliminado"
+  }
+
   async modificarTicket(id,ticketModificado){
     const ticketNuevo = await ticketManager.updateTicket(id,ticketModificado)
     return ticketNuevo

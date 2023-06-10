@@ -35,6 +35,7 @@ import { passportSession } from './middlewares/passport.js';
 import { productosService } from './servicios/productosService.js';
 import { productosRepository } from './repository/productosRepository.js';
 import { toPojo } from './utils/utilidades.js';
+import { ticketsRepository } from './repository/ticketsRepository.js';
 
 
 const app = express()
@@ -150,6 +151,35 @@ app.get('/home', async (req, res, next) => {
         })
 })
 
+
+app.delete('/api/tickets', soloAdmin, async(req,res,next)=>{
+  await ticketsRepository.eliminarTodosTickets()
+  res.sendStatus(200)
+})
+
+
+
+app.get('/api/tickets',soloAdmin, async (req, res, next) => {
+  
+  const listado = await ticketsRepository.buscarTickets()
+  
+  const arrayTickets = [];
+  // listado1.forEach(element => {producto.push(element)
+  listado.forEach(element => {arrayTickets.push(util.inspect(element, false, 10))
+  });
+  // console.log(producto)
+  // console.log(typeof(producto[0]))
+
+
+
+      res.render('tickets.handlebars', {
+          titulo: 'Tickets',
+          encabezado: 'Lista de tickets en base de datos',
+          arrayTickets:arrayTickets,
+          hayTickets: arrayTickets.length > 0
+      })
+})
+
 app.get('/chat', soloLogueados,chatController)
 
 
@@ -157,34 +187,6 @@ app.get('*', (req,res)=>{
     res.redirect('/')
 })
 
-
-// app.get('/api/products/productSelected/:pid', async (req, res) => {
-   
-
-    
-    
-//     const pid = req.params.pid
-//     //probando recibir producto nuevo para agregar por socket.io
-//     io.on('connection', async clientSocket => {
-
-
-//             clientSocket.on('agregarProducto', async valorInputAgregarCarrito => {
-//                 await cartManager.agregarProductoAlCarrito(valorInputAgregarCarrito,pid)
-//             })
-
-
-//     })
-//     const productoFiltrado = await productsDB.find({_id:pid}).lean()
-
-//     res.render('productSelect.handlebars', {
-//             pid:JSON.stringify(pid),
-           
-//             producto:util.inspect(productoFiltrado, false, 10)
-           
-//         })
-       
-        
-//         })
 
 app.use(manejadorDeErrores)
 

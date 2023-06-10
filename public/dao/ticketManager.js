@@ -86,6 +86,14 @@ export class TicketManager {
             throw new Error('ticket-NOT-FOUND')
            }
     }
+    async deleteAllTickets(){
+        try {
+            await ticketsModel.deleteMany({})
+            await this.saveTicketsLocal()
+           } catch (error) {
+            throw new Error('ticket-NOT-FOUND')
+           }
+    }
 
 }
 

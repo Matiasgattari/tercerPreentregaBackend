@@ -33,6 +33,18 @@
     "_id": "64835404bc76fd00ad80a59e",
     "id": "74b92946-795c-4356-bb3d-0314203bf9cf",
     "quantity": 3,
+    "products": []
+  },
+  {
+    "_id": "64835447871fd8b14be4de00",
+    "id": "ac048f1e-fb09-4420-9cc6-becd5a2b96dd",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "6483581b7296a27d0c914ef7",
+    "id": "6483581b7296a27d0c914ef7",
+    "quantity": 8,
     "products": [
       {
         "productID": {
@@ -47,37 +59,25 @@
           "status": true,
           "id": "cf8f87cf-bb45-480b-97dd-9579743702f5"
         },
-        "quantity": 2,
-        "_id": "6484fd771710ee2299193582"
+        "quantity": 1,
+        "_id": "6485051e9d528fb34614b764"
       },
       {
         "productID": {
-          "_id": "648347e68b1cc5f0329214f0",
-          "title": "lapras",
-          "description": "numero pokedex 131",
-          "price": 50000,
-          "thumbnail": "lapras.jpg",
-          "stock": 5,
-          "code": "pokemon montura acuatica",
-          "category": "agua hielo",
+          "_id": "6483478c373fadc94de4632b",
+          "title": "squirtle",
+          "description": "numero pokedex 7",
+          "price": 15000,
+          "thumbnail": "squirtle.jpg",
+          "stock": 10,
+          "code": "pokemon tortuga",
+          "category": "agua",
           "status": true,
-          "id": "38cbead4-2fc8-4599-948d-a9819f6aca8e"
+          "id": "581c0b96-3087-4404-86a8-a733063207b7"
         },
         "quantity": 1,
-        "_id": "6484fd801710ee229919359d"
+        "_id": "6485054197bf616661ed5ab3"
       }
     ]
-  },
-  {
-    "_id": "64835447871fd8b14be4de00",
-    "id": "ac048f1e-fb09-4420-9cc6-becd5a2b96dd",
-    "quantity": 0,
-    "products": []
-  },
-  {
-    "_id": "6483581b7296a27d0c914ef7",
-    "id": "6483581b7296a27d0c914ef7",
-    "quantity": 6,
-    "products": []
   }
 ]
