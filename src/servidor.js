@@ -15,11 +15,6 @@ import { sessionsRouter } from './routes/sessionsRouter.js';
 import util from 'node:util'
 import { PORT } from './config/config.sv.js';
 
-//DAOS
-// import { productManager } from '../public/dao/ProductManager.js';
-// import { cartManager } from '../public/dao/CartManager.js';
-// import { productsDB } from '../public/dao/models/schemaProducts.js';
-
 //inicializando mongoose en el sv
 import {inicioMongoose} from './database/mongoose.js'
 
@@ -59,7 +54,7 @@ app.use(express.json()) //para poder recibir archivos json desde express
 
 
 app.use('/api/products',soloLogueados, productsRouter)
-app.use('/api/carts', cartsRouter)
+app.use('/api/carts',soloLogueados, cartsRouter)
 app.use('/api/sessions', sessionsRouter)
 
 
@@ -142,15 +137,15 @@ app.get('/home', async (req, res, next) => {
     // listado1.forEach(element => {producto.push(element)
     listado1.forEach(element => {producto.push(util.inspect(element, false, 10))
     });
-    console.log(producto)
-    console.log(typeof(producto[0]))
+    // console.log(producto)
+    // console.log(typeof(producto[0]))
 
 
 
         res.render('home.handlebars', {
             titulo: 'Products',
             encabezado: 'Lista de productos en base de datos',
-            producto,
+            producto:listado1,
             hayProductos: producto.length > 0
         })
 })

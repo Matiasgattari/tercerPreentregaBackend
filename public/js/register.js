@@ -55,7 +55,7 @@ if(!validarMail(input_email.value)){alert('El email debe tener formato usuario@s
         datosUsuario.rol="Admin"
     }
       
-console.log(datosUsuario);
+// console.log(datosUsuario);
 
 const response = await fetch('/api/usuarios', {
     method: 'POST',
@@ -72,7 +72,7 @@ const response = await fetch('/api/usuarios', {
   
   const usuarioCreado = await response.json();
 
-      console.log(usuarioCreado)
+      // console.log(usuarioCreado)
 if (response.ok) {
   window.location.href = 'http://localhost:8080/api/sessions/current'
 }

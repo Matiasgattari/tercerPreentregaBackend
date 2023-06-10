@@ -60,8 +60,8 @@ export class TicketManager {
     }
     async createTicket(ticket){
         try {
-            const ticketNuevo = ticketsService.crearTicket({ email:ticket.email, monto:ticket.monto, cart:ticket.cart})
-            await ticketsModel.create(ticketNuevo)
+            // const ticketNuevo = ticketsService.crearTicket(ticket)
+            await ticketsModel.create(ticket)
             await this.saveTicketsLocal()
            } catch (error) {
             throw new Error('CAMPOS-INCOMPLETOS')

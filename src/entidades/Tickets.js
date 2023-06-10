@@ -1,15 +1,17 @@
 import {randomUUID} from 'crypto'
   
 export class Ticket {
-    constructor({ email, monto, cart }) {
+    constructor( {email, monto, cart}) {
       try {
-         this.code = randomUUID();
-         this.date =new Date().toLocaleDateString();
-         this.usuario=email;
-         this.monto = monto;
-         this.cart = cart;
+        this.usuario=email;
+        this.monto = monto;
+        this.cart = cart;
+        this.date =new Date().toLocaleDateString();
+        this.code = randomUUID();
       } catch (error) {
         throw new Error(error.mensaje)
       }
   }
 }
+
+

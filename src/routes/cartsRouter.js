@@ -14,11 +14,12 @@ import { cartsDB } from '../../public/dao/models/schemaCarts.js';
 
 // @ts-ignore
 import { carritosRepository } from '../repository/carritosRepository.js';
-import { soloLogueados } from '../middlewares/soloLogueados.js';
+import { soloAdmin, soloLogueados } from '../middlewares/soloLogueados.js';
 import { ticketsRepository } from '../repository/ticketsRepository.js';
 import { passportInitialize, passportSession } from '../middlewares/passport.js';
 
 import session from '../middlewares/session.js';
+import { ticketsService } from '../servicios/ticketsService.js';
 
 
 export const cartsRouter = Router()
@@ -40,9 +41,12 @@ cartsRouter.get('/json/cartsJSON', async (req, res) => {
 })
 
 
-cartsRouter.get('/:cid', async (req, res) => {
+cartsRouter.get('/:cid',soloLogueados, async (req, res) => {
        try {
         const IDCarrito = req.params.cid
+        // @ts-ignore
+        const rol = req.user.rol
+        // console.log(rol);
         // @ts-ignore
         const carritosLeidos = await carritosRepository.buscarCarritos()
        
@@ -56,7 +60,8 @@ cartsRouter.get('/:cid', async (req, res) => {
             encabezado: 'Carrito para comprar',
             hayCarrito,
             cantidad:cantidadProductos.reduce((accumulator, currentValue) => accumulator + currentValue,0),            
-            arrayProductos
+            arrayProductos,
+            rol:rol
        })
     }}
          catch(error) {
@@ -70,7 +75,7 @@ cartsRouter.get('/:cid', async (req, res) => {
 
 
 // @ts-ignore
-cartsRouter.get('/', async (req, res) => {
+cartsRouter.get('/',soloAdmin, async (req, res) => {
 const carritos = await carritosRepository.buscarCarritos()
 const arrayCarritos = []
 // @ts-ignore
@@ -88,9 +93,6 @@ const hayCarritos = (arrayCarritos!=null)
    })
 
 })
-
-
-
 
 
 cartsRouter.post('/:cid/product/:pid',soloLogueados, async (req, res) => {
@@ -144,8 +146,8 @@ cartsRouter.get('/:cid/vaciarCarrito',soloLogueados,async(req,res)=>{
         const cid = req.params.cid
        
        const productoEliminado = await carritosRepository.vaciarCarrito(cid)
-        
-        res.json(productoEliminado)
+        res.redirect(`/api/carts/${cid}`)
+        // res.json(productoEliminado)
     } catch (error) {
         const cid = req.params.cid
         throw new Error(`No se ha podido vaciar el carrito ${cid} `)
@@ -188,28 +190,68 @@ cartsRouter.get('/:cid/purchase',soloLogueados, async(req,res)=>{
     //id del carrito
     const carritoID= req.params['cid']
 
+
+// console.log(usuario);
+// console.log(email);
+// console.log(carritoID);
+
     //logica para calculo del monto del ticket
     const carritoFiltrado = await carritosRepository.buscarCarritoPorId(carritoID)
     
+
+
+// console.log(carritoFiltrado)
+
+
+
     const arrayPreciosProductosConStock = []
     const arrayProductosSinStock= []
-    const sumaCantidadesSinStock = arrayProductosSinStock.reduce(function(acumulador, producto) { return acumulador + producto.quantity }, 0)
-   
+    
     // @ts-ignore
     const montoCarrito = carritoFiltrado['products'].forEach(function (element,indice) {
-        // @ts-ignore compruebo valido stock sobre cantidad para vender
-        if(element.productID['stock']>element.quantity){arrayPreciosProductosConStock.push(element.productID['price']*element.quantity);
-        } else { arrayProductosSinStock.push(element) }
-    });
-    
+            // @ts-ignore compruebo valido stock sobre cantidad para vender
+            if(element.productID['stock']>element.quantity){arrayPreciosProductosConStock.push(element.productID['price']*element.quantity);
+            } else { arrayProductosSinStock.push(element) }
+        });
+        
+        const sumaCantidadesSinStock = arrayProductosSinStock.reduce(function(acumulador, producto) { return acumulador + producto.quantity }, 0)
+
+
+// console.log(arrayPreciosProductosConStock)
+// console.log(arrayProductosSinStock)
+// console.log(sumaCantidadesSinStock)
+
+
     const valorInicial = 0;
     const monto = arrayPreciosProductosConStock.reduce((accumulator, currentValue) => accumulator + currentValue, valorInicial)
-    await ticketsRepository.crearTicket({ email:email, monto:monto, cart:carritoID })
+
+// console.log(monto);
+
+
+const nuevoTicket = {email:email, monto:monto, cart:carritoID}
+// console.log(nuevoTicket);
+
+
+
+   const ticket = await ticketsService.crearTicket(nuevoTicket)
+
+    await ticketsRepository.crearTicket(ticket)
+
+
+
+
+
 
         //ESTA PARTE DE LA LOGICA NO LA PROBE, pero deberai funcionar
     //Vaciado del carrito:
-    const carritoNuevo = {id:carritoID,quantity:sumaCantidadesSinStock, products:arrayProductosSinStock}
-    await carritosRepository.modificarCarrito(carritoID,carritoNuevo)
-     res.json({message:'Carrito comprado, en brenes nos comunicaremos con usted.'})
+    // @ts-ignore
+    const carritoNuevo = {_id:carritoID,id:carritoFiltrado['id'],quantity:sumaCantidadesSinStock, products:arrayProductosSinStock}
+    
+
+    const carritoFinal = await carritosRepository.modificarCarrito(carritoID,carritoNuevo)
+    const carritoString = carritoFinal['_id']
+    // console.log("final",carritoFinal);
+    // console.log("final",carritoString);
+     res.json({message:`Carrito comprado. Si usted aun visualiza productos dentro del carrito, su stock es insuficiente y no pueden ser enviados.`, carrito: `${carritoFinal['_id']}`, productos: `[${carritoFinal['products']}]`})
 
 })

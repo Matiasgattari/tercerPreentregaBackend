@@ -59,7 +59,7 @@ cargarBTN?.addEventListener("click", (e)=>{
     const valorStatus= statusTrue?.value || true
 
     const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus}
-console.log(productoAgregar);
+// console.log(productoAgregar);
 serverSocket.emit('nuevoProducto', productoAgregar)
 
 location.reload()

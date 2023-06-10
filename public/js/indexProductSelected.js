@@ -10,7 +10,7 @@ botonAgregar?.addEventListener('click',(e)=>{
 const inputAgregarCarrito = document.getElementById('input_agregar_carrito')
 // @ts-ignore
 const valorInputAgregarCarrito= inputAgregarCarrito?.value
-console.log(valorInputAgregarCarrito);
+// console.log(valorInputAgregarCarrito);
 
 serverSocket.emit('agregarProducto', valorInputAgregarCarrito)
 // location.reload()

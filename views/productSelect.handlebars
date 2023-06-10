@@ -12,7 +12,8 @@
 <p>Estatus:{{producto.status}} </p>
 <p>id:{{producto.id}} </p>
 <form action="" id="formularioAgregadoProductoSIndividual">
-        <input id="idProductoAgregar" type="text" placeholder="Ingrese ID carrito" value={{producto._id}} disabled>
+    <input id="rol" type="text" placeholder="Rol" value={{usuario}} disabled>
+    <input id="idProductoAgregar" type="text" placeholder="Ingrese ID carrito" value={{producto._id}} disabled>
     <input id="carritoAAgregar" type="text" placeholder="Ingrese ID carrito" value={{carrito}} disabled>
     <button id="botonAregarCadaProducto">Agregar al carrito</button>
 </form>

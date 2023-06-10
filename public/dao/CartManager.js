@@ -190,7 +190,9 @@ export class CartManager {
     async modificarCarrito(cid,carritoNuevo){
         try {
             //{new: true}hace que el find devuelva el nuevo carrito
-            await cartsDB.findByIdAndUpdate(cid,carritoNuevo,{new: true})
+            const carrito = await cartsDB.findByIdAndUpdate(cid,carritoNuevo,{new: true})
+            
+            return await toPojo(carrito)
         } catch (error) {
             throw new Error('Error al modificar el carrito')
         }

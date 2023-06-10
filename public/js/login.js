@@ -21,7 +21,7 @@ if (formLogin instanceof HTMLFormElement) {
     ){ 
         const loginUsuario = {email: input_email_login.value,password:input_password_login.value}
  
-        console.log(loginUsuario);
+        // console.log(loginUsuario);
 
 
 const response = await fetch('/api/usuariosLogin', {
@@ -39,7 +39,7 @@ const response = await fetch('/api/usuariosLogin', {
   
   const usuarioLogeado = await response.json();
 
-      console.log(usuarioLogeado)
+      // console.log(usuarioLogeado)
       if(response.ok) {
         window.location.href = "http://localhost:8080/api/sessions/current"
       }

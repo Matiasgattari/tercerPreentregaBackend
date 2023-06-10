@@ -13,6 +13,8 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
     // construir la URL del endpoint con los parámetros
     const url = `http://localhost:8080/api/carts/${IDCarrito}/product/${idProducto}`;
 
+   
+
     // hacer una petición POST usando fetch
     try {
       const response = await fetch(url, {
@@ -20,7 +22,7 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
       });
       const data = await response.json(); // convertir la respuesta a JSON
       // hacer algo con los datos recibidos
-      console.log(data);
+      // console.log(data);
       // redireccionar la página después de que se complete la petición
       window.location.href = `http://localhost:8080/api/carts/${IDCarrito} `;
     } catch (error) {
@@ -36,6 +38,9 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
 
 
 const botonVolverAProductos = document.getElementById("volverAProductos")
-botonVolverAProductos?.addEventListener("click",()=>{console.log("volviendo a productos");
-window.location.href = `http://localhost:8080/realtimeproducts/`
+botonVolverAProductos?.addEventListener("click",()=>{
+    console.log("volviendo a productos");
+    // @ts-ignore
+    const rol = document.getElementById("rol").value
+    if(rol==="Admin"){window.location.href = `http://localhost:8080/realtimeproducts/`} else {window.location.href = `http://localhost:8080/home/`}
 })

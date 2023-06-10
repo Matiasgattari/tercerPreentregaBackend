@@ -63,15 +63,15 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
 
 }, async (accessToken, refreshToken, profile, done) => {
     try {
-        console.log(profile['_json'].login);
+        // console.log(profile['_json'].login);
         const email = profile.emails[0].value
-        console.log(email);
+        // console.log(email);
 
         const usuarioBuscado = await usuariosService.buscarUsuarioPorEmail(email)
-        console.log("USUARIO BUSCADO POR SERVICIO", usuarioBuscado);
+        // console.log("USUARIO BUSCADO POR SERVICIO", usuarioBuscado);
         
         if (usuarioBuscado) {
-            console.log("USUARIO ENCONTRADO");
+            // console.log("USUARIO ENCONTRADO");
             done(null, usuarioBuscado);
         } else {
             let user = new User({

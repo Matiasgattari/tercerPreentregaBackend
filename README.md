@@ -39,17 +39,17 @@ ENDPOINTS:
 
 "/": Pagina de inicio de la api, solo muestra un mensaje para ver que funciona (json). en la ruta /src/servidor.js se encuentran tanto los datos de este endpoint, como el SOCKET.io 
 
-"/home": muestra una lista fija de los productos cargados en la base de datos, sin modificaciones. Esta trabajado con express-handlebars, siendo su vista /views/home.handlebars. Metodo GET
+"/home": Muestra una lista de todos los productos de la base de datos, con un boton que redirige a cada producto en particular para poder agregarlos al carrito. solo accesible para "User"
 
 "/realtimeproducts": muestra la misma lista que "/home" pero en esta misma, se pueden cargar datos para eliminar productos y agregar un nuevo producto a la base de datos, cuenta con actualizacion automatia por medio de socket.io
 Actualmente presenta problemas, "cargar" el producto pedido pero entra en un loop lo cual puede o cargarlo reiteradas veces o tildar el programa.
 "eliminar" elimina el producto por medio del ID pasado, tambien entra en loop, pero al eliminar 1 solo producto se aprecia que funciona bien y no se rompe. 
 Esta trabajado con express-handlebars, siendo su vista /views/realTimeProducts.handlebars  y estando su JS de frontend en /public/js/indexHome.js
-Su código base y endpoints se encuentran dentro de la ruta src/routes/productRouter.js.  Posee funcionalidad en cada elemento, que permite ir a cada producto en particular, para desde el, agregarlo al carrito.
+Su código base y endpoints se encuentran dentro de la ruta src/routes/productRouter.js.  Posee funcionalidad en cada elemento, que permite ir a cada producto en particular, para desde el, agregarlo al carrito. Solo accesible para "Admin". Actualmente el crear productos desde esta ruta tiene un error en el socket.io, por lo que la carga de productos se hara desde otra ruta.
 
 "/api/products": Este endpoint muestra una lista completa de todos los productos de la base de datos. Esta trabajado con express-handlebars, siendo su vista /views/products.handlebars, estando su codigo base en src/routes/productRouter.js
 por medio de la renderizacion de express y el paginate, se le agregaron tanto las opciones de paginacion como de busqueda (por pagina y criterio). La busqueda por query aun no esta probada del todo, pero deberia recibir un objeto con un criterio de busqueda como los del find en mongoDB ej: {_id:asdasasdasd}. Metodo GET
-Los botones para Sort ascendente y descendente se basan en el campo "precio" y esta funcional
+Los botones para Sort ascendente y descendente se basan en el campo "precio" y esta funcional. Solo accesible para "Admin"
 
 "/api/products/pid": METODO GET. este endpoint renderiza por medios de busqueda a la base de datos, el producto especificado por su pid ("_id" autogenerado por mongo), estando su codigo base en src/routes/productRouter.js. Permite agreegar dicho producto al carrito x 1 unidad o volver a la liesta de productos "/realtimeproducts"
 
@@ -106,8 +106,6 @@ Formato carrito:
 Su código base y endpoints se encuentran dentro de la ruta src/routes/cartsRouter.js   Solo se permite el ingreso a usuarios registrados y logueados.
 
 "api/carts/json/cartsJSON": este endpoint muestra un JSON de los carritos sin renderizar por express
-
-"api/products/json/productsJSON": este endpoint muestra un JSON de los productos sin renderizar por express
 
 "api/products/productSelected/:pid" Metodo PUT. esta ruta presenta un input en el cual cargo el CID (_id autogenerado por mongoose) del carrito al que quiero cargarle el prooducto al cual ingrese. al hacer click se agrega automaticamente al carrito.
 
