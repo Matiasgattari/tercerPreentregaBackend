@@ -66,7 +66,7 @@ botonEliminarTicket?.addEventListener("click",async(e)=>{
  // @ts-ignore
  const inputIDTicket = document.getElementById("inputIDTicket").value
 
- console.log(inputIDTicket);
+//  console.log(inputIDTicket);
 
 
 

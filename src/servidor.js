@@ -152,6 +152,8 @@ app.get('/home', async (req, res, next) => {
 })
 
 
+//METODOS PARA ELIMINACION DE TICKETS POR FETCH
+
 app.delete('/api/tickets', soloAdmin, async(req,res,next)=>{
  
   const ticketsEliminado = await ticketsRepository.eliminarTodosTickets()

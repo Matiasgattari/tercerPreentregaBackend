@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "_id": "6485136f024ed2d6a37c5c6c",
+    "date": "10/6/2023",
+    "usuario": "lea.mg90@gmail.com",
+    "monto": 15000,
+    "cart": "6485133b024ed2d6a37c5c49",
+    "code": "b869f199-fc07-481e-9ec0-060759e655c9"
+  }
+]

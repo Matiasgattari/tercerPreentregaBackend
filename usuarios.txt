@@ -1,116 +1,22 @@
 [
   {
-    "_id": "648346620be32cd25d6d5f49",
+    "_id": "6485133c024ed2d6a37c5c4b",
     "email": "lea.mg90@gmail.com",
-    "password": "$2b$10$L5sQnHgnZqdiJmCAdjKOmuOUH87CDlo1FIdg1jz.n2nQZsXReqXnK",
-    "first_name": "matias",
-    "last_name": "gattari",
+    "password": "$2b$10$PnDtvpv1Mm6pNIbUnWRTzOdC3I6GYNKX9MI8oMSIy.8kWuNFqxqj2",
+    "first_name": "Matias",
+    "last_name": "Gattari",
     "age": 33,
     "rol": "Admin",
-    "cart": "cart1"
+    "cart": "6485133b024ed2d6a37c5c49"
   },
   {
-    "_id": "64834a315e5a90d01bbf1d12",
-    "email": "lautaro@soto.com",
-    "password": "$2b$10$Nt3mJ.zIWRtgKfCj.rdzKOnZeuWjkVi2SbLihFNCtgeTur1RCLgf.",
-    "first_name": "lautaro",
-    "last_name": "soto",
-    "age": 32,
-    "rol": "User"
-  },
-  {
-    "_id": "64834ba80cf10f4829d847f7",
-    "email": "gonza@torto.com",
-    "password": "$2b$10$UgeuHOeY1o00774C3LKvmukwHjFjiixamKTsoucR2bXt86rtfNqoq",
-    "first_name": "gonzalo",
-    "last_name": "tortorella",
-    "age": 33,
-    "rol": "User"
-  },
-  {
-    "_id": "64835246879d2c9704047be8",
-    "email": "rami@ponce.com",
-    "password": "$2b$10$tAg1IAHxJSuCKPg7McghxeUd2RYsjaqXbG.ugMFrv/D9wLQbNQv3.",
-    "first_name": "ramiro",
-    "last_name": "ponce",
-    "age": 34,
-    "rol": "User"
-  },
-  {
-    "_id": "6483529c2f1932bd337bb629",
-    "email": "violeta@orlandi.com",
-    "password": "$2b$10$PD9g8gyf6OcE93BdSJ/siOXfakZv55HEvqrw/h1gGiVTgPo0eJ4su",
-    "first_name": "violeta",
-    "last_name": "orlandi",
-    "age": 60,
-    "rol": "User"
-  },
-  {
-    "_id": "648352f9e3acfb5fcc297465",
-    "email": "marian@aquino.com",
-    "password": "$2b$10$KQL1hT6cHZMqrRhRSlk8zuFSMi/f0vTNOTEuOlvyKvi4IgnMBL4Q6",
-    "first_name": "mariano",
-    "last_name": "aquino",
-    "age": 35,
-    "rol": "Admin"
-  },
-  {
-    "_id": "64835321d55753a8afbc9d55",
-    "email": "jesica@parker.com",
-    "password": "$2b$10$AlC.gF2yVTt0fNY8WMRPXezg1dWe./SIWFvtXAHmtdAvfUmaHuzcS",
-    "first_name": "jesica",
-    "last_name": "parker",
-    "age": 34,
-    "rol": "User"
-  },
-  {
-    "_id": "648353784b66b30b51a15635",
-    "email": "ivan@ojeda.com",
-    "password": "$2b$10$6Otk4zOb8SqxTVJ/1j.1cOmMcuFHmYGTUMjAlr/gqWgpTu42uWS7S",
-    "first_name": "ivan",
-    "last_name": "ojeda",
-    "age": 32,
+    "_id": "64851351024ed2d6a37c5c52",
+    "email": "mariano@aquino.com",
+    "password": "$2b$10$0zBzuImlSZp85BMiAptn0uC45nrV7.ORuhEdixKcWcFnTnTpvpGru",
+    "first_name": "Mariano",
+    "last_name": "Aquino",
+    "age": 36,
     "rol": "User",
-    "cart": "648353784b66b30b51a15633"
-  },
-  {
-    "_id": "64835404bc76fd00ad80a5a0",
-    "email": "viviana@zeolla.com",
-    "password": "$2b$10$zB2BNLRmyOrECRnWUJwRv.9b2L65REVr0ctXGL.SERhKyaakwpp7G",
-    "first_name": "viviana",
-    "last_name": "zeolla",
-    "age": 76,
-    "rol": "User",
-    "cart": "64835404bc76fd00ad80a59e"
-  },
-  {
-    "_id": "64835447871fd8b14be4de02",
-    "email": "horacio@gattari.com",
-    "password": "$2b$10$jV8namPdYEnlQ0GGrb.tQOY.hmh0N3K7w3Mb.RuVT2zifXhc.6SMu",
-    "first_name": "horacio",
-    "last_name": "gattari",
-    "age": 76,
-    "rol": "User",
-    "cart": "64835447871fd8b14be4de00"
-  },
-  {
-    "_id": "6483581b7296a27d0c914ef9",
-    "email": "mati@gattari.com",
-    "password": "$2b$10$C/RDEwyXj7MCOMV3VAPfy.uJyedtloulgq741PWVLlbiDZc.Oaxba",
-    "first_name": "matias",
-    "last_name": "gattari",
-    "age": 33,
-    "rol": "Admin",
-    "cart": "6483581b7296a27d0c914ef7"
-  },
-  {
-    "_id": "648510aa6d1da4085ae67164",
-    "email": "lola@lopez.com",
-    "password": "$2b$10$GGYeTr1nOb0bcVeOySpzP.DiqL854fYpkrQI88Ay2tbkrchBpsU6e",
-    "first_name": "lola",
-    "last_name": "lopez",
-    "age": 33,
-    "rol": "Admin",
-    "cart": "648510a96d1da4085ae67162"
+    "cart": "64851351024ed2d6a37c5c50"
   }
 ]

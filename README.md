@@ -39,7 +39,7 @@ ENDPOINTS:
 
 "/": Pagina de inicio de la api, solo muestra un mensaje para ver que funciona (json). en la ruta /src/servidor.js se encuentran tanto los datos de este endpoint, como el SOCKET.io 
 
-"/home": Muestra una lista de todos los productos de la base de datos, con un boton que redirige a cada producto en particular para poder agregarlos al carrito. solo accesible para "User"
+"/home": Muestra una lista de todos los productos de la base de datos, con un boton que redirige a cada producto en particular para poder agregarlos al carrito. accesible para todo usuario logueado
 
 "/realtimeproducts": muestra la misma lista que "/home" pero en esta misma, se pueden cargar datos para eliminar productos y agregar un nuevo producto a la base de datos, cuenta con actualizacion automatia por medio de socket.io
 Actualmente presenta problemas, "cargar" el producto pedido pero entra en un loop lo cual puede o cargarlo reiteradas veces o tildar el programa.
@@ -51,7 +51,7 @@ Su código base y endpoints se encuentran dentro de la ruta src/routes/productRo
 por medio de la renderizacion de express y el paginate, se le agregaron tanto las opciones de paginacion como de busqueda (por pagina y criterio). La busqueda por query aun no esta probada del todo, pero deberia recibir un objeto con un criterio de busqueda como los del find en mongoDB ej: {_id:asdasasdasd}. Metodo GET
 Los botones para Sort ascendente y descendente se basan en el campo "precio" y esta funcional. Solo accesible para "Admin"
 
-"/api/products/pid": METODO GET. este endpoint renderiza por medios de busqueda a la base de datos, el producto especificado por su pid ("_id" autogenerado por mongo), estando su codigo base en src/routes/productRouter.js. Permite agreegar dicho producto al carrito x 1 unidad o volver a la liesta de productos "/realtimeproducts"
+"/api/products/pid": METODO GET. este endpoint renderiza por medios de busqueda a la base de datos, el producto especificado por su pid ("_id" autogenerado por mongo), estando su codigo base en src/routes/productRouter.js. Permite agreegar dicho producto al carrito x 1 unidad o volver a la liesta de productos "/realtimeproducts" si el usuario es un Admin, o a "/home" si el usuario es un User. 
 
 "/api/products/pid": METODO PUT. este endpoint actualiza por medios de busqueda a la base de datos, el producto especificado por su pid ("_id" autogenerado por mongo), y recibiendo en el body un producto de estructura:
 {
@@ -123,7 +123,7 @@ Formato de usuario : {
     "cart": "Pendiente"
   }
 
-"api/sessions/current"  miestra a travez de un view handlebars muestra los datos del perfil del usuario, sin la contraseña . el fetch de su logica se realiza hacia fetch('/api/usuarios'). dicha ruta esta creada en server.js . Solo permite el intreso a usuarios logueados
+"api/sessions/current"  miestra a travez de un view handlebars muestra los datos del perfil del usuario, sin la contraseña . el fetch de su logica se realiza hacia fetch('/api/usuarios'). dicha ruta esta creada en server.js . Solo permite el intreso a usuarios logueados. Permite cerrar sesion
 
 "api/sessions/login" muestra actualmente un formulario para realizar el login, con su funcionalidad finalizada para reconocer al email y contraseña del usuario para encontrarlo y logear.  El fetch de su logica se realiza hacia fetch('/api/usuariosLogin'), dicha ruta esta creada en server.js . Actualmente renderiza una lista de usuarios creados solo con la finalidad de poder seleccionar los datos de la base de datos para poder realizar las pruebas.  Solo permite el intreso a usuarios sin loguear.
 
@@ -131,6 +131,7 @@ Formato de usuario : {
 
 "/:cid/purchase" realiza la compra del carrito. Para ingresar a esta parte, el usuario debe estar logueado. al ingresar, se toma el carrito por su CID y se cruza con los datos del usuario. 
 
+"/api/tickets" permite a los Admin visualizar los tickets que haya creados y eliminarlos ya sea de a 1 o a todos juntos.
 
 Todos los productos cargados tienen un ID propio que les doy autogenerado por el randomUUII, pero para realizar las operaciones internas actualmente cambie al uso del _id (object ID que brinda mongoose)
 Todos estos endpoints a grandes rasgos funcionan, salvo las cosas que marque puntualmente.
@@ -160,4 +161,4 @@ DATOS A TENER EN CUENTA
 
 
 
-- NUEVAMENTE MALFUNCIONANDO /realtimeproducts, creando multiples productos en loop al crear o eliminar 1 producto. En Reparacion
+- NUEVAMENTE MALFUNCIONANDO /realtimeproducts, creando multiples productos en loop al crear o eliminar 1 producto. En Reparacion. Por ahora hay productos de prueba en la base de datos, aunque puede probarse su funcionalidad, sabiendo que se creara mas de 1.
