@@ -42,5 +42,5 @@ botonVolverAProductos?.addEventListener("click",()=>{
     console.log("volviendo a productos");
     // @ts-ignore
     const rol = document.getElementById("rol").value
-    if(rol==="Admin"){window.location.href = `http://localhost:8080/realtimeproducts/`} else {window.location.href = `http://localhost:8080/home/`}
+    if(rol==="Admin"){window.location.href = `http://localhost:8080/api/products/admin/`} else {window.location.href = `http://localhost:8080/home/`}
 })

@@ -81,11 +81,21 @@ try {
 
 } )
 
-// productsRouter.get('/json/productsJSON', async (req, res) => {
-//     const productos = await productosRepository.buscarProductos()
-//     res.send(productos)
-    
-//     })
+productsRouter.get('/admin', async (req, res) => {
+   const productos = await productosRepository.buscarProductos()
+   
+    res.render('productsAdmin.handlebars',{
+        encabezado: "Producto Admin",
+        productos       
+    })})
+
+productsRouter.delete('/admin/:pid',async(req,res)=>{
+    const pid = req.params.pid
+    const productoEliminar =  await productosRepository.eliminarProducto(pid)
+    res.json(productoEliminar)
+    })
+
+
     
 
 productsRouter.get('/:pid', async (req,res)=>{
@@ -102,15 +112,19 @@ productsRouter.get('/:pid', async (req,res)=>{
         
         if (idProducto)  {
             const prodFiltradoID= await productosRepository.buscarProductoPorId(idProducto)
-
-            // res.send(prodFiltradoID)
+        // @ts-ignore
+        if(prodFiltradoID.error=='PRODUCT-NOT-FOUND'){
+            res.redirect('/api/products/admin')
+        }else{
             res.render('productSelect', {
                 encabezado: "Producto",
                 producto:prodFiltradoID,
                 carrito:carritoUsuario,
                 // @ts-ignore
                 usuario:usuario1['rol']
-            })} else {
+            })
+        }
+     } else {
                 throw new Error("no existe el id")
             }
           

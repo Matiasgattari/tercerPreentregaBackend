@@ -129,7 +129,9 @@ export class ProductManager {
         const productFind = this.products.find((product) => product['_id'] == IDrecibido)
 
         if (productFind === undefined) {
-            throw new Error('PRODUCT-NOT-FOUND')
+            // throw new Error('PRODUCT-NOT-FOUND')
+            const productoError = {error:'PRODUCT-NOT-FOUND'}
+            return productoError
         } else {
             const productoID = await productsDB.findOne({ _id: IDrecibido }).lean()
             return productoID
