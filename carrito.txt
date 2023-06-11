@@ -54,19 +54,19 @@
     "products": [
       {
         "productID": {
-          "_id": "648347e68b1cc5f0329214f0",
-          "title": "lapras",
-          "description": "numero pokedex 131",
-          "price": 50000,
-          "thumbnail": "lapras.jpg",
-          "stock": 5,
-          "code": "pokemon montura acuatica",
-          "category": "agua hielo",
+          "_id": "648346e20be32cd25d6d5f60",
+          "title": "charmander",
+          "description": "numero pokedex 4",
+          "price": 15000,
+          "thumbnail": "charmander.jpg",
+          "stock": 10,
+          "code": "pokemon salamandra",
+          "category": "fuego",
           "status": true,
-          "id": "38cbead4-2fc8-4599-948d-a9819f6aca8e"
+          "id": "2f6e5c9c-5235-4aa4-bb13-52c10516cd2a"
         },
         "quantity": 1,
-        "_id": "648510b46d1da4085ae6716d"
+        "_id": "6485114c7e1c03d07c9c7022"
       }
     ]
   }

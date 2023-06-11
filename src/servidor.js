@@ -153,17 +153,16 @@ app.get('/home', async (req, res, next) => {
 
 
 app.delete('/api/tickets', soloAdmin, async(req,res,next)=>{
-  await ticketsRepository.eliminarTodosTickets()
-  res.sendStatus(200)
+ 
+  const ticketsEliminado = await ticketsRepository.eliminarTodosTickets()
+  res.json(ticketsEliminado)
 })
 
 app.put('/api/tickets/:tid', soloAdmin, async(req,res,next)=>{
   const tid = req.params.tid
  
-  // const ticketEliminado = await ticketsModel.findByIdAndDelete(id)
   const ticketEliminado = await ticketsRepository.eliminarTicket(tid)
   res.json(ticketEliminado)
-  // res.sendStatus(200).json({message: "ticket eliminado correctamente"})
 })
 
 

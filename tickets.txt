@@ -1,10 +1,1 @@
-[
-  {
-    "_id": "6485104c2534ccab41818cdf",
-    "date": "10/6/2023",
-    "usuario": "mati@gattari.com",
-    "monto": 15000,
-    "cart": "6483581b7296a27d0c914ef7",
-    "code": "88e973e6-f632-44f8-a588-c0300bcffcc0"
-  }
-]
+[]

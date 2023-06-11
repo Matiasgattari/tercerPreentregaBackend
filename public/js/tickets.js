@@ -10,24 +10,53 @@ botonEliminarTodosTickets?.addEventListener("click",async()=>{
    
     // const idTicket = inputIDTicket
     
-    const response = await fetch('/api/tickets', {
+
+    const response = await fetch('/api/tickets/', {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        },
-        // body: JSON.stringify(idTicket)
+        }
       });
       
       if (!response.ok) {
-        throw new Error('USER-NOT-FOUND');
+        throw new Error('ticket-NOT-FOUND');
       }
       
       const ticketsVacios = await response.json();
               
     if (response.ok) {
-        window.location.href = `http://localhost:8080/api/tickets/`
+      location.reload()
     }
+
+
+
+
+
+
+
+
+
+
+
+    // const response = await fetch('/api/tickets', {
+    //     method: 'DELETE',
+    //     headers: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //     // body: JSON.stringify(idTicket)
+    //   });
+      
+    //   if (!response.ok) {
+    //     throw new Error('USER-NOT-FOUND');
+    //   }
+      
+    //   const ticketsVacios = await response.json();
+              
+    // if (response.ok) {
+    //     window.location.href = `http://localhost:8080/api/tickets/`
+    // }
         
 })
 
@@ -58,27 +87,6 @@ botonEliminarTicket?.addEventListener("click",async(e)=>{
 if (response.ok) {
   location.reload()
 }
-
-
-
-//  const response = await fetch('/api/tickets', {
-//     method: 'PUT',
-//     headers: {
-//       'Accept': 'application/json',
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({id: inputIDTicket})
-//   });
-  
-//   if (!response.ok) {
-//     throw new Error('ticket-NOT-FOUND');
-//   }
-  
-//   const ticketsVacios = await response.json();
-          
-// if (response.ok) {
-//   location.reload()
-// }
 })
 
 
