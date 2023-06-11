@@ -80,7 +80,8 @@ export class TicketManager {
 
     async deleteTicket(id){
         try {
-            await ticketsModel.findOneAndDelete({_id:id})
+            // const ticketEliminado = await ticketsModel.findByIdAndDelete(id)
+            await ticketsModel.findByIdAndDelete(id)
             await this.saveTicketsLocal()
            } catch (error) {
             throw new Error('ticket-NOT-FOUND')

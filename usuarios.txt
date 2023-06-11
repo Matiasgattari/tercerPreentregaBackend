@@ -102,5 +102,15 @@
     "age": 33,
     "rol": "Admin",
     "cart": "6483581b7296a27d0c914ef7"
+  },
+  {
+    "_id": "648510aa6d1da4085ae67164",
+    "email": "lola@lopez.com",
+    "password": "$2b$10$GGYeTr1nOb0bcVeOySpzP.DiqL854fYpkrQI88Ay2tbkrchBpsU6e",
+    "first_name": "lola",
+    "last_name": "lopez",
+    "age": 33,
+    "rol": "Admin",
+    "cart": "648510a96d1da4085ae67162"
   }
 ]

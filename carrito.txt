@@ -44,39 +44,29 @@
   {
     "_id": "6483581b7296a27d0c914ef7",
     "id": "6483581b7296a27d0c914ef7",
-    "quantity": 8,
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "648510a96d1da4085ae67162",
+    "id": "bd02f54c-79a8-4773-b81c-56b09547a4ee",
+    "quantity": 1,
     "products": [
       {
         "productID": {
-          "_id": "648346ab0be32cd25d6d5f53",
-          "title": "bulbasaur",
-          "description": "numero pokedex 1",
-          "price": 15000,
-          "thumbnail": "bulbasaur.jpg",
-          "stock": 10,
-          "code": "pokemon bulbo",
-          "category": "planta veneno",
+          "_id": "648347e68b1cc5f0329214f0",
+          "title": "lapras",
+          "description": "numero pokedex 131",
+          "price": 50000,
+          "thumbnail": "lapras.jpg",
+          "stock": 5,
+          "code": "pokemon montura acuatica",
+          "category": "agua hielo",
           "status": true,
-          "id": "cf8f87cf-bb45-480b-97dd-9579743702f5"
+          "id": "38cbead4-2fc8-4599-948d-a9819f6aca8e"
         },
         "quantity": 1,
-        "_id": "6485051e9d528fb34614b764"
-      },
-      {
-        "productID": {
-          "_id": "6483478c373fadc94de4632b",
-          "title": "squirtle",
-          "description": "numero pokedex 7",
-          "price": 15000,
-          "thumbnail": "squirtle.jpg",
-          "stock": 10,
-          "code": "pokemon tortuga",
-          "category": "agua",
-          "status": true,
-          "id": "581c0b96-3087-4404-86a8-a733063207b7"
-        },
-        "quantity": 1,
-        "_id": "6485054197bf616661ed5ab3"
+        "_id": "648510b46d1da4085ae6716d"
       }
     ]
   }
