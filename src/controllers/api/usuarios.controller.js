@@ -21,7 +21,7 @@ export async function postAUsuarios(req,res,next){
         // funcion de passport para que el registro ya me deje logueado tambien!. ESTE login hace lo mismo que el "done", dejandome el usuario logeado
         req.login(user, error => {
             if (error) {
-                // next(new Error('Error-de-autenticacion'))
+                // next(new Error('ERROR_DE_AUTENTICACION'))
                 next(error)
             } else {
                 //respuesta al servidor
@@ -31,7 +31,7 @@ export async function postAUsuarios(req,res,next){
     
     } catch (error) {
             next(error)
-                // new Error ("Authentication error")
+                // new Error ('ERROR_DE_AUTENTICACION'
          }
 }
 

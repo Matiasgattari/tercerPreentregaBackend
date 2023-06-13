@@ -75,13 +75,16 @@ export class CartManager {
         try {
            
             const productos = await productosRepository.buscarProductos()
+            // console.log(productos);
             const productoIndex = productos.findIndex(prod => prod['_id'] == pid)
             const productoFiltrado = productos[productoIndex]
+            // console.log(productoFiltrado);
 
             //ubico carrito por cid
             const carritos = await this.getCarts()
             const carritoIndex = carritos.findIndex(carrito => carrito['_id'] == cid)
             const carritoFiltrado = carritos[carritoIndex]
+            // console.log(carritoFiltrado);
 
             //formato de producto a pushear al array de productos del carrito
             let cant = 1
@@ -89,17 +92,28 @@ export class CartManager {
                 "productID": `${productoFiltrado._id}`,
                 "quantity": `${cant}`
             };
+            // console.log(produID);
 
             //array con todos los IDs de los productos del carrito.Es un parche para dejarlo funcional. TRATAR DE ARRAGLAR CUANDO HAYA TIEMPO. 
             const productosDentroDelCarrito = [];
             const carritoProductos = carritoFiltrado['products']
+
+            // console.log("carritoProductos",carritoProductos);
+
             carritoProductos.forEach(element => {
-                productosDentroDelCarrito.push(element.productID)
+                if(element!==null){
+                    productosDentroDelCarrito.push(element.productID)
+                } else{
+                    element={}
+                    productosDentroDelCarrito.push(element.productID)
+                }
             });
        
+            // console.log(productosDentroDelCarrito);
             //utilizo array de ids para saber si incluye PID. modifico cantidades o creo nuevo objeto
             const booleano = productosDentroDelCarrito.some(element => element['_id'] == pid )
             
+            // console.log("booleano",booleano)
             if (booleano) {
          
             const ubicoProducto = carritoProductos.find(el =>el.productID["_id"] == pid)
@@ -127,7 +141,7 @@ export class CartManager {
              return { "message": "producto cargado correctamente"  }
 
         } catch (error) {
-            throw new Error('CARGA-DE-PRODUCTO-FALLIDA')
+            new Error('CREACION-FALLIDA')
         }
     }
 
@@ -159,7 +173,7 @@ export class CartManager {
 
         return carritoNuevo
   } catch (error) {
-            throw new Error('PRODUCT-NOT-FOUND')
+            throw new Error('NOT-FOUND')
         }
 
     }
@@ -172,7 +186,7 @@ export class CartManager {
         await this.persistencia.saveTxt(jsonCarts)
         return "carrito eliminado correctamente"
         } catch (error) {
-            throw new Error('PRODUCT-NOT-FOUND')
+            throw new Error('NOT-FOUND')
         }
 
     }
@@ -183,7 +197,7 @@ export class CartManager {
         const jsonCarts = JSON.stringify(this.carts, null, 2)
         await this.persistencia.saveTxt(jsonCarts)
        } catch (error) {
-        throw new Error('CART-NOT-FOUND')
+        throw new Error('NOT-FOUND')
        }
     }
 
@@ -194,7 +208,7 @@ export class CartManager {
             
             return await toPojo(carrito)
         } catch (error) {
-            throw new Error('Error al modificar el carrito')
+            throw new Error('MODIFICACION-FALLIDA')
         }
 
     }
@@ -208,14 +222,14 @@ export class CartManager {
         const cartFind = this.carts.find((cart) => cart._id == IDrecibido)
 
         if (cartFind === undefined) {
-            throw new Error("carrito no encontrado o ID invalido")
+            throw new Error("NOT-FOUND")
         } else {
             const cartID = await cartsDB.findOne({ _id: IDrecibido }).lean()
             return cartID
 
         }
         } catch (error) {
-            throw new Error('CART-NOT-FOUND')
+            throw new Error('NOT-FOUND')
         }
     }
 
@@ -241,7 +255,7 @@ async vaciarCarrito(id) {
         return carritoNuevo
 
     } catch (error) {
-        throw new Error("Error al vaciar el carrito")
+        throw new Error('MODIFICACION-FALLIDA')
     }
 }
 
@@ -267,28 +281,12 @@ async modificarUnidadesProcducto(cid,pid,cantidad) {
     })
 
    const index = arrayProductos?.indexOf(pid)
-    
-    
-
-    // carrito?.products[index].quantity =cantidad
-    
-    // const nuevoCarrito = carrito
-    // await cartsDB.findOneAndUpdate({_id:cid},nuevoCarrito)
-
-
-    // //esta parte aun sin probar
-    //     this.carts= await this.getCarts()
-    //     const jsonCarts = JSON.stringify(this.carts, null, 2)
-    //     await fs.writeFile(this.path, jsonCarts)
-
    
-    
-
     return {message: "producto actualizado correctamente"}
     
     
     } catch (error) {
-        throw new Error('CARGA-DE-PRODUCTO-FALLIDA')
+        throw new Error('MODIFICACION-FALLIDA')
     }
 
 }

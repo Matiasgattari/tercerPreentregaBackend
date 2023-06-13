@@ -26,6 +26,7 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
             // buscado = await usuarioModel.findOne({ email: req.body.email }).lean()
             // buscado = await usuariosService.buscarUsuarioPorEmail(req.body.email)
             buscado = await usuariosRepository.buscarUsuarioPorUsername(req.body.email)
+            // console.log(buscado);
             
         } catch (error) {
             return done(new Error('error de autenticacion'))
@@ -35,23 +36,11 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
         if (!validarQueSeanIguales(req.body.password, buscado['password'])) {
             return done(null, false, { message: 'Contraseña incorrecta' })
         }
-    
-        
-        
-        const user = await usuariosService.crearUsuario({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: req.body.password,
-            age: req.body.age,
-            rol: req.body.rol,
-            cart: req.body.cart
-        })
-    
+      
         // @ts-ignore
         done(null, buscado)
         } catch (error) {
-            new Error('error de autenticacion')
+         throw new Error('ERROR_DE_AUTENTICACION')
         }
     })
   );
@@ -95,7 +84,7 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
             done(null, user);
         }
     } catch (error) {
-        console.error('error de logeo', error);
+        new Error('CREACION-FALLIDA')
         done(error);
     }
 }));

@@ -28,16 +28,30 @@ export class Product {
     #stock
     #category
     #id
+    #status
    
-    constructor({
-        title,
+    constructor(
+        {title,
         description,
         price,
         thumbnail,
         code,
         stock,
-        category
-    }) {
+        category}
+    ) {
+        if (!title||!description||!price||!thumbnail||!code||!stock||!category) {
+            throw new Error('Campo-vacio')
+          }
+          
+          if(typeof(price)!=="number"||typeof(stock)!=="number"){
+            throw new Error('Campo-con-valor-invalido')
+          }
+          
+          if(typeof(title)!=="string"||typeof(description)!=="string"||typeof(thumbnail)!=="string"||typeof(code)!=="string"||typeof(category)!=="string"){
+            throw new Error('Campo-con-valor-invalido')
+          }
+
+
         this.#title = title;
         this.#description = description;
         this.#price = price;
@@ -46,10 +60,11 @@ export class Product {
         this.#stock = stock;
         this.#category = category;
         this.#id = randomUUID();
+        this.#status = true;
     }
 
-    dto() {
-        return {
+    async dto() {
+        return await {
             title:this.#title,
             description:this.#description,
             price:this.#price,
@@ -57,7 +72,8 @@ export class Product {
             code:this.#code,
             stock:this.#stock,
             category:this.#category,
-            id:this.#id
+            id:this.#id,
+            status:this.#status
         }
       }
 }
@@ -97,7 +113,7 @@ export class ProductManager {
             
             if (productFind2.length>0) {
                 // console.log('Ya existe un producto con ese titulo', productFind2);
-                console.log('Ya existe un producto con ese titulo');
+                throw new Error('Producto-duplicado')
             } else {
                 if (producto.title !== undefined && producto.description !== undefined && producto.price !== undefined && producto.stock !== undefined && producto.code !== undefined && producto.category !== undefined) {
             
@@ -112,7 +128,7 @@ export class ProductManager {
             }
         }
         } catch (error) {
-            throw new Error('CARGA-DE-PRODUCTO-FALLIDA')
+            throw new Error('CREACION-FALLIDA')
             
         }
 
@@ -138,7 +154,7 @@ export class ProductManager {
 
         }
         } catch (error) {
-            throw new Error('PRODUCT-NOT-FOUND')
+            throw new Error('NOT-FOUND')
         }
 
     }
@@ -161,7 +177,7 @@ export class ProductManager {
 
         return console.log("producto eliminado correctamente");
         }  catch (error) {
-            throw new Error('PRODUCT-NOT-FOUND')
+            throw new Error('ELIMINACION-FALLIDA')
         }
     }
 
@@ -177,7 +193,7 @@ export class ProductManager {
 
         console.log("El producto se actualizo con exito", prodModificado);
         } catch (error) {
-                throw new Error('PRODUCT-NOT-FOUND')
+                throw new Error('NOT-FOUND')
         }
    }
 

@@ -81,7 +81,7 @@ try {
 
 } )
 
-productsRouter.get('/admin', async (req, res) => {
+productsRouter.get('/admin',soloAdmin, async (req, res) => {
    const productos = await productosRepository.buscarProductos()
    
     res.render('productsAdmin.handlebars',{
@@ -89,7 +89,7 @@ productsRouter.get('/admin', async (req, res) => {
         productos       
     })})
 
-productsRouter.delete('/admin/:pid',async(req,res)=>{
+productsRouter.delete('/admin/:pid',soloAdmin,async(req,res)=>{
     const pid = req.params.pid
     const productoEliminar =  await productosRepository.eliminarProducto(pid)
     res.json(productoEliminar)
@@ -98,7 +98,7 @@ productsRouter.delete('/admin/:pid',async(req,res)=>{
 
     
 
-productsRouter.get('/:pid', async (req,res)=>{
+productsRouter.get('/:pid', async (req,res,next)=>{
 
     try {
         const idProducto = req.params.pid
@@ -125,22 +125,18 @@ productsRouter.get('/:pid', async (req,res)=>{
             })
         }
      } else {
-                throw new Error("no existe el id")
+                throw new Error('NOT-FOUND')
             }
           
         }
          catch(error) {
-             res.status(500).json({
-            message: error.message
-        })
+            next(error)
     }
-
-
 } )
 
 
 
-productsRouter.post('/',soloAdmin, async (req, res) => {
+productsRouter.post('/',soloAdmin, async (req, res,next) => {
     try {
         await productosRepository.buscarProductos()
 
@@ -149,18 +145,16 @@ productsRouter.post('/',soloAdmin, async (req, res) => {
         })
     
         const addProducto = await productosRepository.crear(producto1)
-        // const addProducto = await productosRepository.crear(producto1.dto().title, producto1.dto().description,producto1.dto().price, producto1.dto().thumbnail, producto1.dto().stock, producto1.dto().code,producto1.dto().category)
-        // console.log("addproduct :" , addProducto);
-        // console.log("title :" , producto1);
-        res.json(addProducto)
-        
-    } catch (error) {
-        throw new Error('Imposible cargar el nuevo producto')
+        if(addProducto){
+            res.json(addProducto)
+        }else{throw new Error('CREACION-FALLIDA')}
+        } catch (error) {
+        next(error)
     }
 })
 
 
-productsRouter.put('/:pid',soloAdmin,async( req,res)=>{
+productsRouter.put('/:pid',soloAdmin,async( req,res,next)=>{
 try {
 
     const getProds = await productosRepository.buscarProductos()
@@ -172,7 +166,7 @@ try {
     res.send(prodActualizado)
    
 } catch (error) {
-    throw new Error ('Error: no se encontro el producto filtrado. ')
+   next( new Error ('NOT-FOUND'))
 }
 } )
 
@@ -186,7 +180,7 @@ productsRouter.delete('/:pid',soloAdmin,async( req,res)=>{
         res.send('Producto eliminado correctamente')
        
     } catch (error) {
-        throw new Error ('Error: no se encontro el producto filtrado. ')
+       new Error ('Error: no se encontro el producto filtrado. ')
     }
     } )
 

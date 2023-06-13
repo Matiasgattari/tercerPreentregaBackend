@@ -135,6 +135,8 @@ Formato de usuario : {
 
 "/api/tickets" permite a los Admin visualizar los tickets que haya creados y eliminarlos ya sea de a 1 o a todos juntos.
 
+"/mockingproducts" permite a los Admin acceder a una lista de productos falsos creados de forma aleatoria. 100 productos
+
 Todos los productos cargados tienen un ID propio que les doy autogenerado por el randomUUII, pero para realizar las operaciones internas actualmente cambie al uso del _id (object ID que brinda mongoose)
 Todos estos endpoints a grandes rasgos funcionan, salvo las cosas que marque puntualmente.
 

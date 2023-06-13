@@ -6,20 +6,3 @@ export function soloRol(rol) {
     }
 }
 
-/* La funcion de arriba hace esto
-// function soloProfesores(req, res, next) {
-//     if (req.user?.rol === 'Profesor') return next()
-//     return next(new ErrorDePermisos(`solo disponible para rol Profesor`))
-// }
-
-// function soloEstudiantes(req, res, next) {
-//     if (req.user?.rol === 'Estudiante') return next()
-//     return next(new ErrorDePermisos(`solo disponible para rol Estudiante`))
-// }
-
-// function soloTutores(req, res, next) {
-//     if (req.user?.rol === 'Tutor') return next()
-//     return next(new ErrorDePermisos(`solo disponible para rol Tutor`))
-// }
-
-*/

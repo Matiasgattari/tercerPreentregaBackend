@@ -13,7 +13,7 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
     // construir la URL del endpoint con los parámetros
     const url = `http://localhost:8080/api/carts/${IDCarrito}/product/${idProducto}`;
 
-   
+   console.log(url);
 
     // hacer una petición POST usando fetch
     try {

@@ -120,7 +120,7 @@ serverSocket.on('actualizarProductos', productosStorage => {
     }
 
  } catch (error) {
-    throw new Error("producto no encontrado")
+    throw new Error("NOT-FOUND")
  }
 })
 

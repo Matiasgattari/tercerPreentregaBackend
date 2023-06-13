@@ -20,7 +20,7 @@ botonEliminarTodosTickets?.addEventListener("click",async()=>{
       });
       
       if (!response.ok) {
-        throw new Error('ticket-NOT-FOUND');
+        throw new Error('NOT-FOUND');
       }
       
       const ticketsVacios = await response.json();
@@ -49,7 +49,7 @@ botonEliminarTodosTickets?.addEventListener("click",async()=>{
     //   });
       
     //   if (!response.ok) {
-    //     throw new Error('USER-NOT-FOUND');
+    //     throw new Error('NOT-FOUND');
     //   }
       
     //   const ticketsVacios = await response.json();
@@ -79,7 +79,7 @@ botonEliminarTicket?.addEventListener("click",async(e)=>{
   });
   
   if (!response.ok) {
-    throw new Error('ticket-NOT-FOUND');
+    throw new Error('NOT-FOUND');
   }
   
   const ticketsVacios = await response.json();

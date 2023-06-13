@@ -10,30 +10,50 @@ export class MensajesManager {
     }
 
     async #leer() {
+     try {
         const mensajes = await mensajesDB.find().lean()
         this.#mensajes = mensajes
+     } catch (error) {
+        throw new Error('SERVER-COMUNICATION-ERROR')
+     }
     }
 
     async #escribir(mensaje) {
+       try {
         await this.#leer
         await mensajesDB.create(mensaje)
+       } catch (error) {
+        throw new Error('CREACION-FALLIDA')
+       }
     }
 
     async guardarMensajes(mensajes) {
+     try {
         await this.#leer()
         this.#mensajes.push(mensajes)
         await this.#escribir(mensajes)
         return mensajes
+     } catch (error) {
+        throw new Error('CREACION-FALLIDA')
+     }
     }
 
     async buscarMensajes() {
-        await this.#leer()
-        return this.#mensajes
+        try {
+            await this.#leer()
+            return this.#mensajes
+        } catch (error) {
+            throw new Error('SERVER-COMUNICATION-ERROR')
+        }
     }
 
     async borrar() {
-        await mensajesDB.deleteMany({})
-        return this.#mensajes=[]
+        try {
+            await mensajesDB.deleteMany({})
+            return this.#mensajes=[]
+        } catch (error) {
+            throw new Error('ELIMINACION-FALLIDA')
+        }
     }
 }
 

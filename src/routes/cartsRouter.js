@@ -99,8 +99,11 @@ cartsRouter.post('/:cid/product/:pid',soloLogueados, async (req, res) => {
     try {
         const cid = req.params.cid
         const pid = req.params.pid
+        // console.log(cid);
+        // console.log(pid);
         const agregarCarrito = await carritosRepository.agregarProductoAlCarrito(cid,pid)
         res.json(agregarCarrito)
+        // res.json({ok:"ok"})
     } catch (error) {
         throw new Error('id no encontrado')
     }

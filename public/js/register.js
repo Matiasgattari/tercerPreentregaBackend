@@ -67,7 +67,7 @@ const response = await fetch('/api/usuarios', {
   });
   
   if (!response.ok) {
-    throw new Error('USER-NOT-FOUND');
+    throw new Error('NOT-FOUND');
   }
   
   const usuarioCreado = await response.json();

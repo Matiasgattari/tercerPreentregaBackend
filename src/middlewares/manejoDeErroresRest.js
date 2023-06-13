@@ -2,42 +2,42 @@
 //manejador de errores API REST (el manejo de erroes en web, es con redirects)
 export function manejadorDeErrores(error, req, res, next) {
     switch (error.tipo) {
-        case 'ERROR_DE_AUTENTICACION':
-            res.status(401)
-            break
         case 'Campo-vacio':
-            res.status(401)
+            res.status(401).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
             break
         case 'Campo-con-valor-invalido':
-            res.status(401)
+            res.status(401).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
             break
         case 'NOT-FOUND':
-            res.status(401)
+            res.status(401).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
             break
         case 'SERVER-COMUNICATION-ERROR':
-            res.status(401)
+            res.status(401).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
+            break
+        case 'CREACION-FALLIDA':
+            res.status(403).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
+            break
+        case 'MODIFICACION-FALLIDA':
+            res.status(403).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
+            break
+        case 'Producto-duplicado':
+            res.status(403).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
+            break
+        case 'ELIMINACION-FALLIDA':
+            res.status(403).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
+            break
+        case 'ERROR_DE_AUTENTICACION':
+            res.status(401).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
             break
         case 'ERROR_DE_PERMISOS':
-            res.status(403)
-            break
-        case 'CREACION-DE-CARRITO-FALLIDA':
-            res.status(403)
-            break
-        case 'CART-NOT-FOUND':
-            res.status(403)
-            break
-        case 'CARGA-DE-PRODUCTO-FALLIDA':
-            res.status(403)
-            break
-        case 'USER-NOT-FOUND':
-            res.status(403)
+            res.status(403).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
             break
         default:
-            res.status(500)
+            res.status(500).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
     }
     
     console.log("*******************************" + "Informacion de error " +  " ****************************************** ")
-    console.log( "Error: " + error )
+    console.log( "Error: " + error.message )
     console.log("*********************************************************************************************************** ")
-    res.json({ errorMsg: error.message })
+    // res.json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
 }

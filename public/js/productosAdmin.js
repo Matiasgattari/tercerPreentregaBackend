@@ -40,7 +40,7 @@ eliminarBTNAdmin?.addEventListener("click",async (e)=>{
       });
       
       if (!response.ok) {
-        throw new Error('ticket-NOT-FOUND');
+        throw new Error('NOT-FOUND');
       }
       
       const productoEliminado = await response.json();
@@ -85,7 +85,7 @@ cargarBTNAdmin?.addEventListener("click",async (e)=>{
       });
       
       if (!response.ok) {
-        throw new Error('ticket-NOT-FOUND');
+        throw new Error('NOT-FOUND');
       }
       
       const productoAgregado = await response.json();

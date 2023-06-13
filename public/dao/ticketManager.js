@@ -31,7 +31,7 @@ export class TicketManager {
             const ticketFiltrado = await ticketsModel.find({_id:id}).lean()
             if (!ticketFiltrado) {return "ticket not found"} else {return ticketFiltrado}
            } catch (error) {
-            throw new Error('ticket-NOT-FOUND')
+            throw new Error('NOT-FOUND')
            }
     }
     async getTicketByUserName(userName) {
@@ -41,7 +41,7 @@ export class TicketManager {
           return ticketFiltrado;
         }
         else {
-          throw new Error("USER-NOT-FOUND");
+          throw new Error("NOT-FOUND");
         }
       } catch (error) {
           throw error;
@@ -64,7 +64,7 @@ export class TicketManager {
             await ticketsModel.create(ticket)
             await this.saveTicketsLocal()
            } catch (error) {
-            throw new Error('CAMPOS-INCOMPLETOS')
+            throw new Error('Campo-con-valor-invalido')
            }
     }
     async updateTicket(id,ticketModificado){
@@ -74,7 +74,7 @@ export class TicketManager {
             await ticketsModel.findOneAndUpdate(filtro,update)
             await this.saveTicketsLocal()
            } catch (error) {
-            throw new Error('ticket-NOT-FOUND')
+            throw new Error('NOT-FOUND')
            }
     }
 
@@ -84,7 +84,7 @@ export class TicketManager {
             await ticketsModel.findByIdAndDelete(id)
             await this.saveTicketsLocal()
            } catch (error) {
-            throw new Error('ticket-NOT-FOUND')
+            throw new Error('ELIMINACION-FALLIDA')
            }
     }
     async deleteAllTickets(){
@@ -92,7 +92,7 @@ export class TicketManager {
             await ticketsModel.deleteMany({})
             await this.saveTicketsLocal()
            } catch (error) {
-            throw new Error('ticket-NOT-FOUND')
+            throw new Error('ELIMINACION-FALLIDA')
            }
     }
 

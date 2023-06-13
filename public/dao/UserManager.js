@@ -35,7 +35,7 @@ export class UserManager {
                 const usuarioFiltrado = await usuarioModel.find({_id:id}).lean()
                 if (!usuarioFiltrado) {return "user not found"} else {return usuarioFiltrado}
                } catch (error) {
-                throw new Error('USER-NOT-FOUND')
+                throw new Error('NOT-FOUND')
                }
         }
         async getUserByUserName(userName) {
@@ -45,10 +45,10 @@ export class UserManager {
               return usuarioFiltrado;
             }
             else {
-              throw new Error("USER-NOT-FOUND");
+              throw new Error("NOT-FOUND");
             }
           } catch (error) {
-              throw error;
+            throw new Error('NOT-FOUND')
           }
         }
         async saveUsersLocal(){
@@ -71,7 +71,7 @@ export class UserManager {
                 await this.saveUsersLocal()
                 return toPojo(usuarioCreado)
                } catch (error) {
-                throw new Error('CAMPOS-INCOMPLETOS')
+                throw new Error('Campo-vacio')
                }
         }
 
@@ -83,7 +83,7 @@ export class UserManager {
                 await this.saveUsersLocal()
                 return toPojo(modificado)
                } catch (error) {
-                throw new Error('USER-NOT-FOUND')
+                throw new Error('NOT-FOUND')
                }
         }
 
@@ -93,7 +93,7 @@ export class UserManager {
                 await this.saveUsersLocal()
                 return toPojo(eliminado)
                } catch (error) {
-                throw new Error('USER-NOT-FOUND')
+                throw new Error('ELIMINACION-FALLIDA')
                }
         }
 

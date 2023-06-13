@@ -1,15 +1,5 @@
 [
   {
-    "_id": "6485133c024ed2d6a37c5c4b",
-    "email": "lea.mg90@gmail.com",
-    "password": "$2b$10$PnDtvpv1Mm6pNIbUnWRTzOdC3I6GYNKX9MI8oMSIy.8kWuNFqxqj2",
-    "first_name": "Matias",
-    "last_name": "Gattari",
-    "age": 33,
-    "rol": "Admin",
-    "cart": "6485133b024ed2d6a37c5c49"
-  },
-  {
     "_id": "64851351024ed2d6a37c5c52",
     "email": "mariano@aquino.com",
     "password": "$2b$10$0zBzuImlSZp85BMiAptn0uC45nrV7.ORuhEdixKcWcFnTnTpvpGru",
@@ -58,5 +48,15 @@
     "age": 34,
     "rol": "User",
     "cart": "6488d77cd00d77343cf5eace"
+  },
+  {
+    "_id": "6488eec8240bedad93228ae2",
+    "email": "matias@gattari.com",
+    "password": "$2b$10$Kc80VxngxqVD1hRUuw3VP.YRFi5tX35ww6hhAXsqiBeDjAhqta35S",
+    "first_name": "matias",
+    "last_name": "gattari",
+    "age": 33,
+    "rol": "Admin",
+    "cart": "6488eec8240bedad93228ae0"
   }
 ]
