@@ -2,7 +2,8 @@ import { productosRepository } from "../../repository/productosRepository.js";
 import util from 'node:util'
 
 export async function homeController(req, res, next) {
-  
+  try {
+    
     const listado1 = await productosRepository.buscarProductos()
     
     const producto = [];
@@ -18,4 +19,7 @@ export async function homeController(req, res, next) {
             producto:listado1,
             hayProductos: producto.length > 0
         })
+  } catch (error) {
+    next(error)
+  }
 }

@@ -63,8 +63,54 @@
     "products": []
   },
   {
+    "_id": "6488bd3e1bfddd38122e9cdf",
     "id": "87eef77d-c63a-4759-9780-234265eb84ed",
     "quantity": 0,
     "products": []
+  },
+  {
+    "_id": "6488d5c332edf25b1e7c5577",
+    "id": "0a2f5ddc-dac5-42d4-8874-8ccb484d8a9a",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "6488d77cd00d77343cf5eace",
+    "id": "451f76cc-2fc0-40bd-807e-f29022c2c630",
+    "quantity": 2,
+    "products": [
+      {
+        "productID": {
+          "_id": "648346e20be32cd25d6d5f60",
+          "title": "charmander",
+          "description": "numero pokedex 4",
+          "price": 15000,
+          "thumbnail": "charmander.jpg",
+          "stock": 10,
+          "code": "pokemon salamandra",
+          "category": "fuego",
+          "status": true,
+          "id": "2f6e5c9c-5235-4aa4-bb13-52c10516cd2a"
+        },
+        "quantity": 1,
+        "_id": "6488d8dae491a07bbbf7dfc3"
+      },
+      {
+        "productID": {
+          "_id": "64854818fd9d5197191a86bf",
+          "title": "lapras",
+          "description": "numero pokedex 131",
+          "price": 40000,
+          "thumbnail": "lapras.jpg",
+          "stock": 8,
+          "code": "pokemon montura",
+          "category": "agua hielo",
+          "status": true,
+          "id": "1651040b-6fab-42f3-81d5-221f8a13d6d4"
+        },
+        "quantity": 1,
+        "_id": "6488d8dee491a07bbbf7dfd5"
+      }
+    ]
   }
 ]

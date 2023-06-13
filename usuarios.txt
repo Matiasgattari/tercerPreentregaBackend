@@ -38,5 +38,25 @@
     "age": 6,
     "rol": "User",
     "cart": "6488bd3e1bfddd38122e9cdf"
+  },
+  {
+    "_id": "6488d5c332edf25b1e7c5579",
+    "email": "mei@gattari.com",
+    "password": "$2b$10$JithKk.1WEJCeJfJCl5aW.Gh7wLgW0HfuW5QCiMCHG.OuB0XjdAqO",
+    "first_name": "mei",
+    "last_name": "gattari",
+    "age": 13,
+    "rol": "User",
+    "cart": "6488d5c332edf25b1e7c5577"
+  },
+  {
+    "_id": "6488d77cd00d77343cf5ead0",
+    "email": "nicolas@cesa.com",
+    "password": "$2b$10$q09YucWjyIIi3N1ZevAxqer/2o/.ewRw/c1d4S8vydTOybwzcmTDq",
+    "first_name": "nicolas",
+    "last_name": "cesa",
+    "age": 34,
+    "rol": "User",
+    "cart": "6488d77cd00d77343cf5eace"
   }
 ]

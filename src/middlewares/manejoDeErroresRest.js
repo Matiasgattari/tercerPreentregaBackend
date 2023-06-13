@@ -5,10 +5,13 @@ export function manejadorDeErrores(error, req, res, next) {
         case 'ERROR_DE_AUTENTICACION':
             res.status(401)
             break
-        case 'CAMPOS-INCOMPLETOS':
+        case 'Campo-vacio':
             res.status(401)
             break
-        case 'PRODUCT-NOT-FOUND':
+        case 'Campo-con-valor-invalido':
+            res.status(401)
+            break
+        case 'NOT-FOUND':
             res.status(401)
             break
         case 'SERVER-COMUNICATION-ERROR':
@@ -33,6 +36,8 @@ export function manejadorDeErrores(error, req, res, next) {
             res.status(500)
     }
     
-    console.log("*******************************" + "Informacion de error: " + error + " ****************************************** ")
+    console.log("*******************************" + "Informacion de error " +  " ****************************************** ")
+    console.log( "Error: " + error )
+    console.log("*********************************************************************************************************** ")
     res.json({ errorMsg: error.message })
 }

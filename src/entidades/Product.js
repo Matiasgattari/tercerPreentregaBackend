@@ -24,6 +24,19 @@ export class Product {
         stock,
         category}
     ) {
+        if (!title||!description||!price||!thumbnail||!code||!stock||!category) {
+            throw new Error('Campo-vacio')
+          }
+          
+          if(typeof(price)!=="number"||typeof(stock)!=="number"){
+            throw new Error('Campo-con-valor-invalido')
+          }
+          
+          if(typeof(title)!=="string"||typeof(description)!=="string"||typeof(thumbnail)!=="string"||typeof(code)!=="string"||typeof(category)!=="string"){
+            throw new Error('Campo-con-valor-invalido')
+          }
+
+
         this.#title = title;
         this.#description = description;
         this.#price = price;

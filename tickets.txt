@@ -14,5 +14,13 @@
     "monto": 30000,
     "cart": "6488aff7596de2eac5b46fa4",
     "code": "071e35f1-fc06-43b8-8186-ed68cdf3b4e3"
+  },
+  {
+    "_id": "6488d8e0e491a07bbbf7dfe5",
+    "date": "13/6/2023",
+    "usuario": "nicolas@cesa.com",
+    "monto": 55000,
+    "cart": "6488d77cd00d77343cf5eace",
+    "code": "0727ef28-d67c-4a47-9f97-cc2d0b606b18"
   }
 ]

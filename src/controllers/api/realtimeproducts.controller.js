@@ -2,7 +2,8 @@ import { productosRepository } from "../../repository/productosRepository.js"
 import { io } from "../../servidor.js"
 
 export async function realTimeProductsController(req, res, next){
-
+try {
+        
     const listado1 = await productosRepository.buscarProductos()
 
     // recibir producto nuevo para agregar por socket.io
@@ -33,4 +34,7 @@ export async function realTimeProductsController(req, res, next){
             listado,
             hayListado: listado.length > 0
     })
+} catch (error) {
+        next(error)
+}
 }

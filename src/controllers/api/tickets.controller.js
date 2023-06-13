@@ -2,7 +2,8 @@ import { ticketsRepository } from "../../repository/ticketsRepository.js";
 import util from 'node:util'
 
 export async function ticketsController(req, res, next) {
-  
+  try {
+    
     const listado = await ticketsRepository.buscarTickets()
     
     const arrayTickets = [];
@@ -18,4 +19,7 @@ export async function ticketsController(req, res, next) {
             arrayTickets:arrayTickets,
             hayTickets: arrayTickets.length > 0
         })
+  } catch (error) {
+    next(error)
+  }
   }

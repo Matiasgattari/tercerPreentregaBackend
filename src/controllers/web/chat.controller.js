@@ -5,8 +5,8 @@ import {
     io
 } from "../../servidor.js";
 
-export function chatController(req, res) {
-
+export function chatController(req, res,next) {
+try {
     io.on('connection', async clientSocket => {
 
         // evento para nuevos mensajes
@@ -35,4 +35,8 @@ export function chatController(req, res) {
     res.render('chat', {
         user: req.user
     });
+} catch (error) {
+    next(error)
+}
+
 }
