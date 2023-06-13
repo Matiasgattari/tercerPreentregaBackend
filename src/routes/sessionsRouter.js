@@ -21,6 +21,7 @@ import { passportInitialize, passportSession } from '../middlewares/passport.js'
 import { postAUsuarios } from '../controllers/api/usuarios.controller.js';
 import { sinLoguear, soloLogueados } from '../middlewares/soloLogueados.js';
 import { usuariosService } from '../servicios/usuariosService.js';
+import { usuariosRepository } from '../repository/usuariosRepository.js';
 //importo el manejo de errores
 // import { manejadorDeErrores } from '../middlewares/manejoDeErroresRest.js';
 
@@ -63,7 +64,7 @@ sessionsRouter.get('/current',soloLogueados,profileView)
 
 sessionsRouter.get('/login',sinLoguear,async (req,res)=>{
 
-        const listaUsuarios = await usuariosService.buscarUsuarios()
+        const listaUsuarios = await usuariosRepository.buscarUsuarios()
 
         const conUtil=util.inspect(listaUsuarios, false, 10)
         const listaUsuariosArray = []

@@ -5,18 +5,7 @@
     "quantity": 3,
     "products": [
       {
-        "productID": {
-          "_id": "648347e68b1cc5f0329214f0",
-          "title": "lapras",
-          "description": "numero pokedex 131",
-          "price": 50000,
-          "thumbnail": "lapras.jpg",
-          "stock": 5,
-          "code": "pokemon montura acuatica",
-          "category": "agua hielo",
-          "status": true,
-          "id": "38cbead4-2fc8-4599-948d-a9819f6aca8e"
-        },
+        "productID": null,
         "quantity": 1,
         "_id": "6485158ef381ed30f48e3e83"
       },
@@ -60,5 +49,22 @@
         "_id": "64851393024ed2d6a37c5c7b"
       }
     ]
+  },
+  {
+    "_id": "6488aff0596de2eac5b46f9f",
+    "id": "9b79b310-3fa0-4d44-a50b-1df356752503",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "6488aff7596de2eac5b46fa4",
+    "id": "e532cc8f-1116-4c75-a908-858b449d739e",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "id": "87eef77d-c63a-4759-9780-234265eb84ed",
+    "quantity": 0,
+    "products": []
   }
 ]

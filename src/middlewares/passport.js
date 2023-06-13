@@ -15,6 +15,7 @@ import { githubCallbackUrl, githubClientSecret, githubClienteId } from '../confi
 
 //SERVICIOS
 import { usuariosService } from '../servicios/usuariosService.js'
+import { usuariosRepository } from '../repository/usuariosRepository.js'
 
 
 // @ts-ignore
@@ -22,8 +23,9 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
     try {
         let buscado
         try {
-            buscado = await usuarioModel.findOne({ email: req.body.email }).lean()
-            buscado = await usuariosService.buscarUsuarioPorEmail(req.body.email)
+            // buscado = await usuarioModel.findOne({ email: req.body.email }).lean()
+            // buscado = await usuariosService.buscarUsuarioPorEmail(req.body.email)
+            buscado = await usuariosRepository.buscarUsuarioPorUsername(req.body.email)
             
         } catch (error) {
             return done(new Error('error de autenticacion'))
@@ -34,8 +36,9 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
             return done(null, false, { message: 'Contraseña incorrecta' })
         }
     
-        // @ts-ignore
-        const user = new User({
+        
+        
+        const user = await usuariosService.crearUsuario({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
@@ -67,14 +70,16 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
         const email = profile.emails[0].value
         // console.log(email);
 
-        const usuarioBuscado = await usuariosService.buscarUsuarioPorEmail(email)
+        // const usuarioBuscado = await usuariosService.buscarUsuarioPorEmail(email)
+        const usuarioBuscado = await usuariosRepository.buscarUsuarioPorUsername(email)
         // console.log("USUARIO BUSCADO POR SERVICIO", usuarioBuscado);
         
         if (usuarioBuscado) {
             // console.log("USUARIO ENCONTRADO");
             done(null, usuarioBuscado);
         } else {
-            let user = new User({
+            
+            let user = await usuariosService.crearUsuario({
                 first_name: profile['_json'].login || "Pendiente nombre",
                 last_name: profile['_json'].html_url || "Pendiente apellido",
                 email: email,
@@ -85,7 +90,7 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
             });
 
             
-            await usuariosService.registrar(user);
+            await usuariosRepository.crearUsuario(user)
             console.log("USUARIO CREADO CON EXITO", user);
             done(null, user);
         }

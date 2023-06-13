@@ -1,1 +1,50 @@
-{}
+[
+  {
+    "_id": "648346e20be32cd25d6d5f60",
+    "title": "charmander",
+    "description": "numero pokedex 4",
+    "price": 15000,
+    "thumbnail": "charmander.jpg",
+    "stock": 10,
+    "code": "pokemon salamandra",
+    "category": "fuego",
+    "status": true,
+    "id": "2f6e5c9c-5235-4aa4-bb13-52c10516cd2a"
+  },
+  {
+    "_id": "6483478c373fadc94de4632b",
+    "title": "squirtle",
+    "description": "numero pokedex 7",
+    "price": 15000,
+    "thumbnail": "squirtle.jpg",
+    "stock": 10,
+    "code": "pokemon tortuga",
+    "category": "agua",
+    "status": true,
+    "id": "581c0b96-3087-4404-86a8-a733063207b7"
+  },
+  {
+    "_id": "64854632174ba43ec993aa8c",
+    "title": "eevee",
+    "description": "pokemon evolucion",
+    "price": 30000,
+    "thumbnail": "eevee.jpg",
+    "stock": 15,
+    "code": "zorro",
+    "category": "normal",
+    "status": true,
+    "id": "7beee976-4e7a-4064-8ba8-e3cba9f05ca0"
+  },
+  {
+    "_id": "64854818fd9d5197191a86bf",
+    "title": "lapras",
+    "description": "numero pokedex 131",
+    "price": 40000,
+    "thumbnail": "lapras.jpg",
+    "stock": 8,
+    "code": "pokemon montura",
+    "category": "agua hielo",
+    "status": true,
+    "id": "1651040b-6fab-42f3-81d5-221f8a13d6d4"
+  }
+]

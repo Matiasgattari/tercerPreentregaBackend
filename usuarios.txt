@@ -18,5 +18,25 @@
     "age": 36,
     "rol": "User",
     "cart": "64851351024ed2d6a37c5c50"
+  },
+  {
+    "_id": "6488aff7596de2eac5b46fa6",
+    "email": "adminCoder@coder.com",
+    "password": "$2b$10$iP/n.AY/toOyGwP8QuLJqeeVAUMSkxSGtGijipCyDzae.N/93l2G2",
+    "first_name": "cuentaPrueba",
+    "last_name": "coderhouse",
+    "age": 1,
+    "rol": "Admin",
+    "cart": "6488aff7596de2eac5b46fa4"
+  },
+  {
+    "_id": "6488bd3e1bfddd38122e9ce1",
+    "email": "endi@gattari.com",
+    "password": "$2b$10$urdyMPM7mbjWwNunPlH.XOEx9oi9Ucka.XLRN6hrPlMAfT0Hxf0DG",
+    "first_name": "endimion",
+    "last_name": "gattari",
+    "age": 6,
+    "rol": "User",
+    "cart": "6488bd3e1bfddd38122e9cdf"
   }
 ]

@@ -6,5 +6,13 @@
     "monto": 15000,
     "cart": "6485133b024ed2d6a37c5c49",
     "code": "b869f199-fc07-481e-9ec0-060759e655c9"
+  },
+  {
+    "_id": "6488b71c424925bfe8411d71",
+    "date": "13/6/2023",
+    "usuario": "adminCoder@coder.com",
+    "monto": 30000,
+    "cart": "6488aff7596de2eac5b46fa4",
+    "code": "071e35f1-fc06-43b8-8186-ed68cdf3b4e3"
   }
 ]

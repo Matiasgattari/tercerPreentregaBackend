@@ -12,7 +12,6 @@ import { cartsRouter } from './routes/cartsRouter.js';
 import { sessionsRouter } from './routes/sessionsRouter.js';
 
 //CFG
-import util from 'node:util'
 import { PORT } from './config/config.sv.js';
 
 //inicializando mongoose en el sv
@@ -32,10 +31,13 @@ import { chatController } from './controllers/web/chat.controller.js';
 import passport from 'passport';
 import { antenticacionPorGithub_CB, autenticacionPorGithub, autenticacionUserPass, passportInitialize } from './middlewares/passport.js';
 import { passportSession } from './middlewares/passport.js';
-import { productosService } from './servicios/productosService.js';
-import { productosRepository } from './repository/productosRepository.js';
-import { toPojo } from './utils/utilidades.js';
-import { ticketsRepository } from './repository/ticketsRepository.js';
+
+import { mockingController } from './controllers/mocking.controller.js';
+import { ticketsController } from './controllers/api/tickets.controller.js';
+import { ticketDeleteController, ticketPutController } from './controllers/api/ticket.controller.js';
+import { homeController } from './controllers/api/home.controller.js';
+import { realTimeProductsController } from './controllers/api/realtimeproducts.controller.js';
+import { deleteSesiones } from './controllers/api/usuariosLogout.controller.js';
 
 
 const app = express()
@@ -61,13 +63,12 @@ app.use('/api/sessions', sessionsRouter)
 
 const httpServer = app.listen(PORT)
 console.log(`Servidor escuchando en puerto ${PORT}`);
-// lo mismo que me devuelve el http.createServer() !!
 
 export const io = new SocketIOServer(httpServer)
 
 
 app.get('/', async (req, res) => {
-   res.json({"message":"bienvenido al servidor"})
+   res.json({"message":"bienvenido al servidor, ingrese a http://localhost:8080/api/sessions/ para poder registrarse o iniciar sesion."})
 })
 
 
@@ -86,119 +87,35 @@ sessionsRouter.get('/github', autenticacionPorGithub)
 sessionsRouter.get('/githubcallback', antenticacionPorGithub_CB, (req, res, next) => { res.redirect('/api/sessions/current') })
 
 //LOGOUT
-app.delete('/api/usuariosLogin', async function deleteSesiones(req, res, next) {
-    req.session.destroy(err => {
-      res.sendStatus(200)
-    })
-  })
+app.delete('/api/usuariosLogin', deleteSesiones)
 
 
+//PRODUCTOS
+app.get('/realtimeproducts',soloLogueados,soloAdmin, realTimeProductsController)
 
-app.get('/realtimeproducts',soloLogueados,soloAdmin, async (req, res, next) => {
-
-    const listado1 = await productosRepository.buscarProductos()
-
-    // recibir producto nuevo para agregar por socket.io
-    io.on('connection', async clientSocket => {
-
-            clientSocket.on('nuevoProducto',async function agregarProd(productoAgregar){
-            
-            await productosRepository.crear(productoAgregar)
-
-            })
-            
-            clientSocket.emit('actualizarProductos', listado1)
-            
-
-            clientSocket.on('eliminarProducto', async productoEliminar => {
-              await  productosRepository.eliminarProducto(productoEliminar)
-            })
-
-    })
-
-    const listado = [];
-    
-    listado1.forEach(element => {listado.push(JSON.stringify(element))});
-
-    res.render('realTimeProducts.handlebars', {
-            titulo: 'Products',
-            encabezado: 'Lista de productos en base de datos',
-            listado,
-            hayListado: listado.length > 0
-    })
-})
+app.get('/home',soloLogueados, homeController)
 
 
+//TICKETS 
+app.get('/api/tickets',soloAdmin, ticketsController)
 
-app.get('/home', async (req, res, next) => {
-  
-    const listado1 = await productosRepository.buscarProductos()
-    
-    const producto = [];
-    // listado1.forEach(element => {producto.push(element)
-    listado1.forEach(element => {producto.push(util.inspect(element, false, 10))
-    });
-    // console.log(producto)
-    // console.log(typeof(producto[0]))
+app.delete('/api/tickets', soloAdmin, ticketDeleteController)
+
+app.put('/api/tickets/:tid', soloAdmin, ticketPutController)
 
 
-
-        res.render('home.handlebars', {
-            titulo: 'Products',
-            encabezado: 'Lista de productos en base de datos',
-            producto:listado1,
-            hayProductos: producto.length > 0
-        })
-})
-
-
-//METODOS PARA ELIMINACION DE TICKETS POR FETCH
-
-app.delete('/api/tickets', soloAdmin, async(req,res,next)=>{
- 
-  const ticketsEliminado = await ticketsRepository.eliminarTodosTickets()
-  res.json(ticketsEliminado)
-})
-
-app.put('/api/tickets/:tid', soloAdmin, async(req,res,next)=>{
-  const tid = req.params.tid
- 
-  const ticketEliminado = await ticketsRepository.eliminarTicket(tid)
-  res.json(ticketEliminado)
-})
-
-
-
-app.get('/api/tickets',soloAdmin, async (req, res, next) => {
-  
-  const listado = await ticketsRepository.buscarTickets()
-  
-  const arrayTickets = [];
-  // listado1.forEach(element => {producto.push(element)
-  listado.forEach(element => {arrayTickets.push(util.inspect(element, false, 10))
-  });
-  // console.log(producto)
-  // console.log(typeof(producto[0]))
-
-
-
-      res.render('tickets.handlebars', {
-          titulo: 'Tickets',
-          encabezado: 'Lista de tickets en base de datos',
-          arrayTickets:arrayTickets,
-          hayTickets: arrayTickets.length > 0
-      })
-})
-
+//CHAT
 app.get('/chat', soloLogueados,chatController)
+
+// MOCKING
+app.get('/mockingproducts',soloAdmin, mockingController);
 
 
 app.get('*', (req,res)=>{
     res.redirect('/')
 })
 
-
+//MANEJADOR DE ERRORES
 app.use(manejadorDeErrores)
-
 
 

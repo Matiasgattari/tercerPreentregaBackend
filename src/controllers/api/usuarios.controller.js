@@ -8,13 +8,14 @@ import {
     privateDecrypt,
     randomUUID
 } from 'crypto'
+import { usuariosRepository } from "../../repository/usuariosRepository.js";
 
 export async function postAUsuarios(req,res,next){
     try {
         const carritoCreado = await carritosRepository.crearCarrito()
-        const user = new User({ first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: hashear(req.body.password), age: req.body.age, rol: req.body.rol,cart: carritoCreado._id });
+        const user = await usuariosService.crearUsuario({ first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: hashear(req.body.password), age: req.body.age, rol: req.body.rol,cart: carritoCreado._id });
         
-        const registrado = await usuariosService.registrar(user)
+        const registrado = await usuariosRepository.crearUsuario(user)
         console.log("Usuario creado correctamente:",registrado);
         
         // funcion de passport para que el registro ya me deje logueado tambien!. ESTE login hace lo mismo que el "done", dejandome el usuario logeado
@@ -34,7 +35,7 @@ export async function postAUsuarios(req,res,next){
 
 export async function getUsersController(req, res, next) {
     
-    const users = await usuariosService.buscarUsuarios()
+    const users = await usuariosRepository.buscarUsuarios()
     res.json(users)
 }
 
