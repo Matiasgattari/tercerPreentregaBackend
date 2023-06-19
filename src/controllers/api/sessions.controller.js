@@ -5,6 +5,7 @@ export function getCurrentSessionController(req, res, next) {
      // res.json(req.session['user'] )
      res.json(req.user)
    } catch (error) {
+    req.logger.error(error.message)
     next(error)
    }
 }
@@ -17,6 +18,7 @@ export async function logoutSessionsController(req, res, next) {
         }) 
         res.sendStatus(200)
     } catch (error) {
+        req.logger.error(error.message)
         next(error)
     }
 }

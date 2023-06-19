@@ -1,9 +1,11 @@
 import { ticketManager } from "../../public/dao/ticketManager.js"
+import { winstonLogger } from "../utils/winstonLogger.js"
 
 class TicketsRepository {
 
     
   async crearTicket(ticket) {
+    winstonLogger.verbose("crear ticket repository")
     const creado = await ticketManager.createTicket(ticket)
     return creado
   }
@@ -26,6 +28,7 @@ class TicketsRepository {
 
   async eliminarTicket(id){
     const ticket = await ticketManager.deleteTicket(id) 
+    winstonLogger.debug("ticket a eliminar: " + ticket)
     return "ticket eliminado"
   }
 

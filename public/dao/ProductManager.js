@@ -16,6 +16,7 @@ import { Persistencia } from './fileSystemProducts.js';
 import { toPojo } from '../../src/utils/utilidades.js';
 import { productosService } from '../../src/servicios/productosService.js';
 import { productosRepository } from '../../src/repository/productosRepository.js';
+import { winstonLogger } from '../../src/utils/winstonLogger.js';
 
 
 //constructor para creacion de productos nuevos
@@ -175,7 +176,8 @@ export class ProductManager {
         const jsonProducts = JSON.stringify(this.products, null, 2)
         await this.persistencia.saveTxt(jsonProducts)
 
-        return console.log("producto eliminado correctamente");
+        // return console.log("producto eliminado correctamente");
+        return "producto eliminado correctamente"
         }  catch (error) {
             throw new Error('ELIMINACION-FALLIDA')
         }
@@ -191,7 +193,8 @@ export class ProductManager {
         const jsonProducts = JSON.stringify(this.products, null, 2)
         await this.persistencia.saveTxt(jsonProducts)
 
-        console.log("El producto se actualizo con exito", prodModificado);
+        // console.log("El producto se actualizo con exito", prodModificado);
+        winstonLogger.debug("El producto se actualizo con exito" + prodModificado)
         } catch (error) {
                 throw new Error('NOT-FOUND')
         }

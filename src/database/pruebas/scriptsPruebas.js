@@ -1,13 +1,15 @@
 import mongoose, { Schema } from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate-v2'
 import util from 'node:util'
+import { winstonLogger } from '../../utils/winstonLogger';
 // import { productManager } from '../../public/productManager.js';
 
 // import { MONGODB_PATH } from './src/config/config.mongo';
 // import { CartManager } from '../../public/CartManager.js';
 
 await mongoose.connect('mongodb://127.0.0.1:27017/ecommerce')
-console.log(`conectado a base de datos en ${'mongodb://127.0.0.1:27017/ecommerce'}`);
+// console.log(`conectado a base de datos en ${'mongodb://127.0.0.1:27017/ecommerce'}`);
+winstonLogger.info(`conectado a base de datos en ${'mongodb://127.0.0.1:27017/ecommerce'}`)
 //-------------------------------------------CARRITOS-------------------------------------------
 
 // const vis = [

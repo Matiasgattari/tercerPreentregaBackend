@@ -10,8 +10,8 @@ export async function ticketsController(req, res, next) {
     
     listado.forEach(element => {arrayTickets.push(util.inspect(element, false, 10))
     });
-    // console.log(producto)
-    // console.log(typeof(producto[0]))
+    req.logger.debug(' tickets controller, cantidad: ' + arrayTickets.length)
+    
     
         res.render('tickets.handlebars', {
             titulo: 'Tickets',
@@ -20,6 +20,7 @@ export async function ticketsController(req, res, next) {
             hayTickets: arrayTickets.length > 0
         })
   } catch (error) {
+    req.logger.error(error.message)
     next(error)
   }
   }

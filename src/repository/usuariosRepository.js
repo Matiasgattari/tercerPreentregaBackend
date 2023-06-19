@@ -1,9 +1,11 @@
 import { userManager } from "../../public/dao/UserManager.js"
+import { winstonLogger } from "../utils/winstonLogger.js"
 
 class UsuariosRepository {
     
   async crearUsuario(user) {
     const creado = await userManager.createUser(user)
+    winstonLogger.debug("usuario creado repository: " + creado)
     return creado
   }
  
@@ -25,6 +27,7 @@ class UsuariosRepository {
 
   async eliminarUsuario(id){
     const user = await userManager.deleteUser(id) 
+    winstonLogger.debug("Usuario a eliminar repository: " + user)
     return user
   }
 

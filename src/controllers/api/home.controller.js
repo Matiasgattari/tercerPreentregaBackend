@@ -10,8 +10,9 @@ export async function homeController(req, res, next) {
     
     listado1.forEach(element => {producto.push(util.inspect(element, false, 10))
     });
-    // console.log(producto)
-    // console.log(typeof(producto[0]))
+    req.logger.debug('producto home controller : '+ producto)
+    req.logger.debug('tipo de producto recibido: ' + typeof(producto[0]))
+    
 
         res.render('home.handlebars', {
             titulo: 'Products',
@@ -20,6 +21,7 @@ export async function homeController(req, res, next) {
             hayProductos: producto.length > 0
         })
   } catch (error) {
+    req.logger.error(error.message)
     next(error)
   }
 }

@@ -38,5 +38,21 @@
     "monto": 40000,
     "cart": "6488eec8240bedad93228ae0",
     "code": "3e251e72-be84-4168-bf7a-0ed11fd7473b"
+  },
+  {
+    "_id": "6490e09e4877b30af4516f9f",
+    "date": "19/6/2023",
+    "usuario": "lea.mg90@gmail.com",
+    "monto": 10000,
+    "cart": "6490da3e6107bbc975772305",
+    "code": "74eee75b-35ba-41bf-80b5-1437f5467ab8"
+  },
+  {
+    "_id": "6490e09e4877b30af4516fa1",
+    "date": "19/6/2023",
+    "usuario": "lea.mg90@gmail.com",
+    "monto": 10000,
+    "cart": "6490da3e6107bbc975772305",
+    "code": "b7a57bfe-9a60-487b-bb90-b73ef5f935c7"
   }
 ]

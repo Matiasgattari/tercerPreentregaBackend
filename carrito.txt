@@ -102,5 +102,16 @@
         "_id": "6488f00e265273c60abe43a8"
       }
     ]
+  },
+  {
+    "_id": "6490da3e6107bbc975772305",
+    "id": "71d6b9a2-498a-47b1-96ca-abc31f6260d5",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "id": "1098020d-abff-40ae-adc6-4d22d1f6b3f7",
+    "quantity": 0,
+    "products": []
   }
 ]

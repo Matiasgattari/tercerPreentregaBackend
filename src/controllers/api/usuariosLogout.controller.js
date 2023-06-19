@@ -4,6 +4,7 @@ export async function deleteSesiones(req, res, next) {
         res.sendStatus(200)
       })
     } catch (error) {
+      req.logger.error(error.message)
       next(error)
     }
   }

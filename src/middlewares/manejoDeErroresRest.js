@@ -1,3 +1,4 @@
+import { winstonLogger } from "../utils/winstonLogger.js"
 
 //manejador de errores API REST (el manejo de erroes en web, es con redirects)
 export function manejadorDeErrores(error, req, res, next) {
@@ -36,8 +37,8 @@ export function manejadorDeErrores(error, req, res, next) {
             res.status(500).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
     }
     
-    console.log("*******************************" + "Informacion de error " +  " ****************************************** ")
-    console.log( "Error: " + error.message )
-    console.log("*********************************************************************************************************** ")
+    winstonLogger.error("******************************* Informacion de error ****************************************************** ")
+    winstonLogger.error( "Error: " + error.message )
+    winstonLogger.error("*********************************************************************************************************** ")
     // res.json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
 }

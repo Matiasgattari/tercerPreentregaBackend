@@ -16,6 +16,7 @@ import { githubCallbackUrl, githubClientSecret, githubClienteId } from '../confi
 //SERVICIOS
 import { usuariosService } from '../servicios/usuariosService.js'
 import { usuariosRepository } from '../repository/usuariosRepository.js'
+import { winstonLogger } from '../utils/winstonLogger.js'
 
 
 // @ts-ignore
@@ -80,7 +81,8 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
 
             
             await usuariosRepository.crearUsuario(user)
-            console.log("USUARIO CREADO CON EXITO", user);
+            // console.log("USUARIO CREADO CON EXITO", user);
+            winstonLogger.debug("USUARIO CREADO CON EXITO: " + user)
             done(null, user);
         }
     } catch (error) {

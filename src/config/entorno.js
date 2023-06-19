@@ -11,3 +11,5 @@ const entorno = process.env
 // })
 
 export default entorno
+
+export const variableEntorno = entorno.NODE_ENV || 'development'

@@ -40,6 +40,9 @@ import { realTimeProductsController } from './controllers/api/realtimeproducts.c
 import { deleteSesiones } from './controllers/api/usuariosLogout.controller.js';
 
 
+import { loggerPeticion } from './middlewares/winstonLogger.js';
+import { winstonLogger } from './utils/winstonLogger.js';
+
 const app = express()
 
 app.engine('handlebars', engine())
@@ -55,6 +58,7 @@ app.use(express.static('./static')) //permite el uso de los archivos dentro de l
 
 app.use(express.json()) //para poder recibir archivos json desde express
 
+app.use(loggerPeticion)
 
 app.use('/api/products',soloLogueados, productsRouter)
 app.use('/api/carts',soloLogueados, cartsRouter)
@@ -62,8 +66,8 @@ app.use('/api/sessions', sessionsRouter)
 
 
 const httpServer = app.listen(PORT)
-console.log(`Servidor escuchando en puerto ${PORT}`);
-
+// console.log(`Servidor escuchando en puerto ${PORT}`);
+winstonLogger.info(`Servidor escuchando en puerto ${PORT}`)
 export const io = new SocketIOServer(httpServer)
 
 

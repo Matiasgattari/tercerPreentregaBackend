@@ -58,5 +58,25 @@
     "age": 33,
     "rol": "Admin",
     "cart": "6488eec8240bedad93228ae0"
+  },
+  {
+    "_id": "6490da3f6107bbc975772307",
+    "email": "lea.mg90@gmail.com",
+    "password": "$2b$10$mNM0WygjIBqLbDl3k.CdAO8N.dU82OGI51hn9fTCaKBYahUw8IsJ2",
+    "first_name": "matias",
+    "last_name": "gattari",
+    "age": 33,
+    "rol": "Admin",
+    "cart": "6490da3e6107bbc975772305"
+  },
+  {
+    "_id": "6490e2c6e900642b308d04dd",
+    "email": "laurita@rito.com",
+    "password": "$2b$10$CCEKCiO6OuCgvC0yPc9wve8Pcbb6k2H6RZosDGdnkfGNtnmd5/Vau",
+    "first_name": "laura",
+    "last_name": "rito",
+    "age": 24,
+    "rol": "User",
+    "cart": "6490e2c6e900642b308d04db"
   }
 ]

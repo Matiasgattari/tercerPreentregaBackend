@@ -1,7 +1,10 @@
 import { cartManager } from "../../public/dao/CartManager.js"
+import { winstonLogger } from "../utils/winstonLogger.js"
+
 //repositorio tiene operaciones de base de datos, guardar buscar modificar y borrar
 class CarritosRepository {
   async crearCarrito() {
+    winstonLogger.verbose("Desde crear carrito repository")
     const creado = await cartManager.crearCarrito()
     return creado
   }
@@ -32,6 +35,7 @@ class CarritosRepository {
   }
 
   async vaciarCarrito(cid) {
+    winstonLogger.verbose("Desde vaciar carrito repository")
     const carrito = await cartManager.vaciarCarrito(cid) 
     return carrito
   }
