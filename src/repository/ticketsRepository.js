@@ -5,7 +5,7 @@ class TicketsRepository {
 
     
   async crearTicket(ticket) {
-    winstonLogger.verbose("crear ticket repository")
+    winstonLogger.info("crear ticket repository")
     const creado = await ticketManager.createTicket(ticket)
     return creado
   }

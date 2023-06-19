@@ -4,7 +4,7 @@ import { winstonLogger } from "../utils/winstonLogger.js"
 
 class ProductosRepository {
   async crear(producto) {
-    winstonLogger.verbose("Desde crear producto repository")
+    winstonLogger.info("Desde crear producto repository")
     // const creadoAmano= {title:title, description:description, price:price, thumbnail:thumbnail, stock:stock, code:code, category:category}
     const productoCreadoService =await productosService.crearProducto(producto)
     winstonLogger.debug("Producto Creado Service: " + productoCreadoService)

@@ -21,7 +21,7 @@ export async function homeController(req, res, next) {
             hayProductos: producto.length > 0
         })
   } catch (error) {
-    req.logger.error(error.message)
+    req.logger.fatal(error.message)
     next(error)
   }
 }

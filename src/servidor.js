@@ -42,6 +42,7 @@ import { deleteSesiones } from './controllers/api/usuariosLogout.controller.js';
 
 import { loggerPeticion } from './middlewares/winstonLogger.js';
 import { winstonLogger } from './utils/winstonLogger.js';
+import { loggerController } from './controllers/web/logger.controller.js';
 
 const app = express()
 
@@ -114,6 +115,8 @@ app.get('/chat', soloLogueados,chatController)
 // MOCKING
 app.get('/mockingproducts',soloAdmin, mockingController);
 
+//LOGGER
+app.get('/loggerTest', soloLogueados,loggerController)
 
 app.get('*', (req,res)=>{
     res.redirect('/')

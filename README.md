@@ -137,6 +137,8 @@ Formato de usuario : {
 
 "/mockingproducts" permite a los Admin acceder a una lista de productos falsos creados de forma aleatoria. 100 productos
 
+"/loggerTest" permite apreciar por consola todos los mensajes del winsterlogger 
+
 Todos los productos cargados tienen un ID propio que les doy autogenerado por el randomUUII, pero para realizar las operaciones internas actualmente cambie al uso del _id (object ID que brinda mongoose)
 Todos estos endpoints a grandes rasgos funcionan, salvo las cosas que marque puntualmente.
 
@@ -165,4 +167,4 @@ DATOS A TENER EN CUENTA
 
 
 
-- NUEVAMENTE MALFUNCIONANDO /realtimeproducts, creando multiples productos en loop al crear o eliminar 1 producto. En Reparacion. Por ahora hay productos de prueba en la base de datos, aunque puede probarse su funcionalidad, sabiendo que se creara mas de 1.
+- NUEVAMENTE MALFUNCIONANDO /realtimeproducts, creando multiples productos en loop al crear o eliminar 1 producto. En Reparacion. Por ahora hay productos de prueba en la base de datos, aunque puede probarse su funcionalidad, sabiendo que se creara mas de 1. su reemplazo sin socket es /api/products/admin

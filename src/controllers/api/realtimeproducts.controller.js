@@ -35,7 +35,7 @@ req.logger.debug('Desde el realtimeproducts controller, previo al socket')
             hayListado: listado.length > 0
     })
 } catch (error) {
-        req.logger.error(error.message)
+        req.logger.fatal(error.message)
         next(error)
 }
 }

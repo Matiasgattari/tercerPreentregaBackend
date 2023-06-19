@@ -37,8 +37,8 @@ export function manejadorDeErrores(error, req, res, next) {
             res.status(500).json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
     }
     
-    winstonLogger.error("******************************* Informacion de error ****************************************************** ")
-    winstonLogger.error( "Error: " + error.message )
-    winstonLogger.error("*********************************************************************************************************** ")
+    winstonLogger.fatal("******************************* Informacion de error ****************************************************** ")
+    winstonLogger.fatal( "Error: " + error.message )
+    winstonLogger.fatal("*********************************************************************************************************** ")
     // res.json({Comunicado:"ERROR", Tipo:error.tipo,Mensaje: error.message })
 }

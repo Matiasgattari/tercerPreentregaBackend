@@ -16,7 +16,7 @@ export async function postAUsuarios(req,res,next){
         const user = await usuariosService.crearUsuario({ first_name: req.body.first_name, last_name: req.body.last_name, email: req.body.email, password: hashear(req.body.password), age: req.body.age, rol: req.body.rol,cart: carritoCreado._id });
         
         const registrado = await usuariosRepository.crearUsuario(user)
-        req.logger.verbose("Usuario creado correctamente:" + registrado)
+        req.logger.http("Usuario creado correctamente:" + registrado)
         // funcion de passport para que el registro ya me deje logueado tambien!. ESTE login hace lo mismo que el "done", dejandome el usuario logeado
         req.login(user, error => {
             if (error) {

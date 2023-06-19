@@ -10,14 +10,24 @@ import winston from 'winston'
 //     debug: 5,
 //     silly: 6
 // }
+const levelsWinston = {
+    fatal: 0,
+    error: 1,
+    warning: 2,
+    info: 3,
+    http: 4,
+    debug: 5
+}
+
 
 const loggerDesarrollo = winston.createLogger({
+  levels: levelsWinston,
   transports: [
     new winston.transports.Console({
-      level: "verbose",
+      level: "debug",
     }),
     new winston.transports.File({
-        level: "debug",
+        level: "error",
         filename: 'desarrollo.log'
       })
 
@@ -25,6 +35,7 @@ const loggerDesarrollo = winston.createLogger({
 })
 
 const loggerProduccion = winston.createLogger({
+  levels: levelsWinston,
    transports: [
     new winston.transports.File({
       level: "http",

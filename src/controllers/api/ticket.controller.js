@@ -16,7 +16,7 @@ export async function ticketPutController(req,res,next){
       const ticketsEliminado = await ticketsRepository.eliminarTodosTickets()
     res.json(ticketsEliminado)
     } catch (error) {
-      req.logger.error(error.message)
+      req.logger.fatal(error.message)
       next(error)
     }
   }

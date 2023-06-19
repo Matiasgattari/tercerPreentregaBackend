@@ -20,7 +20,7 @@ export async function ticketsController(req, res, next) {
             hayTickets: arrayTickets.length > 0
         })
   } catch (error) {
-    req.logger.error(error.message)
+    req.logger.fatal(error.message)
     next(error)
   }
   }
