@@ -129,6 +129,8 @@ Formato de usuario : {
 
 "api/sessions/login" muestra actualmente un formulario para realizar el login, con su funcionalidad finalizada para reconocer al email y contraseña del usuario para encontrarlo y logear.  El fetch de su logica se realiza hacia fetch('/api/usuariosLogin'), dicha ruta esta creada en server.js . Actualmente renderiza una lista de usuarios creados solo con la finalidad de poder seleccionar los datos de la base de datos para poder realizar las pruebas.  Solo permite el intreso a usuarios sin loguear.
 
+"api/sessions/reestablecer" es la ruta designada para reestablecer la contraseña del usuario. Utiliza en este caso la sesion del usuario ya logeado (pensado para cambiar cotnraseña y no para reestablecerla por olvido), ya que se plantea en el desafio opcional y queria dejar planteada la lògica funcional, por mas de no hacerlo en base a un email como se pedia. La logica funciona, cruza el email, nombre y apellido del usuario (como controles) para cambiar la misma.
+
 "/chat" muestra un chat funcional con socket.io. Solo permite el intreso a usuarios logueados
 
 "/:cid/purchase" realiza la compra del carrito. Para ingresar a esta parte, el usuario debe estar logueado. al ingresar, se toma el carrito por su CID y se cruza con los datos del usuario. 

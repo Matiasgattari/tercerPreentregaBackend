@@ -41,3 +41,19 @@
 {"level":"fatal","message":"error fatal winstonLogger.fatal"}
 {"level":"error","message":" error req.logger.error"}
 {"level":"error","message":"error  winstonLogger.error"}
+{"level":"error","message":"res.sendstatus is not a function"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: res.sendstatus is not a function"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"error","message":"registrado is not defined"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: registrado is not defined"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"error","message":"ERROR_DE_AUTENTICACION"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: ERROR_DE_AUTENTICACION"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"error","message":"ERROR_DE_AUTENTICACION"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: ERROR_DE_AUTENTICACION"}
+{"level":"fatal","message":"*********************************************************************************************************** "}

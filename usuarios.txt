@@ -2,7 +2,7 @@
   {
     "_id": "64851351024ed2d6a37c5c52",
     "email": "mariano@aquino.com",
-    "password": "$2b$10$0zBzuImlSZp85BMiAptn0uC45nrV7.ORuhEdixKcWcFnTnTpvpGru",
+    "password": "$2b$10$9JeTdVAc6xUctF6C8SSLtOt25XJABtv47StnM7oZc.vuajEBdRrbW",
     "first_name": "Mariano",
     "last_name": "Aquino",
     "age": 36,
@@ -78,5 +78,15 @@
     "age": 24,
     "rol": "User",
     "cart": "6490e2c6e900642b308d04db"
+  },
+  {
+    "_id": "6495cbc5bd03e699f2873306",
+    "email": "tamiisoledad4@gmail.com",
+    "password": "$2b$10$.uDxke2.aony6Pgmtuo8QOJ5izNcZfu8IR8ZoAgLMENq5TIWAa4FS",
+    "first_name": "Tamara",
+    "last_name": "Benitez",
+    "age": 123,
+    "rol": "User",
+    "cart": "6495cbc5bd03e699f2873304"
   }
 ]

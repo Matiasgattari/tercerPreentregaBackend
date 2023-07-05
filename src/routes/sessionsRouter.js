@@ -22,6 +22,7 @@ import { postAUsuarios } from '../controllers/api/usuarios.controller.js';
 import { sinLoguear, soloLogueados } from '../middlewares/soloLogueados.js';
 import { usuariosService } from '../servicios/usuariosService.js';
 import { usuariosRepository } from '../repository/usuariosRepository.js';
+import { reestablecerView } from '../controllers/web/reestablecer.controller.js';
 //importo el manejo de errores
 // import { manejadorDeErrores } from '../middlewares/manejoDeErroresRest.js';
 
@@ -61,6 +62,7 @@ sessionsRouter.get('/', async (req, res) => {
 sessionsRouter.get('/register',registroView)
 
 sessionsRouter.get('/current',soloLogueados,profileView)
+sessionsRouter.get('/reestablecer',reestablecerView)
 
 sessionsRouter.get('/login',sinLoguear,async (req,res)=>{
 

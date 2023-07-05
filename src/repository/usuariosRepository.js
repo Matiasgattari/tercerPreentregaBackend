@@ -14,7 +14,7 @@ class UsuariosRepository {
     return user
     
   }
-  async buscarTicketPorId(id){
+  async buscarUsuariosPorId(id){
     const user = await userManager.getUserById(id)
     return user
     

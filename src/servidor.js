@@ -43,6 +43,7 @@ import { deleteSesiones } from './controllers/api/usuariosLogout.controller.js';
 import { loggerPeticion } from './middlewares/winstonLogger.js';
 import { winstonLogger } from './utils/winstonLogger.js';
 import { loggerController } from './controllers/web/logger.controller.js';
+import { reestablecerPost } from './controllers/api/reestablecer.controller.js';
 
 const app = express()
 
@@ -93,6 +94,8 @@ sessionsRouter.get('/githubcallback', antenticacionPorGithub_CB, (req, res, next
 
 //LOGOUT
 app.delete('/api/usuariosLogin', deleteSesiones)
+//REESTABLECER CONTRASEÑA
+app.post('/api/reestablecer',soloLogueados, reestablecerPost)
 
 
 //PRODUCTOS
