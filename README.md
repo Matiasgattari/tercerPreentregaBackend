@@ -47,7 +47,7 @@ Actualmente presenta problemas, "cargar" el producto pedido pero entra en un loo
 Esta trabajado con express-handlebars, siendo su vista /views/realTimeProducts.handlebars  y estando su JS de frontend en /public/js/indexHome.js
 Su código base y endpoints se encuentran dentro de la ruta src/routes/productRouter.js.  Posee funcionalidad en cada elemento, que permite ir a cada producto en particular, para desde el, agregarlo al carrito. Solo accesible para "Admin". Actualmente el crear productos desde esta ruta tiene un error en el socket.io, por lo que la carga de productos se hara desde otra ruta.
 
-"api/products/admin/" es el reemplazo para /realtimeproducts sin depender del socket.io. Permite ver una lista de productos, tiene funcionalidad para agregar o eliminar productos y para ver el producto deseado. Solo Admin
+"api/products/admin/" es el reemplazo para /realtimeproducts sin depender del socket.io. Permite ver una lista de productos, tiene funcionalidad para agregar o eliminar productos y para ver el producto deseado. Solo "Admin" y usuarios "Premium"
 
 "/api/products": Este endpoint muestra una lista completa de todos los productos de la base de datos. Esta trabajado con express-handlebars, siendo su vista /views/products.handlebars, estando su codigo base en src/routes/productRouter.js
 por medio de la renderizacion de express y el paginate, se le agregaron tanto las opciones de paginacion como de busqueda (por pagina y criterio). La busqueda por query aun no esta probada del todo, pero deberia recibir un objeto con un criterio de busqueda como los del find en mongoDB ej: {_id:asdasasdasd}. Metodo GET

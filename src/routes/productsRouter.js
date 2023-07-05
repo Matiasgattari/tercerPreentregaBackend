@@ -7,7 +7,7 @@ import { io } from '../servidor.js';
 import { productosService } from '../servicios/productosService.js';
 import { carritosRepository } from '../repository/carritosRepository.js';
 import { productosRepository } from '../repository/productosRepository.js';
-import { soloAdmin, soloLogueados } from '../middlewares/soloLogueados.js';
+import { AdminPremium, soloAdmin, soloLogueados } from '../middlewares/soloLogueados.js';
 
 export const productsRouter = Router()
 productsRouter.use(express.json())
@@ -81,7 +81,7 @@ try {
 
 } )
 
-productsRouter.get('/admin',soloAdmin, async (req, res) => {
+productsRouter.get('/admin',AdminPremium, async (req, res) => {
    const productos = await productosRepository.buscarProductos()
    
     res.render('productsAdmin.handlebars',{
