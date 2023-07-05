@@ -1,5 +1,5 @@
 import { usuariosRepository } from "../../repository/usuariosRepository.js"
-import { hashear } from "../../utils/criptografia.js";
+import { hashear, validarQueSeanIguales } from "../../utils/criptografia.js";
 
 export async function reestablecerPost(req,res,next){
     try {
@@ -7,6 +7,11 @@ export async function reestablecerPost(req,res,next){
         if(usuarioEncontrado.first_name!==req.body.name ||usuarioEncontrado.last_name!==req.body.last_name  ) {
           throw Error("ERROR_DE_AUTENTICACION")
         }
+       
+       if( validarQueSeanIguales(req.body.password,usuarioEncontrado.password)) {
+           res.status(504).json({message:"las contraseñas no pueden ser identicas"})
+        throw new Error("La contraseña no puede ser identica a la anterior")
+       } else {
         usuarioEncontrado.password=hashear(req.body.password)
 
         const usuarioModificado = await usuariosRepository.actualizarUsuario(usuarioEncontrado._id,usuarioEncontrado)
@@ -21,7 +26,10 @@ export async function reestablecerPost(req,res,next){
                 res.status(201).json(req.user)
             }
         })
+       }
+        
             } catch (error) {
+                // res.status(501).json({message:error.message})
                     req.logger.error(error.message)
                     next(error)
                 }

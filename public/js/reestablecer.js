@@ -37,14 +37,32 @@ if(passwordReestablecer!==passwordConfirmReestablecer) {
       });
       
       if (!response.ok) {
+if(response.status===504) {
+    // @ts-ignore
+    Swal.fire({
+        // title: "Ups... Intente nuevamente"   
+        title: `Las contraseñas no pueden ser identicas`   
+    }).then(()=>{
+        window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
+    })  } else {
         // @ts-ignore
         Swal.fire({
-            title: "Ups... Intente nuevamente"   
+            // title: "Ups... Intente nuevamente"   
+            title: `Error de credenciales, verifique bien los datos`   
         }).then(()=>{
             window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
-        })
+    })
+}
+        // @ts-ignore
+        // Swal.fire({
+        //     // title: "Ups... Intente nuevamente"   
+        //     title: `${response.statusText}`   
+        // }).then(()=>{
+        //     window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
+        // })
       }
       
+      // @ts-ignore
       // @ts-ignore
       const usuarioCreado = await response.json();
    

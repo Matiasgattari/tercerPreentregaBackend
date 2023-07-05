@@ -18,3 +18,10 @@ if (boton_logout) {
     })
   }
 
+
+  const boton_reestablecer_contrasenia = document.getElementById("btn_reestablecer_profile")
+
+boton_reestablecer_contrasenia?.addEventListener("click", (e)=>{
+  e.preventDefault()
+  window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
+})

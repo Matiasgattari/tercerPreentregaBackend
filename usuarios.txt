@@ -2,7 +2,7 @@
   {
     "_id": "64851351024ed2d6a37c5c52",
     "email": "mariano@aquino.com",
-    "password": "$2b$10$9JeTdVAc6xUctF6C8SSLtOt25XJABtv47StnM7oZc.vuajEBdRrbW",
+    "password": "$2b$10$hrIPG7aHMiLU0Gi31bXiwelQ708eGeWkgVFSFUzf9clmKrOnqHv1a",
     "first_name": "Mariano",
     "last_name": "Aquino",
     "age": 36,
