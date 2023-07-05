@@ -25,3 +25,9 @@ boton_reestablecer_contrasenia?.addEventListener("click", (e)=>{
   e.preventDefault()
   window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
 })
+
+
+const botonCambiarTipoUsuario = document.getElementById("btn_cambiar_usuario")
+botonCambiarTipoUsuario?.addEventListener("click",()=>{
+  console.log("click para cambiar tipo usuario")
+})

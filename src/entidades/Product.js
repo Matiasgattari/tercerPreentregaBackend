@@ -14,6 +14,7 @@ export class Product {
     #category
     #id
     #status
+    #owner
    
     constructor(
         {title,
@@ -22,7 +23,8 @@ export class Product {
         thumbnail,
         code,
         stock,
-        category}
+        category,
+        owner}
     ) {
         if (!title||!description||!price||!thumbnail||!code||!stock||!category) {
             throw new Error('Campo-vacio')
@@ -46,6 +48,7 @@ export class Product {
         this.#category = category;
         this.#id = randomUUID();
         this.#status = true;
+        this.#owner = owner || "Admin";
     }
 
     async dto() {
@@ -58,7 +61,8 @@ export class Product {
             stock:this.#stock,
             category:this.#category,
             id:this.#id,
-            status:this.#status
+            status:this.#status,
+            owner:this.#owner
         }
       }
 }

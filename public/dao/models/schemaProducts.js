@@ -11,7 +11,8 @@ export const schemaProducts = new Schema({
     code: { type: String, required: true },
     category: { type: String, required: true , index: true },
     status: { type: Boolean},
-    id: {type:String}
+    id: {type:String},
+    owner: {type:String}
 }, { versionKey: false })
 
 schemaProducts.plugin(mongoosePaginate)

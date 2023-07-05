@@ -1,5 +1,8 @@
 <h1>{{encabezado}}</h1>
 
+<h3>Usuario logeado: </h3> <input id="usuario_email_input" type="text" value="{{usuario.email}}" disabled>
+<h3>Tipo de usuario: </h3> <input id="usuario_rol_input" type="text" value="{{usuario.rol}}" disabled>
+
 <h2>Formulario para eliminar producto</h2>
 
 <form action="">
@@ -38,7 +41,7 @@
 <h1>Lista de productos</h1>
           <ul>
             {{#each productos}}
-            <li>_id: {{this._id}},title: {{this.title}},description: {{this.description}},price: {{this.price}},thumbnail: {{this.thumbnail}},stock: {{this.stock}},code: {{this.code}},category: {{this.category}},status: {{this.status}},id: {{this.id}}</li>
+            <li>_id: {{this._id}},title: {{this.title}},description: {{this.description}},price: {{this.price}},thumbnail: {{this.thumbnail}},stock: {{this.stock}},code: {{this.code}},category: {{this.category}},status: {{this.status}},id: {{this.id}},owner: {{this.owner}}</li>
             {{/each}}
           </ul>
 

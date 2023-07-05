@@ -21,6 +21,8 @@ const codigoAdmin = document.getElementById('codigoAdmin')
 // console.log("codigo", codigo);
 const categoriaAdmin = document.getElementById('categoriaAdmin')
 const statusTrueAdmin = document.getElementById('statusAdmin')
+const usuario = document.getElementById('usuario_email_input')
+
 // console.log("categoria", categoria);
 
 
@@ -72,7 +74,10 @@ cargarBTNAdmin?.addEventListener("click",async (e)=>{
     // @ts-ignore
     const valorStatus= statusTrueAdmin?.value || true
 
-    const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus}
+    // @ts-ignore
+    const valorUsuario = usuario?.value
+console.log(valorUsuario);
+    const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus,"owner":valorUsuario}
     console.log(productoAgregar);
 
 

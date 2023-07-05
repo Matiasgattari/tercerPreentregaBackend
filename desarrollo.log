@@ -88,3 +88,45 @@
 {"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
 {"level":"fatal","message":"Error: ERROR_DE_AUTENTICACION"}
 {"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...form>{{#if user.rol==\"Admin\"}}<button \n----------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'EQUALS'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 16:\n...rofile.js\"></script>\n-----------------------^\nExpecting 'OPEN_INVERSE_CHAIN', 'INVERSE', 'OPEN_ENDBLOCK', got 'EOF'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Parse error on line 13:\n...tton></form>{{#if rol(user.rol)}}<but\n---------------------^\nExpecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'INVALID'"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Missing helper: \"eq\""}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Missing helper: \"eq\""}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Missing helper: \"rol\""}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Missing helper: \"eq\""}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Missing helper: \"eq\""}
+{"level":"fatal","message":"*********************************************************************************************************** "}

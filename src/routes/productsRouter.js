@@ -86,7 +86,8 @@ productsRouter.get('/admin',AdminPremium, async (req, res) => {
    
     res.render('productsAdmin.handlebars',{
         encabezado: "Producto Admin",
-        productos       
+        productos,
+        usuario:req.user       
     })})
 
 productsRouter.delete('/admin/:pid',soloAdmin,async(req,res)=>{
@@ -136,7 +137,7 @@ productsRouter.get('/:pid', async (req,res,next)=>{
 
 
 
-productsRouter.post('/',soloAdmin, async (req, res,next) => {
+productsRouter.post('/',AdminPremium, async (req, res,next) => {
     try {
         await productosRepository.buscarProductos()
 
