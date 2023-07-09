@@ -1,0 +1,17 @@
+paths:
+  /api/products/admin/{PID}:
+    delete:
+      summary: Endpoint para eliminar el producto que se pasa por PID en vista /products/admin. Solo accesible para "Admin" y usuarios "Premium"
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        # content:
+        #   application/json:
+        #     schema:
+        #       $ref: '#/components/requestBodies/schemaProducts'
+      responses:
+        "201":
+          description: Producto eliminado correctamente.
+        "404":
+          description: Producto no encontrado.

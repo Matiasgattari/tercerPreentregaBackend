@@ -44,6 +44,7 @@ import { loggerPeticion } from './middlewares/winstonLogger.js';
 import { winstonLogger } from './utils/winstonLogger.js';
 import { loggerController } from './controllers/web/logger.controller.js';
 import { reestablecerPost } from './controllers/api/reestablecer.controller.js';
+import { docsRouter } from './routes/docsRouter.js';
 
 const app = express()
 
@@ -65,6 +66,8 @@ app.use(loggerPeticion)
 app.use('/api/products',soloLogueados, productsRouter)
 app.use('/api/carts',soloLogueados, cartsRouter)
 app.use('/api/sessions', sessionsRouter)
+//DOCUMENTACION
+app.use('/api/docs', docsRouter)
 
 
 const httpServer = app.listen(PORT)
@@ -110,6 +113,8 @@ app.get('/api/tickets',soloAdmin, ticketsController)
 app.delete('/api/tickets', soloAdmin, ticketDeleteController)
 
 app.put('/api/tickets/:tid', soloAdmin, ticketPutController)
+
+
 
 
 //CHAT

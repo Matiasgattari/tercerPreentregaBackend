@@ -1,0 +1,17 @@
+paths:
+  /api/products:
+    get:
+      summary: Muestra una lista ordenada y con posibilidad de filtrarla, de todos los productos.
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        # content:
+        #   application/json:
+        #     schema:
+        #       $ref: '#/components/requestBodies/schemaProducts'
+      responses:
+        "201":
+          description: Producto eliminado correctamente.
+        "404":
+          description: Productos no encontrados.

@@ -1,0 +1,18 @@
+paths:
+  /api/products:
+    post:
+      summary: Ruta con metodo post para crear el producto especificado. Solo accesible para "Admin" y usuario "Premium".
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        # content:
+        #   application/json:
+        #     schema:
+        #       $ref: '#/components/requestBodies/schemaProducts'
+      responses:
+        "201":
+          description: Producto creado correctamente.
+        "404":
+          description: Creacion fallida.
+       

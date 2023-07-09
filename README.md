@@ -141,6 +141,9 @@ Formato de usuario : {
 
 "/loggerTest" permite apreciar por consola todos los mensajes del winsterlogger 
 
+"/api/docs" permite obtener la documentacion de todos los endpoints
+
+
 Todos los productos cargados tienen un ID propio que les doy autogenerado por el randomUUII, pero para realizar las operaciones internas actualmente cambie al uso del _id (object ID que brinda mongoose)
 Todos estos endpoints a grandes rasgos funcionan, salvo las cosas que marque puntualmente.
 

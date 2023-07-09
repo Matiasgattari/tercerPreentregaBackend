@@ -1,0 +1,17 @@
+paths:
+  /api/products/admin:
+    get:
+      summary: Muestra los productos enlistados, y los paneles para la carga y eliminacion de los mismos. Solo accesible para "Admin" y usuarios "Premium"
+      tags:
+        - Productos
+      requestBody:
+        required: true
+        # content:
+        #   application/json:
+        #     schema:
+        #       $ref: '#/components/requestBodies/schemaProducts'
+      responses:
+        "201":
+          description: Lista de productos cargada correctamente.
+        "404":
+          description: Productos no encontrados.
