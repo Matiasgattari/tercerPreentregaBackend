@@ -155,6 +155,7 @@ productsRouter.post('/',AdminPremium, async (req, res,next) => {
 })
 
 
+
 productsRouter.put('/:pid',soloAdmin,async( req,res,next)=>{
 try {
 

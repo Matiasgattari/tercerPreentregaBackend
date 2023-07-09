@@ -88,5 +88,35 @@
     "age": 123,
     "rol": "User",
     "cart": "6495cbc5bd03e699f2873304"
+  },
+  {
+    "_id": "64a5fd2efcbdcd0e9678ed59",
+    "email": "angel@gmail.com",
+    "password": "$2b$10$q8LCXCkZWkueUHi4GTn1zeGbyOB5AFI.zI/fcjAQBXuYB9Jnmn.pC",
+    "first_name": "angel",
+    "last_name": "coronel",
+    "age": 29,
+    "rol": "User",
+    "cart": "64a5fd2efcbdcd0e9678ed57"
+  },
+  {
+    "_id": "64a786d8cb79472dae12d832",
+    "email": "luismeradev@gmail.com",
+    "password": "$2b$10$erRdw8lc1lpEFamw6DqvhOfMpH11iwJ8c795kee0.eZTu2XMnrUaW",
+    "first_name": "Luis",
+    "last_name": "Mera",
+    "age": 32,
+    "rol": "Admin",
+    "cart": "64a786d7cb79472dae12d830"
+  },
+  {
+    "_id": "64a787eccb79472dae12d845",
+    "email": "test@test.com",
+    "password": "$2b$10$iPlOeovOK.84Qs2asCl3veYGbCqqz8TkYi9XIlqOWvH9QEQOYvy5u",
+    "first_name": "Luis",
+    "last_name": "Mera",
+    "age": 32,
+    "rol": "User",
+    "cart": "64a787eccb79472dae12d843"
   }
 ]
