@@ -113,7 +113,7 @@ export class ProductManager {
     async addProduct(producto) {
         try {
             const productos = await this.getProducts()
-            const productFind2 = await productsDB.find({title:producto.title}).lean()
+            const productFind2 = await productsDB.find({id:producto.id}).lean()
             
             if (productFind2.length>0) {
                 // console.log('Ya existe un producto con ese titulo', productFind2);

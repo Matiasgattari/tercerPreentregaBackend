@@ -1,0 +1,14 @@
+ paths:
+  /api/usuarios:
+    get:
+      summary:  Ruta metodo "get" para ver los tickets enlistados. Solo accesible para "Admin" y usuario "Premium".
+      tags:
+        - Usuarios
+      responses:
+        "200":
+          description: Usuarios cargados correctamente.
+        "404":
+          description: Usuarios NOT-FOUND.
+        "500":
+          description: Error de servidor.
+        

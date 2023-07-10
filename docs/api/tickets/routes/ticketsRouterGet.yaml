@@ -1,0 +1,14 @@
+ paths:
+  /api/tickets:
+    get:
+      summary:  Ruta metodo "get" para ver los tickets enlistados. Solo accesible para "Admin" y usuario "Premium".
+      tags:
+        - Tickets
+      responses:
+        "200":
+          description: Tickets cargados correctamente.
+        "404":
+          description: Ticket NOT-FOUND.
+        "500":
+          description: Error de servidor.
+        
