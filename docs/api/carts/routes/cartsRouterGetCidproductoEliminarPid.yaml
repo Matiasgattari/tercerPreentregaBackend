@@ -1,7 +1,7 @@
  paths:
-  /api/carts/{CID}:
+  /api/carts/{CID}/productoEliminar/{PID}:
     get:
-      summary:  Ruta metodo "get" para ver el carrito seleccionado que se va a comprar. Accesible para los usuarios loggeados. Renderiza CarritoCompra.handlebars
+      summary:  Metodo " " para eliminar el producto seleccionado del carrito especificado. Solo accesible para "Admin".
       tags:
         - Carritos
       parameters: 
@@ -9,6 +9,13 @@
           in: path
           description: El identificador único del carrito a mostrar
           example: 6488aff0596de2eac5b46f9f
+          required: true
+          schema:
+            type: string
+        - name: PID
+          in: path
+          description: El identificador único del producto a eliminar
+          example: 64a787d0cb79472dae12d83d
           required: true
           schema:
             type: string

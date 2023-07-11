@@ -7,9 +7,10 @@ const options = {
     openapi: '3.0.0',
     info: {
       version: '1.0.0',
-      title: 'Express API with Swagger',
+      title: 'Servidor API express',
       description:
-        'A simple CRUD API application made with Express and documented with Swagger',
+        'Servidor de una API REST, creado con express y documentado con swagger. Documentacion de endpoints',
+      contact: { name: 'Leandro Matías Gattari', email: 'lea.mg90@gmail.com', url: 'https://github.com/Matiasgattari/'} 
     },
   },
   apis: ['./docs/**/*.yaml'],

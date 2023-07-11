@@ -1,6 +1,6 @@
  paths:
-  /api/carts/{CID}:
-    get:
+  /api/carts/{CID}/vaciarCarrito:
+    delete:
       summary:  Ruta metodo "get" para ver el carrito seleccionado que se va a comprar. Accesible para los usuarios loggeados. Renderiza CarritoCompra.handlebars
       tags:
         - Carritos
@@ -14,17 +14,13 @@
             type: string
       responses:
         "200":
-          description: Carrito encontrado.
+          description: Carrito vaciado correctamente.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Carritos'
+                $ref: '#/components/requestBodies/DatosCrearCarrito'  
         "404":
           description: Carrito NOT-FOUND.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/requestBodies/DatosCrearCarrito'      
         "500":
           description: Error de servidor.
   

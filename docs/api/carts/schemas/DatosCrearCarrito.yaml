@@ -1,6 +1,6 @@
 components:
   requestBodies:
-    DatosCrearProducto:
+    DatosCrearCarrito:
       type: object
       required:
         - title
@@ -50,7 +50,7 @@ components:
         status: true
         owner: lea.mg90@gmail.com
 
-    DatosProductos:
+    DatosCarrito:
       type: object
       required:
         - _id

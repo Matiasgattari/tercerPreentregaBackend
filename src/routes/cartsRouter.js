@@ -193,20 +193,9 @@ cartsRouter.get('/:cid/purchase',soloLogueados, async(req,res)=>{
     //id del carrito
     const carritoID= req.params['cid']
 
-
-// console.log(usuario);
-// console.log(email);
-// console.log(carritoID);
-
     //logica para calculo del monto del ticket
     const carritoFiltrado = await carritosRepository.buscarCarritoPorId(carritoID)
     
-
-
-// console.log(carritoFiltrado)
-
-
-
     const arrayPreciosProductosConStock = []
     const arrayProductosSinStock= []
     
@@ -217,35 +206,16 @@ cartsRouter.get('/:cid/purchase',soloLogueados, async(req,res)=>{
             } else { arrayProductosSinStock.push(element) }
         });
         
-        const sumaCantidadesSinStock = arrayProductosSinStock.reduce(function(acumulador, producto) { return acumulador + producto.quantity }, 0)
-
-
-// console.log(arrayPreciosProductosConStock)
-// console.log(arrayProductosSinStock)
-// console.log(sumaCantidadesSinStock)
-
+    const sumaCantidadesSinStock = arrayProductosSinStock.reduce(function(acumulador, producto) { return acumulador + producto.quantity }, 0)
 
     const valorInicial = 0;
     const monto = arrayPreciosProductosConStock.reduce((accumulator, currentValue) => accumulator + currentValue, valorInicial)
 
-// console.log(monto);
-
-
-const nuevoTicket = {email:email, monto:monto, cart:carritoID}
-// console.log(nuevoTicket);
-
-
-
-   const ticket = await ticketsService.crearTicket(nuevoTicket)
+    const nuevoTicket = {email:email, monto:monto, cart:carritoID}
+    const ticket = await ticketsService.crearTicket(nuevoTicket)
 
     await ticketsRepository.crearTicket(ticket)
 
-
-
-
-
-
-        //ESTA PARTE DE LA LOGICA NO LA PROBE, pero deberai funcionar
     //Vaciado del carrito:
     // @ts-ignore
     const carritoNuevo = {_id:carritoID,id:carritoFiltrado['id'],quantity:sumaCantidadesSinStock, products:arrayProductosSinStock}
@@ -253,8 +223,7 @@ const nuevoTicket = {email:email, monto:monto, cart:carritoID}
 
     const carritoFinal = await carritosRepository.modificarCarrito(carritoID,carritoNuevo)
     const carritoString = carritoFinal['_id']
-    // console.log("final",carritoFinal);
-    // console.log("final",carritoString);
+    
      res.json({message:`Carrito comprado. Si usted aun visualiza productos dentro del carrito, su stock es insuficiente y no pueden ser enviados.`, carrito: `${carritoFinal['_id']}`, productos: `[${carritoFinal['products']}]`})
 
 })

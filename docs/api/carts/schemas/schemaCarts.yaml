@@ -1,6 +1,6 @@
 components:
   schemas:
-    Productos:
+    Carritos:
       type: object
       required:
         - _id
