@@ -78,5 +78,21 @@
     "monto": 15000,
     "cart": "6488eec8240bedad93228ae0",
     "code": "5aa33b14-02ac-4565-afa1-b3b9f54ef12c"
+  },
+  {
+    "_id": "64adadb1fb4fabff4f8a3a70",
+    "date": "11/7/2023",
+    "usuario": "matias@gattari.com",
+    "monto": 15000,
+    "cart": "6488eec8240bedad93228ae0",
+    "code": "d31d87ee-a035-4f5b-bc5b-9e39c960143a"
+  },
+  {
+    "_id": "64adae0c3a78b9a3273370f4",
+    "date": "11/7/2023",
+    "usuario": "matias@gattari.com",
+    "monto": 15000,
+    "cart": "6488eec8240bedad93228ae0",
+    "code": "0fdf291e-359f-45a5-abf2-267af17e4190"
   }
 ]

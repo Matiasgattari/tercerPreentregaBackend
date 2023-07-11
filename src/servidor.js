@@ -9,6 +9,7 @@ import entorno from './config/entorno.js';
 //ROUTERS
 import { productsRouter } from './routes/productsRouter.js';
 import { cartsRouter } from './routes/cartsRouter.js';
+import { ticketsRouter } from './routes/ticketsRouter.js';
 import { sessionsRouter } from './routes/sessionsRouter.js';
 
 //CFG
@@ -65,6 +66,7 @@ app.use(loggerPeticion)
 
 app.use('/api/products',soloLogueados, productsRouter)
 app.use('/api/carts',soloLogueados, cartsRouter)
+app.use('api/tickets',soloLogueados, ticketsRouter)
 app.use('/api/sessions', sessionsRouter)
 //DOCUMENTACION
 app.use('/api/docs', docsRouter)
@@ -105,15 +107,6 @@ app.post('/api/reestablecer',soloLogueados, reestablecerPost)
 app.get('/realtimeproducts',soloLogueados,soloAdmin, realTimeProductsController)
 
 app.get('/home',soloLogueados, homeController)
-
-
-//TICKETS 
-app.get('/api/tickets',soloAdmin, ticketsController)
-
-app.delete('/api/tickets', soloAdmin, ticketDeleteController)
-
-app.put('/api/tickets/:tid', soloAdmin, ticketPutController)
-
 
 
 
