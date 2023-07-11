@@ -1,12 +1,12 @@
  paths:
   /api/tickets/:
-    get:
-      summary:  Ruta metodo "get" para ver los tickets enlistados. Solo accesible para "Admin".
+    delete:
+      summary:  Ruta metodo "delete" para eliminar todos los tickets. Solo accesible para "Admin".
       tags:
         - Tickets
       responses:
         "200":
-          description: Tickets encontrados.
+          description: Tickets eliminados correctamente.
           content:
             application/json:
               schema:

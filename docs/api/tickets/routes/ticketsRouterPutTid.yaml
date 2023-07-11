@@ -1,12 +1,20 @@
  paths:
-  /api/tickets/:
-    get:
-      summary:  Ruta metodo "get" para ver los tickets enlistados. Solo accesible para "Admin".
+  /api/tickets/{TID}:
+    put:
+      summary:  Ruta metodo "put" para eliminar 1 solo ticket. Solo accesible para "Admin".
       tags:
         - Tickets
+      parameters: 
+        - name: TID
+          in: path
+          description: El identificador único del carrito a mostrar
+          example: 64addf15dbbe57d2869c3aea
+          required: true
+          schema:
+            type: string
       responses:
         "200":
-          description: Tickets encontrados.
+          description: Ticket eliminado correctamente.
           content:
             application/json:
               schema:

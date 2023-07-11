@@ -87,19 +87,19 @@
     "products": [
       {
         "productID": {
-          "_id": "648346e20be32cd25d6d5f60",
-          "title": "charmander",
-          "description": "numero pokedex 4",
-          "price": 15000,
-          "thumbnail": "charmander.jpg",
-          "stock": 10,
-          "code": "pokemon salamandra",
-          "category": "fuego",
+          "_id": "64854632174ba43ec993aa8c",
+          "title": "eevee",
+          "description": "pokemon evolucion",
+          "price": 30000,
+          "thumbnail": "eevee.jpg",
+          "stock": 15,
+          "code": "zorro",
+          "category": "normal",
           "status": true,
-          "id": "2f6e5c9c-5235-4aa4-bb13-52c10516cd2a"
+          "id": "7beee976-4e7a-4064-8ba8-e3cba9f05ca0"
         },
         "quantity": 1,
-        "_id": "64adae0a3a78b9a3273370e6"
+        "_id": "64addf0edbbe57d2869c3adc"
       }
     ]
   },
