@@ -91,11 +91,6 @@ sessionsRouter.get('/github', autenticacionPorGithub)
 //esta es la ruta a la que devuelve la info github luego de autenticar. este al terminar la autenticacion redirige a inicio
 sessionsRouter.get('/githubcallback', antenticacionPorGithub_CB, (req, res, next) => { res.redirect('/api/sessions/current') })
 
-//LOGOUT
-app.delete('/api/usuarios/login', deleteSesiones)
-//REESTABLECER CONTRASEÑA
-app.post('/api/reestablecer',soloLogueados, reestablecerPost)
-
 
 //PRODUCTOS
 app.get('/realtimeproducts',soloLogueados,soloAdmin, realTimeProductsController)

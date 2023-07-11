@@ -27,7 +27,7 @@ if(passwordReestablecer!==passwordConfirmReestablecer) {
 }else{
     const datosUsuario = {email:emailReestablecer,name:nameReestablecer,last_name:lastNameReestablecer,password:passwordReestablecer}
 
-    const response = await fetch('/api/reestablecer', {
+    const response = await fetch('/api/usuarios/reestablecer', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
