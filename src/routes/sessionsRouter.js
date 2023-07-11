@@ -17,7 +17,7 @@ import { userManager } from '../../public/dao/UserManager.js';
 import { authRouter } from './authRouter.js';
 import { userRouter } from './userRouter.js';
 //importo las funciones que voy a utulizar con passport de la carpeta middlewares
-import { passportInitialize, passportSession } from '../middlewares/passport.js';
+import { antenticacionPorGithub_CB, autenticacionPorGithub, passportInitialize, passportSession } from '../middlewares/passport.js';
 import { postAUsuarios } from '../controllers/api/usuarios.controller.js';
 import { sinLoguear, soloLogueados } from '../middlewares/soloLogueados.js';
 import { usuariosService } from '../servicios/usuariosService.js';
@@ -82,5 +82,11 @@ sessionsRouter.get('/login',sinLoguear,async (req,res)=>{
         res.render('login',variablesLogin)
 })
 
+
+
+// login con github. esto es lo nuevo que se agrega
+sessionsRouter.get('/github', autenticacionPorGithub)
+//esta es la ruta a la que devuelve la info github luego de autenticar. este al terminar la autenticacion redirige a inicio
+sessionsRouter.get('/githubcallback', antenticacionPorGithub_CB, (req, res, next) => { res.redirect('/api/sessions/current') })
 
     

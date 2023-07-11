@@ -47,6 +47,7 @@ import { loggerController } from './controllers/web/logger.controller.js';
 import { reestablecerPost } from './controllers/api/reestablecer.controller.js';
 import { docsRouter } from './routes/docsRouter.js';
 import { userRouter } from './routes/userRouter.js';
+import { testsRouter } from './routes/testsRouter.js';
 
 const app = express()
 
@@ -70,6 +71,7 @@ app.use('/api/carts',soloLogueados, cartsRouter)
 app.use('api/tickets',soloLogueados, ticketsRouter)
 app.use('/api/sessions', sessionsRouter)
 app.use('/api/usuarios', userRouter)
+app.use('/api/test', testsRouter)
 //DOCUMENTACION
 app.use('/api/docs', docsRouter)
 
@@ -84,14 +86,6 @@ app.get('/', async (req, res) => {
    res.json({"message":"bienvenido al servidor, ingrese a http://localhost:8080/api/sessions/ para poder registrarse o iniciar sesion."})
 })
 
-
-
-// login con github. esto es lo nuevo que se agrega
-sessionsRouter.get('/github', autenticacionPorGithub)
-//esta es la ruta a la que devuelve la info github luego de autenticar. este al terminar la autenticacion redirige a inicio
-sessionsRouter.get('/githubcallback', antenticacionPorGithub_CB, (req, res, next) => { res.redirect('/api/sessions/current') })
-
-
 //PRODUCTOS
 app.get('/realtimeproducts',soloLogueados,soloAdmin, realTimeProductsController)
 
@@ -102,11 +96,6 @@ app.get('/home',soloLogueados, homeController)
 //CHAT
 app.get('/chat', soloLogueados,chatController)
 
-// MOCKING
-app.get('/mockingproducts',soloAdmin, mockingController);
-
-//LOGGER
-app.get('/loggerTest', soloLogueados,loggerController)
 
 app.get('*', (req,res)=>{
     res.redirect('/')
