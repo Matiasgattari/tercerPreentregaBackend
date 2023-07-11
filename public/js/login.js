@@ -24,7 +24,7 @@ if (formLogin instanceof HTMLFormElement) {
         // console.log(loginUsuario);
 
 
-const response = await fetch('/api/usuariosLogin', {
+const response = await fetch('/api/usuarios/login', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

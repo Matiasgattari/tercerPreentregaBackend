@@ -5,7 +5,7 @@ if (boton_logout) {
     boton_logout.addEventListener('click', async (e) => {
       e.preventDefault()
   
-      const { status } = await fetch('/api/usuariosLogin', {
+      const { status } = await fetch('/api/usuarios/login', {
         method: 'DELETE'
       })
   

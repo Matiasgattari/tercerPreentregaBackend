@@ -118,5 +118,25 @@
     "age": 32,
     "rol": "User",
     "cart": "64a787eccb79472dae12d843"
+  },
+  {
+    "_id": "64ade3b0dd168d7133750d85",
+    "email": "daravhel@gattari.com",
+    "password": "$2b$10$HS.N2ONsJO9QByeSEiPfMusN5izzmv8QAWyX33i8bujHR/a835Eni",
+    "first_name": "daravhel",
+    "last_name": "gattari",
+    "age": 33,
+    "rol": "Admin",
+    "cart": "64ade3b0dd168d7133750d83"
+  },
+  {
+    "_id": "64ade45416e4ea1bfed01542",
+    "email": "satoshi@gattari.com",
+    "password": "$2b$10$KCYb3lhnjWB6lI7TU7En1eLAFCPBQBaXDup5WLzIlNBK7b7qiA7A2",
+    "first_name": "satoshi",
+    "last_name": "gattari",
+    "age": 33,
+    "rol": "Premium",
+    "cart": "64ade45416e4ea1bfed01540"
   }
 ]
