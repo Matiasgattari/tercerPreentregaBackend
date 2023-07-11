@@ -10,7 +10,7 @@
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/carritos'
+                $ref: '#/components/schemas/Carritos'
         "404":
           description: Carritos NOT-FOUND.
           content:
