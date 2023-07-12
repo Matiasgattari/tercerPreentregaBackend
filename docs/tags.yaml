@@ -20,4 +20,7 @@ tags:
   - name: Tests 
     description: Endpoints de testing, solo "Admin".
 
+  - name: Otros 
+    description: Endpoints en la ruta raiz.
+
 

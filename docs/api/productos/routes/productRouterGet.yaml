@@ -4,7 +4,6 @@ paths:
       summary: Muestra una lista ordenada y con posibilidad de filtrarla, de todos los productos.
       tags:
         - Productos
-      
       responses:
         "200":
           description: Productos correctamente.
