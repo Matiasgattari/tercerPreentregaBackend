@@ -1,6 +1,6 @@
 components:
   schemas:
-    Productos:
+    Tests:
       type: object
       required:
         - _id
@@ -13,7 +13,6 @@ components:
         - category
         - status
         - id
-        - owner
       properties:
         _id:
           type: string
@@ -45,11 +44,8 @@ components:
         id:
           type: string
           description: El id del producto.
-        owner:
-          type: string
-          description: El email del usuario que creo el producto.
       example:
-        _id: 64a4c18fdca3458d6e03338d
+        _id: 64a787d0cb79472dae12d83d
         title: togepi
         description: pokemon huevo
         price: 20000
@@ -59,4 +55,4 @@ components:
         category: hada
         status: true
         id: 90fcf1b2-1783-4302-9e50-1140d4b59b44
-        owner: lea.mg90@gmail.com
+

@@ -23,6 +23,7 @@ import { sinLoguear, soloLogueados } from '../middlewares/soloLogueados.js';
 import { usuariosService } from '../servicios/usuariosService.js';
 import { usuariosRepository } from '../repository/usuariosRepository.js';
 import { reestablecerView } from '../controllers/web/reestablecer.controller.js';
+import { sesionesLoginController } from '../controllers/api/products/sesiones.login.controller.js';
 //importo el manejo de errores
 // import { manejadorDeErrores } from '../middlewares/manejoDeErroresRest.js';
 
@@ -58,31 +59,13 @@ sessionsRouter.get('/', async (req, res) => {
     
 })
 
-
 sessionsRouter.get('/register',registroView)
 
 sessionsRouter.get('/current',soloLogueados,profileView)
+
 sessionsRouter.get('/reestablecer',reestablecerView)
 
-sessionsRouter.get('/login',sinLoguear,async (req,res)=>{
-
-        const listaUsuarios = await usuariosRepository.buscarUsuarios()
-
-        const conUtil=util.inspect(listaUsuarios, false, 10)
-        const listaUsuariosArray = []
-        listaUsuarios.forEach(element => listaUsuariosArray.push(util.inspect(element, false, 10)))
-
-
-        const variablesLogin ={
-            pageTitle:'lista de usuarios',
-            mensaje:'usuario ubicado exitosamente',
-            usuario: listaUsuariosArray}
-            
-
-        res.render('login',variablesLogin)
-})
-
-
+sessionsRouter.get('/login',sinLoguear,sesionesLoginController)
 
 // login con github. esto es lo nuevo que se agrega
 sessionsRouter.get('/github', autenticacionPorGithub)

@@ -19,6 +19,10 @@
       responses:
         "200":
           description: Loggeo realizado correctamente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/requestBodies/DatosProducto'
         "404":
           description: Falla de loggeo.
         "500":
