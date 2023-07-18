@@ -61,10 +61,7 @@ export class CartManager {
         const jsonCarts = JSON.stringify(this.carts, null, 2)
         await this.persistencia.saveTxt(jsonCarts)
         const carritoMongoose = await cartsDB.create(cart)
-        
-        // return toPojo(carritoCreado)
-        // console.log("cart creado correctamente", toPojo(cart));
-        // console.log("carritoMongoose creado correctamente", toPojo(carritoMongoose));
+     
         return toPojo(carritoMongoose)
         } catch (error) {
             throw new Error('CART-NOT-FOUND')
@@ -138,7 +135,8 @@ export class CartManager {
 
             }
 
-             return { "message": "producto cargado correctamente"  }
+            //  return { "message": "producto cargado correctamente"  }
+             return carritoFiltrado
 
         } catch (error) {
             new Error('CREACION-FALLIDA')
@@ -172,9 +170,9 @@ export class CartManager {
         await this.modificarCarrito(cid,carritoNuevo)
 
         return carritoNuevo
-  } catch (error) {
-            throw new Error('NOT-FOUND')
-        }
+        } catch (error) {
+                  throw new Error('NOT-FOUND')
+                }
 
     }
     async eliminarCarrito(cid){
@@ -213,7 +211,7 @@ export class CartManager {
 
     }
     async getCartById(id) {
-     try {
+        try {
         const IDrecibido = id;
         const cartsProducts =  await this.getCarts()
         
@@ -233,94 +231,64 @@ export class CartManager {
         }
     }
 
-async vaciarCarrito(id) {
+    async vaciarCarrito(id) {
 
-    try {
-        const carritoPorId =await  this.getCartById(id)
+        try {
+            const carritoPorId =await  this.getCartById(id)
+            const productosCarrito =  carritoPorId?.products
+
+            const carritos = await this.getCarts()
+
+            const productosNuevo =[]
+                    // @ts-ignore
+            productosCarrito?.forEach(e=>productosNuevo.push(e['productID']['_id']))
+
+            const productosSplice = productosCarrito?.splice(0,productosCarrito.length)
+
+            const carritoNuevo = carritoPorId
+            carritoNuevo?.products==productosNuevo 
+
+            await this.modificarCarrito(id,carritoNuevo)
+
+            return carritoNuevo
+
+        } catch (error) {
+            throw new Error('MODIFICACION-FALLIDA')
+        }
+    }
+
+    //----------------------------------EN PROCESO---------------------------------------
+    //en proceso, actualizar cantidad del producto del carrito especificado. No logro que se modifique la cantidad del producto por la cantidad que recibo de parametro. todos los valores los recibo correctamente, pero al tratar de asignarle la cantidad, crashea todo
+
+    async modificarUnidadesProcducto(cid,pid,cantidad) {
+            
+        try {
+            const cantidadCambiada = cantidad
+
+        const carrito =await cartsDB.findById(cid).lean()
+
+        const carritoPorId =await  this.getCartById(cid)
         const productosCarrito =  carritoPorId?.products
+    
+        const arrayProductos = []
+        const pushArray = productosCarrito?.forEach(element => {
+            arrayProductos.push(element['productID']?._id.toString())
+                            
+        })
 
-        const carritos = await this.getCarts()
-
-        const productosNuevo =[]
-                // @ts-ignore
-        productosCarrito?.forEach(e=>productosNuevo.push(e['productID']['_id']))
-
-        const productosSplice = productosCarrito?.splice(0,productosCarrito.length)
-
-        const carritoNuevo = carritoPorId
-        carritoNuevo?.products==productosNuevo 
-
-        await this.modificarCarrito(id,carritoNuevo)
-
-        return carritoNuevo
-
-    } catch (error) {
-        throw new Error('MODIFICACION-FALLIDA')
-    }
-}
-
-
-
-//----------------------------------EN PROCESO---------------------------------------
-//en proceso, actualizar cantidad del producto del carrito especificado. No logro que se modifique la cantidad del producto por la cantidad que recibo de parametro. todos los valores los recibo correctamente, pero al tratar de asignarle la cantidad, crashea todo
-
-async modificarUnidadesProcducto(cid,pid,cantidad) {
+    const index = arrayProductos?.indexOf(pid)
+    
+        return {message: "producto actualizado correctamente"}
         
-    try {
-        const cantidadCambiada = cantidad
+        
+        } catch (error) {
+            throw new Error('MODIFICACION-FALLIDA')
+        }
 
-    const carrito =await cartsDB.findById(cid).lean()
-
-    const carritoPorId =await  this.getCartById(cid)
-    const productosCarrito =  carritoPorId?.products
-   
-    const arrayProductos = []
-    const pushArray = productosCarrito?.forEach(element => {
-        arrayProductos.push(element['productID']?._id.toString())
-                           
-    })
-
-   const index = arrayProductos?.indexOf(pid)
-   
-    return {message: "producto actualizado correctamente"}
-    
-    
-    } catch (error) {
-        throw new Error('MODIFICACION-FALLIDA')
     }
 
 }
-
-
-
-}
-
 
 
 export const cartManager = new CartManager('./carrito.txt')
 
-//Manager de carritos. Prueba
-// const carrito = new CartManager('../carrito.txt')
-
-// const product = {
-//     "title": "tv2",
-//     "description": "descripcion prod 2",
-//     "price": 2500,
-//     "thumbnail": "url imagen",
-//     "stock": 45,
-//     "code": "televisor",
-//     "category": "hogar",
-//     "status": true,
-//     "id": "44820200-b24d-478f-84e9-e69c4f8cf650"
-//   };
-
-
-// await carrito.addProduct("44820200-b24d-478f-84e9-e69c4f8cf650", product)
-// await carrito.crearCarrito()
-// await carrito.agregarProductoAlCarrito("f4a19e58-569e-4a48-a64b-8fa6b542c959","eb75a066-f01e-410e-b4d0-e622893532fd")
-// console.log(await carrito.getCarts())
-// console.log(await carrito.getCartById("a6cd0621-fe82-4374-99ea-f78f1e50c998"))
-
-
-// no se donde ponerlo
-// await mongoose.connection.close()
