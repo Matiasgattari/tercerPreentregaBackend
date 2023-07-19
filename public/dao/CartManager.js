@@ -263,24 +263,35 @@ export class CartManager {
     async modificarUnidadesProcducto(cid,pid,cantidad) {
             
         try {
-            const cantidadCambiada = cantidad
-
-        const carrito =await cartsDB.findById(cid).lean()
-
-        const carritoPorId =await  this.getCartById(cid)
-        const productosCarrito =  carritoPorId?.products
     
-        const arrayProductos = []
-        const pushArray = productosCarrito?.forEach(element => {
-            arrayProductos.push(element['productID']?._id.toString())
-                            
-        })
+            const carritoPorId = await cartsDB.findById(JSON.parse(cid))
+            const pojo = toPojo(carritoPorId)
+            const productosCarrito =  util.inspect(pojo?.products, false, 10)
+            // const carritoParseado = JSON.parse(productosCarrito)
 
-    const index = arrayProductos?.indexOf(pid)
-    
-        return {message: "producto actualizado correctamente"}
-        
-        
+            const productos = await productosRepository.buscarProductos()
+            const productoFiltrado = productos.find(producto =>producto._id==pid)
+
+            // const arrayProductos = []
+            // const pushArray = productosCarrito?.forEach(async element => {
+            //     arrayProductos.push(element['productID']?._id.toString())
+            // })
+
+            // const arrayProductosFiltrado = arrayProductos.filter(producto => producto._id == pid)
+
+                       
+        // const productoAModificar = arrayProductos.find( ( _id) => _id == pid )
+        // productoAModificar.quantity=cantidad
+
+    //     const indexProducto =arrayProductos.findIndex(({ _id }) => _id === pid )
+    //     arrayProductos[indexProducto]=productoAModificar
+
+    //     carritoPorId?.products == arrayProductos
+
+    //    const carritoModificado = await this.modificarCarrito(cid,carritoPorId)
+
+    //    return productos[0]["_id"] + " aaaaaaaaaaaaaaaaaaaaaaa " + typeof(productosCarrito)
+     return "Carrito modificado correctamente"
         } catch (error) {
             throw new Error('MODIFICACION-FALLIDA')
         }
