@@ -37,6 +37,7 @@ const response = await fetch('/api/usuarios/login', {
     throw new Error('SERVER-COMUNICATION-ERROR');
   }
   
+  
   const usuarioLogeado = await response.json();
 
       // console.log(usuarioLogeado)
