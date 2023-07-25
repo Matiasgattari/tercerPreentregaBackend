@@ -5,9 +5,9 @@
   "description": "",
   "main": "src/servidor.js",
   "scripts": {
-    "start": "node .",
-    "start:dev": "nodemon -e 'js,html,handlebars,yaml' servidor.js",
-    "test": "nodemon --exec mocha --recursive"
+    "start": "node --max-old-space-size=4096 .",
+    "start:dev": "nodemon -e 'js,html,handlebars,yaml' --max-old-space-size=4096  servidor.js",
+    "test": "nodemon --max-old-space-size=4096  --exec mocha --recursive"
   },
   "keywords": [],
   "author": "",
