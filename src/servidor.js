@@ -76,7 +76,7 @@ app.use('/api/test', testsRouter)
 app.use('/api/docs', docsRouter)
 
 
-const httpServer = app.listen(PORT)
+const httpServer = app.listen(PORT, "0.0.0.0")
 // console.log(`Servidor escuchando en puerto ${PORT}`);
 winstonLogger.info(`Servidor escuchando en puerto ${PORT}`)
 export const io = new SocketIOServer(httpServer)
