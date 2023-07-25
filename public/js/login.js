@@ -41,9 +41,9 @@ const response = await fetch('/api/usuarios/login', {
 
       // console.log(usuarioLogeado)
       if(response.ok) {
-        let url = window.location.href; //obtiene la URL actual
-        url = url + "/api/sessions/current"; //agrega el string al final
-        window.location.href = url; //redirige a la nueva URL
+        const url = window.location.origin; //obtiene la URL actual
+        const url2 = url + "/api/sessions/current"; //agrega el string al final
+        window.location.href = url2; //redirige a la nueva URL
         // window.location.href = "http://localhost:8080/api/sessions/current"
       }
     }
