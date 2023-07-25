@@ -6,8 +6,8 @@
   "main": "src/servidor.js",
   "scripts": {
     "start": "node --max-old-space-size=4096 .",
-    "start:dev": "nodemon -e 'js,html,handlebars,yaml' --max-old-space-size=4096  servidor.js",
-    "test": "nodemon --max-old-space-size=4096  --exec mocha --recursive"
+    "start:dev": "nodemon -e 'js,html,handlebars,yaml' --max-old-space-size=4096  .",
+    "test": "nodemon --exec mocha --recursive"
   },
   "keywords": [],
   "author": "",
