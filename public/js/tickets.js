@@ -55,7 +55,9 @@ botonEliminarTodosTickets?.addEventListener("click",async()=>{
     //   const ticketsVacios = await response.json();
               
     // if (response.ok) {
-    //     window.location.href = `http://localhost:8080/api/tickets/`
+      // const url = window.location.origin; //obtiene la URL actual
+      // const url2 = url + `/api/tickets/` //agrega el string al final
+      // window.location.href = url2
     // }
         
 })

@@ -4,7 +4,11 @@ const botonComprar = document.getElementById("botonComprarCarrito")
 botonComprar?.addEventListener("click", ()=>{
     // @ts-ignore
     const valorInputCarritoID = document.getElementById("inputCarritoID")?.value
-    window.location.href = `http://localhost:8080/api/carts/${valorInputCarritoID}/purchase/`
+
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/carts/${valorInputCarritoID}/purchase/` //agrega el string al final
+    window.location.href = url2
+   
 })
 
 const botonEliminarProducto = document.getElementById("botonEliminarProducto")
@@ -18,7 +22,10 @@ botonEliminarProducto?.addEventListener("click", ()=>{
     const valorInputProductoID = document.getElementById("inputProductoEliminar")?.value
     // console.log(valorInput);
 
-    window.location.href = `http://localhost:8080/api/carts/${valorInputCarritoID}/productoEliminar/${valorInputProductoID}/`
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/carts/${valorInputCarritoID}/productoEliminar/${valorInputProductoID}/` //agrega el string al final
+    window.location.href = url2
+    
 
 
 })
@@ -28,8 +35,11 @@ botonVaciarCarrito?.addEventListener("click", ()=>{
     // console.log("soy un boton de vaciar carrito");
     // @ts-ignore
     const valorInputCarritoID = document.getElementById("inputCarritoID")?.value
-    window.location.href = `http://localhost:8080/api/carts/${valorInputCarritoID}/vaciarCarrito/`
-    
+
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/carts/${valorInputCarritoID}/vaciarCarrito/` //agrega el string al final
+    window.location.href = url2
+        
 })
 
 
@@ -37,7 +47,11 @@ const comprarCarrito = document.getElementById("botonComprarCarrito")
 comprarCarrito?.addEventListener("click",()=>{
      // @ts-ignore
     const valorInputCarritoID = document.getElementById("inputCarritoID")?.value
-    window.location.href = `http://localhost:8080/api/carts/${valorInputCarritoID}/purchase/`
+
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/carts/${valorInputCarritoID}/purchase/` //agrega el string al final
+    window.location.href = url2
+     
 })
 
 const volverAProductosCarrito = document.getElementById("volverAProductosCarrito")
@@ -45,5 +59,14 @@ volverAProductosCarrito?.addEventListener("click",()=>{
     console.log("volviendo a productos");
     // @ts-ignore
     const rol = document.getElementById("inputRol").value
-    if(rol==="Admin"){window.location.href = `http://localhost:8080/api/products/admin/`} else {window.location.href = `http://localhost:8080/home/`}
+    if(rol==="Admin"){
+        
+        const url = window.location.origin; //obtiene la URL actual
+        const url2 = url + `/api/products/admin/` //agrega el string al final
+        window.location.href = url2
+        } else {
+            const url = window.location.origin; //obtiene la URL actual
+            const url2 = url + `/home/` //agrega el string al final
+            window.location.href = url2
+          }
 })

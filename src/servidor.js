@@ -83,7 +83,7 @@ export const io = new SocketIOServer(httpServer)
 
 
 app.get('/', async (req, res) => {
-   res.json({"message":"bienvenido al servidor, ingrese a http://localhost:8080/api/sessions/ para poder registrarse o iniciar sesion."})
+   res.json({"message":`bienvenido al servidor, ingrese a "/api/sessions/" para poder registrarse o iniciar sesion.`})
 })
 
 //PRODUCTOS

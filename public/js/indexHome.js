@@ -109,9 +109,11 @@ serverSocket.on('actualizarProductos', productosStorage => {
     for (let producto of productosID) {
         const productoParseado = JSON.stringify(producto)
         const IdProducto = producto._id
-        const paginaRedireccion = `http://localhost:8080/api/products/${IdProducto}`
-               
-        lista += `<li>${productoParseado} <button onclick="window.location.href='${paginaRedireccion}'" >Ver</button></li>`;
+
+        const url = window.location.origin; //obtiene la URL actual
+        const url2 = url + `/api/products/${IdProducto}` //agrega el string al final
+                       
+        lista += `<li>${productoParseado} <button onclick="window.location.href='${url2}'" >Ver</button></li>`;
         
       }
       lista += "</ul> ";

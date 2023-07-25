@@ -17,4 +17,8 @@
 <script src="/socket.io/socket.io.js"></script> 
 <script src="/js/indexHome.js"></script>
 <script> function verId(id) {
-     window.location.href = `http://localhost:8080/api/products/${id}/`} </script>
+      const url = window.location.origin; //obtiene la URL actual
+      const url2 = url + `/api/products/${id}/` //agrega el string al final
+      window.location.href = url2
+      }
+     </script>

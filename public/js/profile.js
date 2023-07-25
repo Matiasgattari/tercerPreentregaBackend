@@ -10,7 +10,10 @@ if (boton_logout) {
       })
   
       if (status === 200) {
-        window.location.href = 'http://localhost:8080/api/sessions/login'
+
+        const url = window.location.origin; //obtiene la URL actual
+        const url2 = url + `/api/sessions/login` //agrega el string al final
+        window.location.href = url2
       } else {
         console.log('[logout] estado inesperado: ' + status)
       }
@@ -23,7 +26,10 @@ if (boton_logout) {
 
 boton_reestablecer_contrasenia?.addEventListener("click", (e)=>{
   e.preventDefault()
-  window.location.href = 'http://localhost:8080/api/sessions/reestablecer'
+
+  const url = window.location.origin; //obtiene la URL actual
+  const url2 = url + `/api/sessions/reestablecer` //agrega el string al final
+  window.location.href = url2
 })
 
 

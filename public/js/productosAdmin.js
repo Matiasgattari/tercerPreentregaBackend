@@ -116,6 +116,10 @@ botonVerProducto?.addEventListener("click",async(e)=>{
 
     // @ts-ignore
     const valorIDVer = document.getElementById("inputProductoVer").value
-    window.location.href = `http://localhost:8080/api/products/${valorIDVer}/`
+
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/products/${valorIDVer}/` //agrega el string al final
+             
+    window.location.href = url2
 
 })

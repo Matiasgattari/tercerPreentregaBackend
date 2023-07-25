@@ -36,16 +36,16 @@ const response = await fetch('/api/usuarios/login', {
   if (!response.ok) {
     throw new Error('SERVER-COMUNICATION-ERROR');
   }
-  
+
   
   const usuarioLogeado = await response.json();
 
       // console.log(usuarioLogeado)
       if(response.ok) {
         const url = window.location.origin; //obtiene la URL actual
-        const url2 = url + "/api/sessions/current"; //agrega el string al final
-        window.location.href = url2; //redirige a la nueva URL
-        // window.location.href = "http://localhost:8080/api/sessions/current"
+        const url2 = url + "/api/sessions/current" //agrega el string al final
+        window.location.href = url2
+       
       }
     }
 

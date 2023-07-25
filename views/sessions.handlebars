@@ -14,12 +14,17 @@
  
   
  function register() {
-        window.location = `http://localhost:8080/api/sessions/register`
+     const urlOrigin = window.location.origin; //obtiene la URL actual
+     const urlOrigin2 = urlOrigin + `/api/sessions/register` //agrega el string al final
+     window.location = urlOrigin2
     
   }
 
  function login() {
-       window.location = `http://localhost:8080/api/sessions/login`
+
+    const urlOrigin = window.location.origin; //obtiene la URL actual
+    const urlOrigin2 = urlOrigin + `/api/sessions/login` //agrega el string al final
+    window.location = urlOrigin2
   }
 
 </script>

@@ -28,5 +28,15 @@
     "age": 34,
     "rol": "User",
     "cart": "64b6df46a8933c90bbc3354b"
+  },
+  {
+    "_id": "64bfeb34e77712683ec0e2c9",
+    "email": "chale@chalito.com",
+    "password": "$2b$10$749QKCpcSEpm3KErTIiKZuhkHr8I6/XB78eqanpBgNIMVAnkuQPTi",
+    "first_name": "chale",
+    "last_name": "chalito",
+    "age": 2,
+    "rol": "User",
+    "cart": "64bfeb33e77712683ec0e2c7"
   }
 ]
