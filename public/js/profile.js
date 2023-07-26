@@ -37,3 +37,13 @@ const botonCambiarTipoUsuario = document.getElementById("btn_cambiar_usuario")
 botonCambiarTipoUsuario?.addEventListener("click",()=>{
   console.log("click para cambiar tipo usuario")
 })
+
+
+const botonCargarJson = document.getElementById("btn_cargar_JSON")
+// Usar el evento DOMContentLoaded para ejecutar el script cuando el documento esté listo
+botonCargarJson?.addEventListener('click', function() {
+  
+    const url = window.location.origin; //obtiene la URL actual
+    const url2 = url + `/api/usuarios/premium/documents/` //agrega el string al final
+    window.location.href = url2
+  })

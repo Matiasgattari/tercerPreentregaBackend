@@ -38,5 +38,71 @@
     "age": 2,
     "rol": "User",
     "cart": "64bfeb33e77712683ec0e2c7"
+  },
+  {
+    "_id": "64c05257496324b7dcaf53ab",
+    "email": "sarasa@sarasa.com",
+    "password": "$2b$10$MRS7KmF22IcNT6uZ5iFKDOjerH.yvj5szMrqrZkqxSNrRUCoFAw/O",
+    "first_name": "sarasaa",
+    "last_name": "sarasa",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c05257496324b7dcaf53a9",
+    "documents": []
+  },
+  {
+    "_id": "64c052c87d68afb0a524499f",
+    "email": "sarasaZ@sarasaZ.com",
+    "password": "$2b$10$AQ6mbysWSpUB/V/XOX0PlOl56v5Co9JKOuDhI7wAQS3MAjVbYZw1q",
+    "first_name": "sarasaZ",
+    "last_name": "sarasaZ",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c052c77d68afb0a524499d",
+    "documents": []
+  },
+  {
+    "_id": "64c053ee1906da523838a4a4",
+    "email": "asdd@asdd.com",
+    "password": "$2b$10$49WMo8qQIZrFWLkDa8LpMu/GB5ayqQ7SQaNtojyQyDiuJ1qzKE1mq",
+    "first_name": "asdd",
+    "last_name": "asdd",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c053ee1906da523838a4a2",
+    "documents": []
+  },
+  {
+    "_id": "64c05540c8d3c443f3f66d38",
+    "email": "aaa@aaa.com",
+    "password": "$2b$10$8lfWTmS8Keh5Wey8MRJyhORT7qS0GLq9BNmgnfk/ZfmDdXoTeK35a",
+    "first_name": "aaa",
+    "last_name": "aaa",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c05540c8d3c443f3f66d36",
+    "documents": []
+  },
+  {
+    "_id": "64c055c77b82ae60a133a070",
+    "email": "laila@laila.com",
+    "password": "$2b$10$VRI1iJ6R4wcCVXqvkwIJ4O6.8Xa9RWhweGdFWlhJGWqqTHQCePBV6",
+    "first_name": "laila",
+    "last_name": "laila",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c055c77b82ae60a133a06e",
+    "documents": []
+  },
+  {
+    "_id": "64c0561d9b644f42964d5a6b",
+    "email": "b@b.com",
+    "password": "$2b$10$NceqU4UHSvDb4KWoyKk4aeg4ts55Ugwai/UKgcaHdQ6y4YdBITUYG",
+    "first_name": "bbb",
+    "last_name": "bbb",
+    "age": 1,
+    "rol": "User",
+    "cart": "64c0561d9b644f42964d5a69",
+    "documents": []
   }
 ]

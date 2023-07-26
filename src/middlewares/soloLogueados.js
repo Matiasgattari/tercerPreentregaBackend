@@ -20,6 +20,11 @@ if(req.user.rol==="Admin" ||req.user.rol==="Premium" ) {next ()} else {
     res.json({Error: "Error de Permisos", message: "Solo los Admins o usuarios Pemium pueden ver esta informacion."})
     next(new Error('ERROR_DE_PERMISOS'))
 }}
+export function soloPremium(req, res, next) {
+if(req.user.rol==="Premium") {next ()} else {
+    res.json({Error: "Error de Permisos", message: "Solo los usuarios Pemium pueden ver esta informacion."})
+    next(new Error('ERROR_DE_PERMISOS'))
+}}
 
 
 export function sinLoguear(req, res, next) {

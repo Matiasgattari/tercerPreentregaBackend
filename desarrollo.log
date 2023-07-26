@@ -160,3 +160,11 @@
 {"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
 {"level":"fatal","message":"Error: Unauthorized"}
 {"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"error","message":"Campo-con-valor-invalido"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Campo-con-valor-invalido"}
+{"level":"fatal","message":"*********************************************************************************************************** "}
+{"level":"error","message":"Campo-con-valor-invalido"}
+{"level":"fatal","message":"******************************* Informacion de error ****************************************************** "}
+{"level":"fatal","message":"Error: Campo-con-valor-invalido"}
+{"level":"fatal","message":"*********************************************************************************************************** "}

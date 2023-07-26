@@ -27,6 +27,7 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
             // buscado = await usuarioModel.findOne({ email: req.body.email }).lean()
             // buscado = await usuariosService.buscarUsuarioPorEmail(req.body.email)
             buscado = await usuariosRepository.buscarUsuarioPorUsername(req.body.email)
+            buscado.last_connection=new Date().toLocaleString()
             // console.log(buscado);
             
         } catch (error) {

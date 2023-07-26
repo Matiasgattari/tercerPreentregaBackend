@@ -4,14 +4,15 @@
 <p>Correo electronico: {{user.email}}</p>
 <p>Edad: {{user.age}}</p>
 <p>Rol: {{user.rol}}</p>
+<p>Ultima conexión: {{user.last_connection}}</p>
 <form id="formLogout">
   <button type="submit" id="btn_logout">Logout</button>
 </form>
 <form id="formReestablecer">
   <button type="submit" id="btn_reestablecer_profile">Reestablecer Contraseña</button>
 </form>
+ <!-- Corregir el nombre de la función en el atributo onclick -->
+ <button type="submit" id="btn_cargar_JSON" >Cargar archivo JSON</button>
 
-
-<script src="/js/profile.js">
-
-</script>
+<!-- Mover el script al final del body -->
+<script src="/js/profile.js"> </script>

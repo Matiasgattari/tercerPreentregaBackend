@@ -25,7 +25,7 @@ import { postAUsuarios, postAUsuariosLogin } from './controllers/api/usuarios.co
 import session from './middlewares/session.js';
 
 import { manejadorDeErrores } from './middlewares/manejoDeErroresRest.js';
-import { sinLoguear, soloAdmin, soloLogueados } from './middlewares/soloLogueados.js';
+import { sinLoguear, soloAdmin, soloLogueados, soloPremium } from './middlewares/soloLogueados.js';
 import { chatController } from './controllers/web/chat.controller.js';
 
 //PASSPORT
@@ -48,6 +48,9 @@ import { reestablecerPost } from './controllers/api/reestablecer.controller.js';
 import { docsRouter } from './routes/docsRouter.js';
 import { userRouter } from './routes/userRouter.js';
 import { testsRouter } from './routes/testsRouter.js';
+import { multerUpload } from './middlewares/multer.js';
+import { postMulterDocuments } from './controllers/api/postMulterDocuments.controller.js';
+import { getMulterDocuments } from './controllers/api/getMulterDocuments.controller.js';
 
 const app = express()
 
@@ -95,6 +98,7 @@ app.get('/home',soloLogueados, homeController)
 
 //CHAT
 app.get('/chat', soloLogueados,chatController)
+
 
 
 app.get('*', (req,res)=>{

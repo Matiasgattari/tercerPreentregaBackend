@@ -1,9 +1,12 @@
 import { Router } from 'express';
-import { soloLogueados } from '../middlewares/soloLogueados.js';
+import { soloLogueados, soloPremium } from '../middlewares/soloLogueados.js';
 import { postAUsuarios, postAUsuariosLogin } from '../controllers/api/usuarios.controller.js';
 import { autenticacionUserPass } from '../middlewares/passport.js';
 import { deleteSesiones } from '../controllers/api/usuariosLogout.controller.js';
 import { reestablecerPost } from '../controllers/api/reestablecer.controller.js';
+import { multerUpload } from '../middlewares/multer.js';
+import { postMulterDocuments } from '../controllers/api/postMulterDocuments.controller.js';
+import { getMulterDocuments } from '../controllers/api/getMulterDocuments.controller.js';
 
 export const userRouter = Router()
 
@@ -26,4 +29,15 @@ userRouter.delete('/login', deleteSesiones)
 
 //REESTABLECER CONTRASEÑA
 userRouter.post('/reestablecer',soloLogueados, reestablecerPost)
+
+//ruta para cargar archivos JSON desde el navegador
+userRouter.get('/premium/documents',soloPremium ,getMulterDocuments)
+// Usar el middleware de multer en la ruta '/premium/:uid/documents'
+userRouter.post('/premium/:uid/documents',soloPremium, multerUpload.single('archivo'), (req, res) => {
+    // Acceder al archivo recibido a través de req.file
+    let archivo = req.file;
+    
+    // Enviar una respuesta al cliente
+    res.json({message:`Archivo cargado correctamente bajo el nombre: ${req.file?.filename}, en la ruta ${req.file?.path}`});
+  });
 

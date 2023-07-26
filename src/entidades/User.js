@@ -10,7 +10,7 @@ function validarMail(str) {
   }
   
 export class User {
-    constructor({ first_name, last_name, email, password, age, rol,cart }) {
+    constructor({ first_name, last_name, email, password, age, rol,cart}) {
       try {
       
          if (!first_name||!last_name||!age||!email||!password) {
@@ -29,6 +29,9 @@ export class User {
          this.age = age;
          this.rol = rol;
          this.cart = cart;
+         this.documents = [{name: "", reference: ""}];
+         this.last_connection = new Date().toLocaleString();
+
       } catch (error) {
         throw Error(error.message)
       }
