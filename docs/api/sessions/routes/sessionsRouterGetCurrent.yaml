@@ -1,7 +1,7 @@
  paths:
   /api/sessions:
     get:
-      summary:  Administrador de sesiones. Accesible solo para usuarios logeados y sin logear, permite redirigir a el registro o al inicio de sesion.
+      summary:  Administrador de sesiones. Accesible solo para usuarios logeados y sin logear, permite redirigir a el registro o al inicio de sesion. Tambien permite al usuario cargar un archivo JSON, y si el usuario no es de tipo "Premium", permite acceder al mismo.
       tags:
         - Sesiones
       responses:
