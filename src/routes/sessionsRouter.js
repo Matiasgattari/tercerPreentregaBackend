@@ -24,24 +24,12 @@ import { usuariosService } from '../servicios/usuariosService.js';
 import { usuariosRepository } from '../repository/usuariosRepository.js';
 import { reestablecerView } from '../controllers/web/reestablecer.controller.js';
 import { sesionesLoginController } from '../controllers/api/products/sesiones.login.controller.js';
-//importo el manejo de errores
-// import { manejadorDeErrores } from '../middlewares/manejoDeErroresRest.js';
-
-
-
-
-
-
-
-
-
 
 
 export const sessionsRouter = Router()
 sessionsRouter.use(session)
 sessionsRouter.use(express.json())
 sessionsRouter.use(express.urlencoded({extended:true}))
-
 
 
 

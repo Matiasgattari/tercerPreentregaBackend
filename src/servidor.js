@@ -18,9 +18,6 @@ import { PORT } from './config/config.sv.js';
 //inicializando mongoose en el sv
 import {inicioMongoose} from './database/mongoose.js'
 
-//CONTROLLERS
-import { postAUsuarios, postAUsuariosLogin } from './controllers/api/usuarios.controller.js';
-
 //SESSION
 import session from './middlewares/session.js';
 
@@ -29,28 +26,18 @@ import { sinLoguear, soloAdmin, soloLogueados, soloPremium } from './middlewares
 import { chatController } from './controllers/web/chat.controller.js';
 
 //PASSPORT
-import passport from 'passport';
-import { antenticacionPorGithub_CB, autenticacionPorGithub, autenticacionUserPass, passportInitialize } from './middlewares/passport.js';
+import {passportInitialize } from './middlewares/passport.js';
 import { passportSession } from './middlewares/passport.js';
 
-import { mockingController } from './controllers/mocking.controller.js';
-import { ticketsController } from './controllers/api/tickets.controller.js';
-import { ticketDeleteController, ticketPutController } from './controllers/api/ticket.controller.js';
 import { homeController } from './controllers/api/home.controller.js';
 import { realTimeProductsController } from './controllers/api/realtimeproducts.controller.js';
-import { deleteSesiones } from './controllers/api/usuariosLogout.controller.js';
 
 
 import { loggerPeticion } from './middlewares/winstonLogger.js';
 import { winstonLogger } from './utils/winstonLogger.js';
-import { loggerController } from './controllers/web/logger.controller.js';
-import { reestablecerPost } from './controllers/api/reestablecer.controller.js';
 import { docsRouter } from './routes/docsRouter.js';
 import { userRouter } from './routes/userRouter.js';
 import { testsRouter } from './routes/testsRouter.js';
-import { multerUpload } from './middlewares/multer.js';
-import { postMulterDocuments } from './controllers/api/postMulterDocuments.controller.js';
-import { getMulterDocuments } from './controllers/api/getMulterDocuments.controller.js';
 
 const app = express()
 
@@ -73,14 +60,13 @@ app.use('/api/products',soloLogueados, productsRouter)
 app.use('/api/carts',soloLogueados, cartsRouter)
 app.use('api/tickets',soloLogueados, ticketsRouter)
 app.use('/api/sessions', sessionsRouter)
-app.use('/api/usuarios', userRouter)
+app.use('/api/users', userRouter)
 app.use('/api/test', testsRouter)
 //DOCUMENTACION
 app.use('/api/docs', docsRouter)
 
 
 const httpServer = app.listen(PORT)
-// console.log(`Servidor escuchando en puerto ${PORT}`);
 winstonLogger.info(`Servidor escuchando en puerto ${PORT}`)
 export const io = new SocketIOServer(httpServer)
 

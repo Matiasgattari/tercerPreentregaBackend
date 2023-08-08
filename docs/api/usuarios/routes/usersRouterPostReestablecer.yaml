@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios/reestablecer:
+  /api/users/reestablecer:
     post:
       summary:  Ruta metodo "post" para trabajar el reestablecimiento de la contraseña del usuario. Accesible solamente para usuarios logeados.
       tags:

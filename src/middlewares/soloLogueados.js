@@ -1,8 +1,7 @@
 
 
 export function soloLogueados(req, res, next) {
-    // acá uso el atajo que me provee passport para ver
-    // si hay una sesion inicializada por un usuario
+    // atajo que me provee passport para ver si hay una sesion inicializada por un usuario
     if (!req.isAuthenticated()) {
         res.json({Error: "Error de Permisos", message: "Usuario no logueado. Para ver esta informacion inicie sesion"})
         return next(new Error('ERROR_DE_PERMISOS'));

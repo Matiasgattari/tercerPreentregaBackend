@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios/login:
+  /api/users/login:
     post:
       summary:  Ruta metodo "post" para trabajar la informacion del inicio de sesion del usuario. Accesible para todos los tipos de usuarios, con y sin logear.
       tags:

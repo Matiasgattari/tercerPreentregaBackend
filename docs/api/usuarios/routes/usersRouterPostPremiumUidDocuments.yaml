@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios/premium/{UID}/documents:
+  /api/users/premium/{UID}/documents:
     post:
       summary:  Ruta metodo "post" para que un usuario "Premium" pueda cargar un archivo tipo "json". El mismo por medio de "multer" se almacena. Solo accesible para usuarios "Premium".
       tags:

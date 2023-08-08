@@ -57,7 +57,7 @@ if(!validarMail(input_email.value)){alert('El email debe tener formato usuario@s
       
 // console.log(datosUsuario);
 
-const response = await fetch('/api/usuarios', {
+const response = await fetch('/api/users', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -116,7 +116,7 @@ if (response.ok) {
 //         password: input_password.value,
 //       }
 
-//       const usuarioCreado = await fetch('/api/usuarios', {
+//       const usuarioCreado = await fetch('/api/users', {
 //         method: 'POST',
 //         headers: {
 //           'Accept': 'application/json',

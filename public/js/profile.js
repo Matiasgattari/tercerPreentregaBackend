@@ -5,7 +5,7 @@ if (boton_logout) {
     boton_logout.addEventListener('click', async (e) => {
       e.preventDefault()
   
-      const { status } = await fetch('/api/usuarios/login', {
+      const { status } = await fetch('/api/users/login', {
         method: 'DELETE'
       })
   
@@ -44,6 +44,6 @@ const botonCargarJson = document.getElementById("btn_cargar_JSON")
 botonCargarJson?.addEventListener('click', function() {
   
     const url = window.location.origin; //obtiene la URL actual
-    const url2 = url + `/api/usuarios/premium/documents/` //agrega el string al final
+    const url2 = url + `/api/users/premium/documents/` //agrega el string al final
     window.location.href = url2
   })

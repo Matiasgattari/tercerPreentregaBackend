@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios/info:
+  /api/users/info:
     get:
       summary:  Ruta metodo "get" para ver un json con la informacion del usuario logeado. Solo accesible para usuarios logeados.
       tags:

@@ -1,0 +1,24 @@
+<h1>{{encabezado}}</h1>
+
+
+{{#if hayUsuarios}}
+<h4>USUARIOS</h4>
+<ul>
+     {{#each arrayUsuarios}}
+     <li>Usuario: {{this.email}}, Nombre completo: {{this.nombre}} , Carrito ID: {{this.carrito}} , Rol: {{this.rol}}, Ultima conexion: {{this.ultima_conexion}}. </li>  {{/each}}
+</ul>
+{{else}}
+<p class="text-danger">Sin usuarios registrados</p>
+{{/if}}
+
+<button onClick='redireccion()'>Ver usuarios ausentes</button>
+
+<script src="/js/usersList.js"></script>
+<script>
+     function redireccion () {
+    alert("seguro que quiere ver los usuarios ausentes?")
+    const url = window.location.origin
+    const url2 = url + `/api/users/bussy/` 
+    window.location.href = url2
+    }
+</script>

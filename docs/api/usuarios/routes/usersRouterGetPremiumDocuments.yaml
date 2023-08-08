@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios/premium/documents:
+  /api/users/premium/documents:
     get:
       summary:  Ruta metodo "get" para que un usuario "Premium" pueda cargar un archivo tipo "json". Solo accesible para usuarios "Premium".
       tags:

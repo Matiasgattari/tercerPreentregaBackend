@@ -1,5 +1,5 @@
  paths:
-  /api/usuarios:
+  /api/users:
     post:
       summary:  Ruta metodo "post" para creacion de los usuarios que se registren.  Accesible para todos los tipos de usuarios, con y sin logear.
       tags:
