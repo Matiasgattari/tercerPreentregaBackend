@@ -103,6 +103,46 @@ userRouter.get('/bussy/',soloLogueados,soloAdmin,async(req,res,next)=>{
 
 })
 
+userRouter.put('/',soloLogueados,soloAdmin,async(req,res,next)=>{
+  try {
+    const IDingresado = req.body
+    const usuarioString = IDingresado.username
+    const usuarioEncontrado =await usuariosRepository.buscarUsuarioPorUsername(usuarioString)
+
+    switch (usuarioEncontrado.rol) {
+        case 'Admin':
+          alert("Solo puede modificar el rol de User y Premium")
+          break;
+      
+        case 'Premium':
+            usuarioEncontrado.rol = "User"
+            await usuariosRepository.actualizarUsuario(usuarioEncontrado)
+            break;
+      
+        case 'User':
+            usuarioEncontrado.rol = "Premium"
+            await usuariosRepository.actualizarUsuario(usuarioEncontrado)
+            break;
+      
+        // default:
+        //   console.log(); // Esto se ejecutará si el valor de usuario.rol no coincide con ninguno de los casos anteriores
+        //   break;
+      }
+           
+      
+      
+    res.status(201).json(usuarioEncontrado)
+
+
+
+    // res.status(201).json(usuarioString)
+    // usuarioEncontrado ? res.status(201).json(usuarioEncontrado) : res.status(404).json({ message: 'Usuario no encontrado' });
+    // res.status(201).json({message:"rol de usuario modificado correctamente"})
+
+  } catch (error) {
+    next(error)
+  }
+})
 userRouter.delete('/',soloLogueados,soloAdmin,async(req,res,next)=>{
     const usuarios = await usuariosRepository.buscarUsuarios()
 
