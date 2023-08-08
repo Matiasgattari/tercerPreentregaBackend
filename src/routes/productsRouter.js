@@ -90,7 +90,7 @@ productsRouter.get('/admin',AdminPremium, async (req, res) => {
         usuario:req.user       
     })})
 
-productsRouter.delete('/admin/:pid',soloAdmin,async(req,res)=>{
+productsRouter.delete('/admin/:pid',soloLogueados,soloAdmin,async(req,res)=>{
     const pid = req.params.pid
     const productoEliminar =  await productosRepository.eliminarProducto(pid)
     res.json(productoEliminar)
@@ -156,7 +156,7 @@ productsRouter.post('/',AdminPremium, async (req, res,next) => {
 
 
 
-productsRouter.put('/:pid',soloAdmin,async( req,res,next)=>{
+productsRouter.put('/:pid',soloLogueados,soloAdmin,async( req,res,next)=>{
 try {
 
     const getProds = await productosRepository.buscarProductos()
@@ -172,7 +172,7 @@ try {
 }
 } )
 
-productsRouter.delete('/:pid',soloAdmin,async( req,res)=>{
+productsRouter.delete('/:pid',soloLogueados,soloAdmin,async( req,res)=>{
     try {
     
         const getProds = await productosRepository.buscarProductos()
@@ -187,7 +187,7 @@ productsRouter.delete('/:pid',soloAdmin,async( req,res)=>{
     } )
 
 
-    productsRouter.put('/productSelected/:pid',soloAdmin, async (req, res) => {
+    productsRouter.put('/productSelected/:pid',soloLogueados,soloAdmin, async (req, res) => {
         const pid = req.params.pid
         //probando recibir producto nuevo para agregar por socket.io
         io.on('connection', async clientSocket => {

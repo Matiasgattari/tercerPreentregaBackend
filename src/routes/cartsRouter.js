@@ -75,7 +75,7 @@ cartsRouter.get('/:cid',soloLogueados, async (req, res) => {
 
 
 // @ts-ignore
-cartsRouter.get('/',soloAdmin, async (req, res) => {
+cartsRouter.get('/',soloLogueados,soloAdmin, async (req, res) => {
 const carritos = await carritosRepository.buscarCarritos()
 const arrayCarritos = []
 // @ts-ignore

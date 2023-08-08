@@ -6,7 +6,7 @@ import { loggerController } from '../controllers/web/logger.controller.js';
 export const testsRouter = Router()
 
 // MOCKING
-testsRouter.get('/mockingproducts',soloAdmin, mockingController);
+testsRouter.get('/mockingproducts',soloLogueados,soloAdmin, mockingController);
 
 //LOGGER
 testsRouter.get('/loggerTest', soloLogueados,loggerController)

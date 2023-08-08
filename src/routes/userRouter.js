@@ -66,7 +66,7 @@ userRouter.get('/', soloLogueados,soloAdmin,async (req, res, next) => {
 })
 
 
-userRouter.get('/bussy/',async(req,res,next)=>{
+userRouter.get('/bussy/',soloLogueados,soloAdmin,async(req,res,next)=>{
 
     const usuarios = await usuariosRepository.buscarUsuarios()
 
@@ -103,4 +103,38 @@ userRouter.get('/bussy/',async(req,res,next)=>{
 
 })
 
-userRouter.delete('/',)
+userRouter.delete('/',soloLogueados,soloAdmin,async(req,res,next)=>{
+    const usuarios = await usuariosRepository.buscarUsuarios()
+
+    // Obtén la fecha actual
+    const fechaActual = new Date();
+
+    // Define la función de filtro para comprobar si la diferencia es mayor a 2 días
+    function esMasDeDosDias(date) {
+        // @ts-ignore
+        const tiempoTranscurrido = fechaActual - date;
+        const dosDiasEnMilisegundos = 2 * 24 * 60 * 60 * 1000; // 2 días en milisegundos
+        // const dosDiasEnMilisegundos = 2 ; // 2 días en milisegundos
+        return tiempoTranscurrido > dosDiasEnMilisegundos;
+    }   
+    
+    const fechaSinFormato = usuarios.forEach(usuario=>{
+        usuario.last_connection=Date.parse(usuario.last_connection)
+    })
+
+
+    const arrayFiltrados = []
+
+    // Filtra los usuarios
+    const usuariosFiltrados = usuarios.filter(usuario => esMasDeDosDias(usuario.last_connection));
+    usuariosFiltrados.forEach((usuariosFiltrado)=>{
+        arrayFiltrados.push(usuariosFiltrado)
+    })
+
+    const eliminarUsuarios = arrayFiltrados.forEach(async(usuario)=>{
+        await usuariosRepository.eliminarUsuario( usuario._id)
+    })
+
+    res.status(201).json({message:"usuarios eliminados correctamente"})
+
+})

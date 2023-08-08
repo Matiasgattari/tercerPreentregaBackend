@@ -10,9 +10,9 @@ ticketsRouter.use(express.urlencoded({extended:true}))
 
 
 //TICKETS 
-ticketsRouter.get('/',soloAdmin, ticketsController)
+ticketsRouter.get('/',soloLogueados,soloAdmin, ticketsController)
 
-ticketsRouter.delete('/', soloAdmin, ticketDeleteController)
+ticketsRouter.delete('/', soloLogueados,soloAdmin, ticketDeleteController)
 
-ticketsRouter.put('/:tid', soloAdmin, ticketPutController)
+ticketsRouter.put('/:tid', soloLogueados,soloAdmin, ticketPutController)
 

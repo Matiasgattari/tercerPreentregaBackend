@@ -2,6 +2,9 @@
 
 
 {{#if hayUsuarios}}
+<button onClick='redireccion()'>Ver usuarios ausentes</button>
+<button onClick='modificarRol()'>Modificar rol</button>
+
 <h4>USUARIOS</h4>
 <ul>
      {{#each arrayUsuarios}}
@@ -11,14 +14,19 @@
 <p class="text-danger">Sin usuarios registrados</p>
 {{/if}}
 
-<button onClick='redireccion()'>Ver usuarios ausentes</button>
 
 <script src="/js/usersList.js"></script>
 <script>
-     function redireccion () {
-    alert("seguro que quiere ver los usuarios ausentes?")
-    const url = window.location.origin
-    const url2 = url + `/api/users/bussy/` 
-    window.location.href = url2
+    function redireccion () {
+        const url = window.location.origin
+        const url2 = url + `/api/users/bussy/` 
+        window.location.href = url2
+    }
+
+    function modificarRol () {
+        alert("seguro que quiere modificar el rol del usuario?")
+        const url = window.location.origin
+        const url2 = url + `/api/users/bussy/` 
+        window.location.href = url2
     }
 </script>

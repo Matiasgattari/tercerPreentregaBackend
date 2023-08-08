@@ -1,18 +1,10 @@
 [
   {
-    "_id": "64b6dfd1a8933c90bbc33574",
-    "date": "18/7/2023",
+    "_id": "64d2afaa41689b2333c2bbc1",
+    "date": "8/8/2023",
     "usuario": "lea.mg90@gmail.com",
-    "monto": 10000,
-    "cart": "64b6df00a8933c90bbc3353d",
-    "code": "11d7a3f7-98fb-414c-9197-039d9da5277a"
-  },
-  {
-    "_id": "64bfebc7e77712683ec0e300",
-    "date": "25/7/2023",
-    "usuario": "lea.mg90@gmail.com",
-    "monto": 95000,
-    "cart": "64b6df00a8933c90bbc3353d",
-    "code": "47963628-bf71-44a1-9acf-450ffecf0808"
+    "monto": 115000,
+    "cart": "64d2905ef65ba8aed073629a",
+    "code": "2214bc45-5801-4d29-922c-2b010d6f47a2"
   }
 ]
