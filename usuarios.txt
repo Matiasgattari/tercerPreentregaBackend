@@ -16,5 +16,23 @@
       }
     ],
     "last_connection": "8/8/2023, 15:58:38"
+  },
+  {
+    "_id": "64d426ba467a1e7b8f58cba6",
+    "email": "das@das.das",
+    "password": "$2b$10$lY0m7JLswbZJt80xVLJQLOFFhDAcZFj.ft7YvFvA3Oxk5AKHEs/yy",
+    "first_name": "nuevoUsuario",
+    "last_name": "dePrueba",
+    "age": 13,
+    "rol": "Premium",
+    "cart": "64d426ba467a1e7b8f58cba4",
+    "documents": [
+      {
+        "name": "",
+        "reference": "",
+        "_id": "64d426ba467a1e7b8f58cba7"
+      }
+    ],
+    "last_connection": "9/8/2023, 18:52:26"
   }
 ]
