@@ -19,6 +19,7 @@ if(req.user.rol==="Admin" ||req.user.rol==="Premium" ) {next ()} else {
     res.json({Error: "Error de Permisos", message: "Solo los Admins o usuarios Pemium pueden ver esta informacion."})
     next(new Error('ERROR_DE_PERMISOS'))
 }}
+
 export function soloPremium(req, res, next) {
 if(req.user.rol==="Premium") {next ()} else {
     res.json({Error: "Error de Permisos", message: "Solo los usuarios Pemium pueden ver esta informacion."})
@@ -28,8 +29,9 @@ if(req.user.rol==="Premium") {next ()} else {
 
 export function sinLoguear(req, res, next) {
    if(req.user) {
-        res.json({Error: "Error de Permisos", message: "Usuario logueado. Para cerrar sesion vaya a /api/sessions/current"})
-        next(new Error('ERROR_DE_PERMISOS'))} else {
-        next ()
+    res.render('errorPermiso', {
+        titulo: 'Error',
+        encabezado: 'El usuario ya presenta una sesion iniciada. ingrese a /api/sessions/current para cerrar sesion',
+        })
     }}
     
