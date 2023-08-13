@@ -20,7 +20,7 @@ import { passportInitialize, passportSession } from '../middlewares/passport.js'
 
 import session from '../middlewares/session.js';
 import { ticketsService } from '../servicios/ticketsService.js';
-
+import { productosRepository } from '../repository/productosRepository.js';
 
 export const cartsRouter = Router()
 
@@ -190,9 +190,17 @@ cartsRouter.get('/:cid/purchase',soloLogueados, async(req,res)=>{
     const arrayProductosSinStock= []
     
     // @ts-ignore
-    const montoCarrito = carritoFiltrado['products'].forEach(function (element,indice) {
+    const montoCarrito = carritoFiltrado['products'].forEach(async function (element,indice) {
             // @ts-ignore compruebo valido stock sobre cantidad para vender
-            if(element.productID['stock']>element.quantity){arrayPreciosProductosConStock.push(element.productID['price']*element.quantity);
+            if(element.productID['stock']>element.quantity){
+                // @ts-ignore
+                arrayPreciosProductosConStock.push(element.productID['price']*element.quantity);
+                // @ts-ignore
+                const productoBuscado = await productosRepository.buscarProductoPorId(element.productID['_id'])
+                // @ts-ignore
+                productoBuscado.stock =productoBuscado.stock - element.quantity
+                // @ts-ignore
+                const productoModificado = await productosRepository.modificarProducto(element.productID['_id'],productoBuscado)
             } else { arrayProductosSinStock.push(element) }
         });
         
@@ -214,6 +222,13 @@ cartsRouter.get('/:cid/purchase',soloLogueados, async(req,res)=>{
     const carritoFinal = await carritosRepository.modificarCarrito(carritoID,carritoNuevo)
     const carritoString = carritoFinal['_id']
     
-     res.json({message:`Carrito comprado. Si usted aun visualiza productos dentro del carrito, su stock es insuficiente y no pueden ser enviados.`, carrito: `${carritoFinal['_id']}`, productos: `[${carritoFinal['products']}]`})
+    res.render('finalizarTicket', {
+        titulo: 'Tickets',
+        encabezado: 'Ticket finalizado correctamente',
+        carrito: carritoFinal['_id'],
+        productos: carritoFinal['products'],
+        hayProductos:carritoFinal['products'].length>0,
+    })
+
 
 })

@@ -72,7 +72,12 @@ export const io = new SocketIOServer(httpServer)
 
 
 app.get('/', async (req, res) => {
-   res.json({"message":`bienvenido al servidor, ingrese a "/api/sessions/" para poder registrarse o iniciar sesion.`})
+
+    res.render('index', {
+        titulo: 'Inicio',
+        encabezado: 'Bienvenido al servidor'
+    })
+//    res.json({"message":`bienvenido al servidor, ingrese a "/api/sessions/" para poder registrarse o iniciar sesion.`})
 })
 
 //PRODUCTOS

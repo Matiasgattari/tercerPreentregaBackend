@@ -31,24 +31,11 @@
     "description": "pokemon agua",
     "price": 15000,
     "thumbnail": "squirtle.jpg",
-    "stock": 15,
+    "stock": 12,
     "code": "122-363-898",
     "category": "inicial",
     "status": true,
     "id": "c766cb48-d4f8-4896-855b-2b0a922f2f42",
     "owner": "lea.mg90@gmail.com"
-  },
-  {
-    "_id": "64d933d03defae4e11834677",
-    "title": "asd",
-    "description": "asd",
-    "price": 1,
-    "thumbnail": "asd",
-    "stock": 1,
-    "code": "asd",
-    "category": "asd",
-    "status": true,
-    "id": "43d92647-b5aa-4821-97a2-0d51e83e7fd0",
-    "owner": "premium@premium.com"
   }
 ]

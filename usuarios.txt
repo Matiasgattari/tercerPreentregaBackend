@@ -1,110 +1,20 @@
 [
   {
-    "_id": "64d2905ef65ba8aed073629c",
+    "_id": "64d937fb8bfadd4baaaf8e42",
     "email": "lea.mg90@gmail.com",
-    "password": "$2b$10$4NMR/CUs9AQESy6cPwtLUuZY0d.2CKolgpQdyFDlAurRxV2eZ7xE2",
+    "password": "$2b$10$zTVY041JtS8V6Su1/3WRb.4ZsMvWD.GBU2cjW4nhHo2Edwfn6UMDe",
     "first_name": "matias",
     "last_name": "gattari",
     "age": 33,
     "rol": "Admin",
-    "cart": "64d2905ef65ba8aed073629a",
+    "cart": "64d937fb8bfadd4baaaf8e40",
     "documents": [
       {
         "name": "",
         "reference": "",
-        "_id": "64d2905ef65ba8aed073629d"
+        "_id": "64d937fb8bfadd4baaaf8e43"
       }
     ],
-    "last_connection": "8/8/2023, 15:58:38"
-  },
-  {
-    "_id": "64d426ba467a1e7b8f58cba6",
-    "email": "das@das.das",
-    "password": "$2b$10$lY0m7JLswbZJt80xVLJQLOFFhDAcZFj.ft7YvFvA3Oxk5AKHEs/yy",
-    "first_name": "nuevoUsuario",
-    "last_name": "dePrueba",
-    "age": 13,
-    "rol": "Premium",
-    "cart": "64d426ba467a1e7b8f58cba4",
-    "documents": [
-      {
-        "name": "",
-        "reference": "",
-        "_id": "64d426ba467a1e7b8f58cba7"
-      }
-    ],
-    "last_connection": "9/8/2023, 18:52:26"
-  },
-  {
-    "_id": "64d931ebe05292a965ce5713",
-    "email": "satoshi@tajiri.com",
-    "password": "$2b$10$6Z9MgJmqqhfGCo1zdhEWaO9KH/3LKYd2gsSJglEN8fy45syClIotW",
-    "first_name": "satoshi",
-    "last_name": "tajiri",
-    "age": 57,
-    "rol": "User",
-    "cart": "64d931eae05292a965ce5711",
-    "documents": [
-      {
-        "name": "",
-        "reference": "",
-        "_id": "64d931ebe05292a965ce5714"
-      }
-    ],
-    "last_connection": "13/8/2023, 16:41:31"
-  },
-  {
-    "_id": "64d933943defae4e11834665",
-    "email": "premium@premium.com",
-    "password": "$2b$10$xbRMfEG3KbQAEojjoY7AK.4YFuu9nQuWqyDonASP06ziYn26CT6EW",
-    "first_name": "premium",
-    "last_name": "premium",
-    "age": 22,
-    "rol": "Premium",
-    "cart": "64d933943defae4e11834663",
-    "documents": [
-      {
-        "name": "",
-        "reference": "",
-        "_id": "64d933943defae4e11834666"
-      }
-    ],
-    "last_connection": "13/8/2023, 16:48:36"
-  },
-  {
-    "_id": "64d933a33defae4e1183466d",
-    "email": "user@user.com",
-    "password": "$2b$10$IYAMySTOXIurQrBZcQ2KRea7UchdJqMUzWLujeYaXKkHrvvu0iiMa",
-    "first_name": "user",
-    "last_name": "user",
-    "age": 22,
-    "rol": "User",
-    "cart": "64d933a33defae4e1183466b",
-    "documents": [
-      {
-        "name": "",
-        "reference": "",
-        "_id": "64d933a33defae4e1183466e"
-      }
-    ],
-    "last_connection": "13/8/2023, 16:48:51"
-  },
-  {
-    "_id": "64d9343b1f3f7a2d2de2da5a",
-    "email": "emailpruebagattari@gmail.com",
-    "password": "$2b$10$6mGORHW7b/QgjnCRKnbNjOnPAFWpKiWPVj/WsamP2dDq8QOYW5sIy",
-    "first_name": "premiumPruebas",
-    "last_name": "asd",
-    "age": 22,
-    "rol": "Premium",
-    "cart": "64d9343b1f3f7a2d2de2da58",
-    "documents": [
-      {
-        "name": "",
-        "reference": "",
-        "_id": "64d9343b1f3f7a2d2de2da5b"
-      }
-    ],
-    "last_connection": "13/8/2023, 16:51:23"
+    "last_connection": "13/8/2023, 17:07:23"
   }
 ]
