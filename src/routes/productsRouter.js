@@ -9,6 +9,11 @@ import { carritosRepository } from '../repository/carritosRepository.js';
 import { productosRepository } from '../repository/productosRepository.js';
 import { AdminPremium, soloAdmin, soloLogueados } from '../middlewares/soloLogueados.js';
 
+import nodemailer from "nodemailer";
+import { winstonLogger } from '../utils/winstonLogger.js';
+
+
+
 export const productsRouter = Router()
 productsRouter.use(express.json())
 productsRouter.use(express.urlencoded({extended:true}))
@@ -90,11 +95,54 @@ productsRouter.get('/admin',AdminPremium, async (req, res) => {
         usuario:req.user       
     })})
 
-productsRouter.delete('/admin/:pid',soloLogueados,soloAdmin,async(req,res)=>{
+
+
+
+
+productsRouter.delete('/admin/:pid',soloLogueados,soloAdmin,async(req,res,next)=>{
+try {
+    
     const pid = req.params.pid
+    const productoParaEliminar = await productosRepository.buscarProductoPorId(pid)
+
+    // Configuración de Gmail
+    let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+        user: "emailpruebagattari@gmail.com",
+        pass: "zpqjbarpnpxwonyd", // contraseña de aplicacion
+        },
+    });
+    
+    // Crear mensaje 
+    let mailOptions = {
+        from: "emailpruebagattari@gmail.com", 
+        // @ts-ignore
+        to: productoParaEliminar.owner, 
+        subject: "Producto eliminado",
+        // @ts-ignore
+        text: `Se le informa que un producto de su propiedad (id: ${productoParaEliminar._id} ) ha sido eliminado`,
+    };
+  
+    // Enviar el correo electrónico
+    await transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+        // Mensaje de error si falla
+        winstonLogger.fatal(error)
+        } else {
+            // Mensaje de confirmación si se envía correctamente
+            winstonLogger.debug("Correo enviado: " + info.response)
+        }
+    });
+
     const productoEliminar =  await productosRepository.eliminarProducto(pid)
+
     res.json(productoEliminar)
-    })
+
+} catch (error) {
+    next(error)
+}
+})
 
 
     
@@ -108,7 +156,6 @@ productsRouter.get('/:pid', async (req,res,next)=>{
         // @ts-ignore
         const carritoUsuario = usuario1.cart
         // @ts-ignore
-        // console.log("usuario1",usuario1.cart);
         const poductosLeidos = await productosRepository.buscarProductos()
         
         if (idProducto)  {

@@ -101,7 +101,6 @@ export class ProductManager {
     async getProducts() {
         try {
             const prodd = await productsDB.find().lean()
-            // console.log(toPojo(prodd));
             this.products = toPojo(prodd);
             return this.products
         } catch (error) {
@@ -116,14 +115,12 @@ export class ProductManager {
             const productFind2 = await productsDB.find({id:producto.id}).lean()
             
             if (productFind2.length>0) {
-                // console.log('Ya existe un producto con ese titulo', productFind2);
                 throw new Error('Producto-duplicado')
             } else {
                 if (producto.title !== undefined && producto.description !== undefined && producto.price !== undefined && producto.stock !== undefined && producto.code !== undefined && producto.category !== undefined) {
             
                     const creado = await productsDB.create(producto)
         
-                    // console.log('Producto creado correctamente', toPojo(creado));
                     this.products = this.getProducts()
                     
                     const jsonProducts = JSON.stringify(this.products, null, 2)
@@ -179,7 +176,6 @@ export class ProductManager {
         const jsonProducts = JSON.stringify(this.products, null, 2)
         await this.persistencia.saveTxt(jsonProducts)
 
-        // return console.log("producto eliminado correctamente");
         return "producto eliminado correctamente"
         }  catch (error) {
             throw new Error('ELIMINACION-FALLIDA')
@@ -196,7 +192,6 @@ export class ProductManager {
         const jsonProducts = JSON.stringify(this.products, null, 2)
         await this.persistencia.saveTxt(jsonProducts)
 
-        // console.log("El producto se actualizo con exito", prodModificado);
         winstonLogger.debug("El producto se actualizo con exito" + prodModificado)
         } catch (error) {
                 throw new Error('NOT-FOUND')

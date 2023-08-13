@@ -37,31 +37,5 @@
     "status": true,
     "id": "c766cb48-d4f8-4896-855b-2b0a922f2f42",
     "owner": "lea.mg90@gmail.com"
-  },
-  {
-    "_id": "64bfe8bdc969509ccd5f2fb4",
-    "title": "togepi",
-    "description": "pokemon huevo",
-    "price": 50000,
-    "thumbnail": "togepi.jpg",
-    "stock": 5,
-    "code": "123-555-333",
-    "category": "raro",
-    "status": true,
-    "id": "abdc4d37-070e-4c3b-83e0-d51596ba31ae",
-    "owner": "lea.mg90@gmail.com"
-  },
-  {
-    "_id": "64d2af4d41689b2333c2bb49",
-    "title": "lapras",
-    "description": "pokemon montura",
-    "price": 100000,
-    "thumbnail": "lapras.jpg",
-    "stock": 10,
-    "code": "111-536-999",
-    "category": "utilidad",
-    "status": true,
-    "id": "01e021d0-5b37-4d8b-92e5-cdcd9cfc3713",
-    "owner": "lea.mg90@gmail.com"
   }
 ]
