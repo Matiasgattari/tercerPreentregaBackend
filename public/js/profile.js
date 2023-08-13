@@ -1,4 +1,3 @@
-console.log('desde js profile');
 
 const boton_logout = document.getElementById('btn_logout')
 if (boton_logout) {
@@ -30,12 +29,6 @@ boton_reestablecer_contrasenia?.addEventListener("click", (e)=>{
   const url = window.location.origin; //obtiene la URL actual
   const url2 = url + `/api/sessions/reestablecer` //agrega el string al final
   window.location.href = url2
-})
-
-
-const botonCambiarTipoUsuario = document.getElementById("btn_cambiar_usuario")
-botonCambiarTipoUsuario?.addEventListener("click",()=>{
-  console.log("click para cambiar tipo usuario")
 })
 
 

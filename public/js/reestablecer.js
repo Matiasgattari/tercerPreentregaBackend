@@ -1,10 +1,6 @@
-// console.log("hola desde reestablecer");
-
-
 const btnReestablecerSubmit = document.getElementById("btn_reestablecer_submit")
 btnReestablecerSubmit?.addEventListener("click",async (e)=>{
     e.preventDefault()
-    console.log("Soy un boton de submit en reestablecer")
 
     // @ts-ignore
     const emailReestablecer = document.getElementById("input_reestablecer_email")?.value
@@ -16,10 +12,8 @@ btnReestablecerSubmit?.addEventListener("click",async (e)=>{
     const passwordReestablecer = document.getElementById("input_reestablecer_password")?.value
     // @ts-ignore
     const passwordConfirmReestablecer = document.getElementById("input_reestablecer_password_confirm")?.value
-    console.log(emailReestablecer,nameReestablecer,lastNameReestablecer,passwordReestablecer,passwordConfirmReestablecer);
 
 if(passwordReestablecer!==passwordConfirmReestablecer) {
-    console.log("las contraseñas no coinciden")
     // @ts-ignore
     Swal.fire({
         title: "Las contraseñas no coinciden"   

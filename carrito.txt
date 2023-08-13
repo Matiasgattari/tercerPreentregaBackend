@@ -2,43 +2,8 @@
   {
     "_id": "64d2905ef65ba8aed073629a",
     "id": "b750a895-99fc-4ea0-9403-80c9cfcd40c8",
-    "quantity": 4,
-    "products": [
-      {
-        "productID": {
-          "_id": "64b6f1a283fff8f5e6744a0a",
-          "title": "squirtle",
-          "description": "pokemon agua",
-          "price": 15000,
-          "thumbnail": "squirtle.jpg",
-          "stock": 15,
-          "code": "122-363-898",
-          "category": "inicial",
-          "status": true,
-          "id": "c766cb48-d4f8-4896-855b-2b0a922f2f42",
-          "owner": "lea.mg90@gmail.com"
-        },
-        "quantity": 1,
-        "_id": "64d2af7b41689b2333c2bb77"
-      },
-      {
-        "productID": {
-          "_id": "64d2af4d41689b2333c2bb49",
-          "title": "lapras",
-          "description": "pokemon montura",
-          "price": 100000,
-          "thumbnail": "lapras.jpg",
-          "stock": 10,
-          "code": "111-536-999",
-          "category": "utilidad",
-          "status": true,
-          "id": "01e021d0-5b37-4d8b-92e5-cdcd9cfc3713",
-          "owner": "lea.mg90@gmail.com"
-        },
-        "quantity": 1,
-        "_id": "64d2afa541689b2333c2bbb1"
-      }
-    ]
+    "quantity": 0,
+    "products": []
   },
   {
     "_id": "64d2aab5583f133dca5a92d4",
@@ -55,6 +20,41 @@
   {
     "_id": "64d2ae817b274995fd9b3bd2",
     "id": "536bbc8e-a444-46d9-8fe4-67fdd9c3fe84",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64d4269a467a1e7b8f58cba1",
+    "id": "f84932ee-a780-4615-9601-173bfdbc9e9f",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64d426ba467a1e7b8f58cba4",
+    "id": "541dec24-69d7-43e2-bb9e-963d577fe603",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64d931eae05292a965ce5711",
+    "id": "798b3209-8976-4601-b15a-c4318af845f5",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64d933943defae4e11834663",
+    "id": "25c1b803-d257-4b25-8d35-00410fb40e9b",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "_id": "64d933a33defae4e1183466b",
+    "id": "19ef72dc-c7e1-4a59-a386-cc3e78e68628",
+    "quantity": 0,
+    "products": []
+  },
+  {
+    "id": "dbba765a-89aa-4b87-ac3f-2c833d81aa3f",
     "quantity": 0,
     "products": []
   }

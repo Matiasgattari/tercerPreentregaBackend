@@ -1,5 +1,3 @@
-console.log('desde js register');
-
 function validarMail(str) {
   // Comprobar si el string tiene . y @ usando el método includes
   return str.includes(".") && str.includes("@");
@@ -55,8 +53,6 @@ if(!validarMail(input_email.value)){alert('El email debe tener formato usuario@s
         datosUsuario.rol="Admin"
     }
       
-// console.log(datosUsuario);
-
 const response = await fetch('/api/users', {
     method: 'POST',
     headers: {
@@ -72,7 +68,6 @@ const response = await fetch('/api/users', {
   
   const usuarioCreado = await response.json();
 
-      // console.log(usuarioCreado)
 if (response.ok) {
 
   const url = window.location.origin; //obtiene la URL actual
@@ -84,48 +79,3 @@ if (response.ok) {
 
   })
 }
-
-
-
-
-// const formRegister = document.querySelector('#formRegister')
-
-// if (formRegister instanceof HTMLFormElement) {
-//   formRegister.addEventListener('submit', async event => {
-//     event.preventDefault()
-
-//     const input_first_name = document.querySelector('#input_first_name')
-//     const input_last_name = document.querySelector('#input_last_name')
-//     const input_email = document.querySelector('#input_email')
-//     const input_age = document.querySelector('#input_age')
-//     const input_password = document.querySelector('#input_password')
-
-//     if (
-//       input_first_name instanceof HTMLInputElement &&
-//       input_last_name instanceof HTMLInputElement &&
-//       input_email instanceof HTMLInputElement &&
-//       input_age instanceof HTMLInputElement &&
-//       input_password instanceof HTMLInputElement
-//     ) {
-
-//       const datosUsuario = {
-//         first_name: input_first_name.value,
-//         last_name: input_last_name.value,
-//         email: input_email.value,
-//         age: input_age.value,
-//         password: input_password.value,
-//       }
-
-//       const usuarioCreado = await fetch('/api/users', {
-//         method: 'POST',
-//         headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(datosUsuario)
-//       }).then(res => res.json())
-
-//       console.log(usuarioCreado)
-//     }
-//   })
-// }

@@ -1,29 +1,28 @@
-// console.log("hola, desde productos admin");
+
 
 const cargarBTNAdmin = document.getElementById('botonCargarAdmin')
-// console.log("cargarBTN", cargarBTN);
+
 
 const eliminarBTNAdmin = document.getElementById('botonEliminarAdmin')
-// console.log("eliminarBTN", eliminarBTN);
+
 const eliminarIDAdmin = document.getElementById('eliminarIDAdmin')
 
 const tituloAdmin = document.getElementById('tituloAdmin')
-// console.log("titulo", titulo);
+
 const descripcionAdmin = document.getElementById('descripcionAdmin')
-// console.log("descripcion", descripcion);
+
 const precioAdmin = document.getElementById('precioAdmin')
-// console.log("precio", precio);
+
 const urlIMGAdmin = document.getElementById('urlIMGAdmin')
-// console.log("urlIMG", urlIMG);
+
 const stockAdmin = document.getElementById('stockAdmin')
-// console.log("stock", stock);
+
 const codigoAdmin = document.getElementById('codigoAdmin')
-// console.log("codigo", codigo);
+
 const categoriaAdmin = document.getElementById('categoriaAdmin')
 const statusTrueAdmin = document.getElementById('statusAdmin')
 const usuario = document.getElementById('usuario_email_input')
 
-// console.log("categoria", categoria);
 
 
 //doy funcionalidad al boton de eliminar producto 
@@ -31,8 +30,7 @@ eliminarBTNAdmin?.addEventListener("click",async (e)=>{
     e.preventDefault()
    // @ts-ignore
     const idEliminar = eliminarIDAdmin?.value
-    // console.log(idEliminar);
-    
+ 
     const response = await fetch('/api/products/admin/' + idEliminar, {
         method: 'DELETE',
         headers: {
@@ -76,10 +74,8 @@ cargarBTNAdmin?.addEventListener("click",async (e)=>{
 
     // @ts-ignore
     const valorUsuario = usuario?.value
-console.log(valorUsuario);
-    const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus,"owner":valorUsuario}
-    console.log(productoAgregar);
 
+    const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus,"owner":valorUsuario}
 
     const response = await fetch('/api/products', {
         method: 'POST',

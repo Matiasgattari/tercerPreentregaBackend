@@ -1,8 +1,3 @@
-console.log('desde js login');
-
-// function busquedaUsuario(usuario){
-//     console.log("console log del usuario en loginjs",usuario)
-//     }
 
 const formLogin = document.querySelector('#formLogin')
 
@@ -21,8 +16,6 @@ if (formLogin instanceof HTMLFormElement) {
     ){ 
         const loginUsuario = {email: input_email_login.value,password:input_password_login.value}
  
-        // console.log(loginUsuario);
-
 
 const response = await fetch('/api/users/login', {
     method: 'POST',
@@ -40,7 +33,6 @@ const response = await fetch('/api/users/login', {
   
   const usuarioLogeado = await response.json();
 
-      // console.log(usuarioLogeado)
       if(response.ok) {
         const url = window.location.origin; //obtiene la URL actual
         const url2 = url + "/api/sessions/current" //agrega el string al final

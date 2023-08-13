@@ -1,5 +1,3 @@
-console.log("hola desde product selected");
-
 
 const formularioAgregar = document.getElementById("formularioAgregadoProductoSIndividual")
 formularioAgregar?.addEventListener("submit",e=>e.preventDefault())
@@ -19,9 +17,7 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
       const response = await fetch(urlOrigin2, {
         method: "POST",
       });
-      const data = await response.json(); // convertir la respuesta a JSON
-      // hacer algo con los datos recibidos
-      // console.log(data);
+      const data = await response.json(); 
       // redireccionar la página después de que se complete la petición
       const url1 = window.location.origin; //obtiene la URL actual
       const url2 = url1 + `/api/carts/${IDCarrito}` //agrega el string al final
@@ -33,10 +29,6 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
       console.error(error);
     }
 
-    // const url = window.location.origin; //obtiene la URL actual
-    // const url2 = url1 + `/api/carts/${IDCarrito}` //agrega el string al final
-    // window.location.href = url2
-
 })
 
 
@@ -44,7 +36,7 @@ botonAgregarCadaProducto?.addEventListener("click",async ()=>{
 
 const botonVolverAProductos = document.getElementById("volverAProductos")
 botonVolverAProductos?.addEventListener("click",()=>{
-    console.log("volviendo a productos");
+   
     // @ts-ignore
     const rol = document.getElementById("rol").value
     if(rol==="Admin"){

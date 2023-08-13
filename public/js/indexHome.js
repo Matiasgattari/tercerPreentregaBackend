@@ -1,30 +1,29 @@
-// console.log("hola, desde la carpeta public");
 
 // @ts-ignore
 const serverSocket = io()
-// import util from 'node:util'
+
 const cargarBTN = document.getElementById('botonCargar')
-// console.log("cargarBTN", cargarBTN);
+
 
 const eliminarBTN = document.getElementById('botonEliminar')
-// console.log("eliminarBTN", eliminarBTN);
+
 const eliminarID = document.getElementById('eliminarID')
 
 const titulo = document.getElementById('titulo')
-// console.log("titulo", titulo);
+
 const descripcion = document.getElementById('descripcion')
-// console.log("descripcion", descripcion);
+
 const precio = document.getElementById('precio')
-// console.log("precio", precio);
+
 const urlIMG = document.getElementById('urlIMG')
-// console.log("urlIMG", urlIMG);
+
 const stock = document.getElementById('stock')
-// console.log("stock", stock);
+
 const codigo = document.getElementById('codigo')
-// console.log("codigo", codigo);
+
 const categoria = document.getElementById('categoria')
 const statusTrue = document.getElementById('status')
-// console.log("categoria", categoria);
+
 
 
 //doy funcionalidad al boton de eliminar producto "ELIMINAR"
@@ -59,7 +58,7 @@ cargarBTN?.addEventListener("click", (e)=>{
     const valorStatus= statusTrue?.value || true
 
     const productoAgregar = {"title":valorTitulo,"description":valorDescripcion,"price":valorPrecio,"thumbnail":valorUrlIMG,"stock":valorStock,"code":valorCodigo,"category":valorCategoria,"status":valorStatus}
-// console.log(productoAgregar);
+
 serverSocket.emit('nuevoProducto', productoAgregar)
 
 location.reload()

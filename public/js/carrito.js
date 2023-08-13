@@ -1,12 +1,10 @@
-console.log("hola desde el carrito");
-
 const botonComprar = document.getElementById("botonComprarCarrito")
 botonComprar?.addEventListener("click", ()=>{
     // @ts-ignore
     const valorInputCarritoID = document.getElementById("inputCarritoID")?.value
 
-    const url = window.location.origin; //obtiene la URL actual
-    const url2 = url + `/api/carts/${valorInputCarritoID}/purchase/` //agrega el string al final
+    const url = window.location.origin; //obtengo la URL actual
+    const url2 = url + `/api/carts/${valorInputCarritoID}/purchase/` //agrego el string al final
     window.location.href = url2
    
 })
@@ -20,8 +18,7 @@ botonEliminarProducto?.addEventListener("click", ()=>{
     
     // @ts-ignore
     const valorInputProductoID = document.getElementById("inputProductoEliminar")?.value
-    // console.log(valorInput);
-
+   
     const url = window.location.origin; //obtiene la URL actual
     const url2 = url + `/api/carts/${valorInputCarritoID}/productoEliminar/${valorInputProductoID}/` //agrega el string al final
     window.location.href = url2
@@ -32,7 +29,6 @@ botonEliminarProducto?.addEventListener("click", ()=>{
 
 const botonVaciarCarrito = document.getElementById("botonVaciarCarrito")
 botonVaciarCarrito?.addEventListener("click", ()=>{
-    // console.log("soy un boton de vaciar carrito");
     // @ts-ignore
     const valorInputCarritoID = document.getElementById("inputCarritoID")?.value
 
@@ -56,7 +52,6 @@ comprarCarrito?.addEventListener("click",()=>{
 
 const volverAProductosCarrito = document.getElementById("volverAProductosCarrito")
 volverAProductosCarrito?.addEventListener("click",()=>{
-    console.log("volviendo a productos");
     // @ts-ignore
     const rol = document.getElementById("inputRol").value
     if(rol==="Admin"){

@@ -9,7 +9,6 @@ class ProductosRepository {
     const productoCreadoService =await productosService.crearProducto(producto)
     winstonLogger.debug("Producto Creado Service: " + productoCreadoService)
     const creado = await productManager.addProduct(productoCreadoService)
-    // console.log("creado",creado);
     return creado
    
   }

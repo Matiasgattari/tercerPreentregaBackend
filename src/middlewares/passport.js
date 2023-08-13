@@ -24,11 +24,8 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
     try {
         let buscado
         try {
-            // buscado = await usuarioModel.findOne({ email: req.body.email }).lean()
-            // buscado = await usuariosService.buscarUsuarioPorEmail(req.body.email)
             buscado = await usuariosRepository.buscarUsuarioPorUsername(req.body.email)
             buscado.last_connection=new Date().toLocaleString()
-            // console.log(buscado);
             
         } catch (error) {
             return done(new Error('error de autenticacion'))
@@ -57,16 +54,9 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
 
 }, async (accessToken, refreshToken, profile, done) => {
     try {
-        // console.log(profile['_json'].login);
         const email = profile.emails[0].value
-        // console.log(email);
-
-        // const usuarioBuscado = await usuariosService.buscarUsuarioPorEmail(email)
         const usuarioBuscado = await usuariosRepository.buscarUsuarioPorUsername(email)
-        // console.log("USUARIO BUSCADO POR SERVICIO", usuarioBuscado);
-        
         if (usuarioBuscado) {
-            // console.log("USUARIO ENCONTRADO");
             done(null, usuarioBuscado);
         } else {
             
@@ -82,7 +72,6 @@ passport.use('local', new LocalStrategy({ usernameField: 'email', passReqToCallb
 
             
             await usuariosRepository.crearUsuario(user)
-            // console.log("USUARIO CREADO CON EXITO", user);
             winstonLogger.debug("USUARIO CREADO CON EXITO: " + user)
             done(null, user);
         }

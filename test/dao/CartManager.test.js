@@ -133,8 +133,6 @@ describe('DAO cartManager', () => {
      
      
            const pojos = await cartManager.eliminarProducto(cid,pid)
-     
-          //  console.log("carrito con producto pojos: ",pojos);
            assert.ok(pojos, 'deberìa existir el carrito carrito')
      
          })

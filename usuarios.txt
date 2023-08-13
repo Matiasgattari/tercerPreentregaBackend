@@ -34,5 +34,77 @@
       }
     ],
     "last_connection": "9/8/2023, 18:52:26"
+  },
+  {
+    "_id": "64d931ebe05292a965ce5713",
+    "email": "satoshi@tajiri.com",
+    "password": "$2b$10$6Z9MgJmqqhfGCo1zdhEWaO9KH/3LKYd2gsSJglEN8fy45syClIotW",
+    "first_name": "satoshi",
+    "last_name": "tajiri",
+    "age": 57,
+    "rol": "User",
+    "cart": "64d931eae05292a965ce5711",
+    "documents": [
+      {
+        "name": "",
+        "reference": "",
+        "_id": "64d931ebe05292a965ce5714"
+      }
+    ],
+    "last_connection": "13/8/2023, 16:41:31"
+  },
+  {
+    "_id": "64d933943defae4e11834665",
+    "email": "premium@premium.com",
+    "password": "$2b$10$xbRMfEG3KbQAEojjoY7AK.4YFuu9nQuWqyDonASP06ziYn26CT6EW",
+    "first_name": "premium",
+    "last_name": "premium",
+    "age": 22,
+    "rol": "Premium",
+    "cart": "64d933943defae4e11834663",
+    "documents": [
+      {
+        "name": "",
+        "reference": "",
+        "_id": "64d933943defae4e11834666"
+      }
+    ],
+    "last_connection": "13/8/2023, 16:48:36"
+  },
+  {
+    "_id": "64d933a33defae4e1183466d",
+    "email": "user@user.com",
+    "password": "$2b$10$IYAMySTOXIurQrBZcQ2KRea7UchdJqMUzWLujeYaXKkHrvvu0iiMa",
+    "first_name": "user",
+    "last_name": "user",
+    "age": 22,
+    "rol": "User",
+    "cart": "64d933a33defae4e1183466b",
+    "documents": [
+      {
+        "name": "",
+        "reference": "",
+        "_id": "64d933a33defae4e1183466e"
+      }
+    ],
+    "last_connection": "13/8/2023, 16:48:51"
+  },
+  {
+    "_id": "64d9343b1f3f7a2d2de2da5a",
+    "email": "emailpruebagattari@gmail.com",
+    "password": "$2b$10$6mGORHW7b/QgjnCRKnbNjOnPAFWpKiWPVj/WsamP2dDq8QOYW5sIy",
+    "first_name": "premiumPruebas",
+    "last_name": "asd",
+    "age": 22,
+    "rol": "Premium",
+    "cart": "64d9343b1f3f7a2d2de2da58",
+    "documents": [
+      {
+        "name": "",
+        "reference": "",
+        "_id": "64d9343b1f3f7a2d2de2da5b"
+      }
+    ],
+    "last_connection": "13/8/2023, 16:51:23"
   }
 ]

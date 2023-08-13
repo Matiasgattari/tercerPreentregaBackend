@@ -7,9 +7,6 @@ formularioTickets?.addEventListener("submit",e=>{
 
 const botonEliminarTodosTickets = document.getElementById("botonEliminarTodosTickets")
 botonEliminarTodosTickets?.addEventListener("click",async()=>{
-   
-    // const idTicket = inputIDTicket
-    
 
     const response = await fetch('/api/tickets/', {
         method: 'DELETE',
@@ -29,36 +26,6 @@ botonEliminarTodosTickets?.addEventListener("click",async()=>{
       location.reload()
     }
 
-
-
-
-
-
-
-
-
-
-
-    // const response = await fetch('/api/tickets', {
-    //     method: 'DELETE',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     // body: JSON.stringify(idTicket)
-    //   });
-      
-    //   if (!response.ok) {
-    //     throw new Error('NOT-FOUND');
-    //   }
-      
-    //   const ticketsVacios = await response.json();
-              
-    // if (response.ok) {
-      // const url = window.location.origin; //obtiene la URL actual
-      // const url2 = url + `/api/tickets/` //agrega el string al final
-      // window.location.href = url2
-    // }
         
 })
 
@@ -67,9 +34,6 @@ botonEliminarTicket?.addEventListener("click",async(e)=>{
     e.preventDefault()
  // @ts-ignore
  const inputIDTicket = document.getElementById("inputIDTicket").value
-
-//  console.log(inputIDTicket);
-
 
 
  const response = await fetch('/api/tickets/' + inputIDTicket, {

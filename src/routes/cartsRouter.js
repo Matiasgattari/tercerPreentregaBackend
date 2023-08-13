@@ -46,7 +46,6 @@ cartsRouter.get('/:cid',soloLogueados, async (req, res) => {
         const IDCarrito = req.params.cid
         // @ts-ignore
         const rol = req.user.rol
-        // console.log(rol);
         // @ts-ignore
         const carritosLeidos = await carritosRepository.buscarCarritos()
        
@@ -99,11 +98,8 @@ cartsRouter.post('/:cid/product/:pid',soloLogueados, async (req, res) => {
     try {
         const cid = req.params.cid
         const pid = req.params.pid
-        // console.log(cid);
-        // console.log(pid);
         const agregarCarrito = await carritosRepository.agregarProductoAlCarrito(cid,pid)
         res.json(agregarCarrito)
-        // res.json({ok:"ok"})
     } catch (error) {
         throw new Error('id no encontrado')
     }
@@ -126,19 +122,13 @@ cartsRouter.get('/:cid/productoEliminar/:pid',soloLogueados,async(req,res)=>{
 
 try {
     const pid = req.params.pid
-    // console.log(pid);
     const cid = req.params.cid
-    // console.log(cid);
     const carritoBuscado = await carritosRepository.buscarCarritoPorId(cid)
-    // console.log(carritoBuscado?.products);  
    const productoEliminado = await carritosRepository.eliminarProducto(cid,pid)
     res.redirect(`/api/carts/${cid}`)
-    // res.send(productoEliminado)
 } catch (error) {
     const pid = req.params.pid
-    // console.log(pid);
     const cid = req.params.cid
-    // console.log(cid);
     throw new Error(`El producto  ${pid} no se pudo eliminar del carrito ${cid} `)
 }
 })

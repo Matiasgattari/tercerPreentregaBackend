@@ -11,6 +11,7 @@ import { AdminPremium, soloAdmin, soloLogueados } from '../middlewares/soloLogue
 
 import nodemailer from "nodemailer";
 import { winstonLogger } from '../utils/winstonLogger.js';
+import { usuariosRepository } from '../repository/usuariosRepository.js';
 
 
 
@@ -37,8 +38,6 @@ try {
 
     const arrayProductos = []
     result.docs.forEach((res)=>{arrayProductos.push(util.inspect(res, false, 10))})
-    // console.log(result)
-   
     //filtrado por titulo
     const productosFiltradosXTitulo = []
     const filtrandoXTitulo =  result.docs.forEach((res)=>{if(res.title==req.query.query)
@@ -96,14 +95,15 @@ productsRouter.get('/admin',AdminPremium, async (req, res) => {
     })})
 
 
-
-
-
 productsRouter.delete('/admin/:pid',soloLogueados,soloAdmin,async(req,res,next)=>{
 try {
     
     const pid = req.params.pid
     const productoParaEliminar = await productosRepository.buscarProductoPorId(pid)
+
+    // @ts-ignore
+    const owner = await usuariosRepository.buscarUsuarioPorUsername(productoParaEliminar.owner)
+    if(owner.rol==="Premium"){
 
     // Configuración de Gmail
     let transporter = nodemailer.createTransport({
@@ -134,6 +134,7 @@ try {
             winstonLogger.debug("Correo enviado: " + info.response)
         }
     });
+    }
 
     const productoEliminar =  await productosRepository.eliminarProducto(pid)
 
@@ -234,14 +235,12 @@ productsRouter.delete('/:pid',soloLogueados,soloAdmin,async( req,res)=>{
     } )
 
 
-    productsRouter.put('/productSelected/:pid',soloLogueados,soloAdmin, async (req, res) => {
+productsRouter.put('/productSelected/:pid',soloLogueados,soloAdmin, async (req, res) => {
         const pid = req.params.pid
         //probando recibir producto nuevo para agregar por socket.io
         io.on('connection', async clientSocket => {
                     clientSocket.on('agregarProducto',  valorInputAgregarCarrito => {
                     carritosRepository.agregarProductoAlCarrito(valorInputAgregarCarrito,pid)
-                    // console.log(valorInputAgregarCarrito)
-                    // console.log(pid)
                 })
     
     
